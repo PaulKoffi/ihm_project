@@ -1,11 +1,11 @@
 package main;
 
-import controller.Controller;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import controller.Controller;
 import view.View;
 
 public class Main extends Application {
@@ -30,12 +30,14 @@ public class Main extends Application {
         //initialize the controller
         controller.init();
 
-        //create the View
+        //create the view
         primaryStage.setScene(new Scene(root, View.WIDTH, View.HEIGHT));
         primaryStage.setTitle(View.LABEL);
 
-        //show the View
+        //show the view
         primaryStage.show();
+
+
     }
 
 

@@ -23,14 +23,14 @@
                 <AnchorPane prefHeight="50.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
             </bottom>
          <center>
-            <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="tableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
               <columns>
-                <TableColumn prefWidth="75.0" text="Nom" />
-                <TableColumn prefWidth="75.0" text="Durée" />
-                  <TableColumn prefWidth="75.0" text="Frequence" />
-                  <TableColumn prefWidth="75.0" text="Budget min" />
-                  <TableColumn prefWidth="75.0" text="Budget max" />
-                  <TableColumn prefWidth="75.0" text="Importance" />
+                <TableColumn fx:id="name" prefWidth="75.0" text="Nom" />
+                <TableColumn fx:id="duration" prefWidth="75.0" text="Durée" />
+                  <TableColumn fx:id="frequency" prefWidth="75.0" text="Frequence" />
+                  <TableColumn fx:id="minimumBudget" prefWidth="75.0" text="Budget min" />
+                  <TableColumn fx:id="maximumBudget" prefWidth="75.0" text="Budget max" />
+                  <TableColumn fx:id="importance" prefWidth="75.0" text="Importance" />
               </columns>
             </TableView>
          </center></BorderPane>

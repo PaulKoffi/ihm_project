@@ -4,15 +4,17 @@ public class Activity {
     private String name;
     private Duration duration;
     private Frequency frequency;
-    private int minimumBudget;
-    private int maximumBudget;
+    private Integer minimumBudget;
+    private Integer maximumBudget;
+    private Importance importance;
 
-    public Activity(String name, Duration duration, Frequency frequency, int minimumBudget, int maximumBudget) {
+    public Activity(String name, Duration duration, Frequency frequency, int minimumBudget, int maximumBudget, Importance importance) {
         this.name = name;
         this.duration = duration;
         this.frequency = frequency;
         this.minimumBudget = minimumBudget;
         this.maximumBudget = maximumBudget;
+        this.importance = importance;
     }
 
     public String getName() {
@@ -39,19 +41,27 @@ public class Activity {
         this.frequency = frequency;
     }
 
-    public int getMinimumBudget() {
+    public Integer getMinimumBudget() {
         return minimumBudget;
     }
 
-    public void setMinimumBudget(int minimumBudget) {
+    public void setMinimumBudget(Integer minimumBudget) {
         this.minimumBudget = minimumBudget;
     }
 
-    public int getMaximumBudget() {
+    public Integer getMaximumBudget() {
         return maximumBudget;
     }
 
-    public void setMaximumBudget(int maximumBudget) {
+    public void setMaximumBudget(Integer maximumBudget) {
         this.maximumBudget = maximumBudget;
+    }
+
+    public Importance getImportance() {
+        return importance;
+    }
+
+    public void setImportance(Importance importance) {
+        this.importance = importance;
     }
 }

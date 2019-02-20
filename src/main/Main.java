@@ -1,11 +1,16 @@
 package main;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import controller.Controller;
+import model.Activity;
+import model.Duration;
+import model.Frequency;
 import view.View;
 
 public class Main extends Application {
@@ -44,4 +49,5 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
 }

@@ -1,10 +1,15 @@
 package controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
-import model.Model;
+import model.*;
 
 public class Controller {
     /*@FXML
@@ -21,6 +26,20 @@ public class Controller {
     private TextField val2;
     @FXML
     private Text result;*/
+    @FXML
+    private TableView tableView;
+    @FXML
+    private TableColumn<Activity, String> name;
+    @FXML
+    private TableColumn<Activity, Duration> duration;
+    @FXML
+    private TableColumn<Activity, Frequency> frequency;
+    @FXML
+    private TableColumn<Activity, Integer> minimumBudget;
+    @FXML
+    private TableColumn<Activity, Integer> maximumBudget;
+    @FXML
+    private TableColumn<Activity, Importance> importance;
 
     /*
     public void valid(char operator){
@@ -39,5 +58,25 @@ public class Controller {
         minusButton.setOnAction( event -> valid('-'));    //add a listner to validButton
         timesButton.setOnAction( event -> valid('x'));    //add a listner to validButton
         divideButton.setOnAction( event -> valid('/'));    //add a listner to validButton*/
+        name.setCellValueFactory(new PropertyValueFactory<Activity, String>("name"));
+        duration.setCellValueFactory(new PropertyValueFactory<Activity, Duration>("duration"));
+        frequency.setCellValueFactory(new PropertyValueFactory<Activity, Frequency>("frequency"));
+        minimumBudget.setCellValueFactory(new PropertyValueFactory<Activity, Integer>("minimumBudget"));
+        maximumBudget.setCellValueFactory(new PropertyValueFactory<Activity, Integer>("maximumBudget"));
+        importance.setCellValueFactory(new PropertyValueFactory<Activity, Importance>("importance"));
+
+        tableView.setItems(getActivities());
+    }
+
+    public ObservableList<Activity> getActivities(){
+        ObservableList<Activity> activities = FXCollections.observableArrayList();
+
+        activities.add(new Activity("Raclette", Duration.oneMounth, Frequency.oneByWeek, 6, 15, Importance.Low));
+
+        activities.add(new Activity("5 Legumes", Duration.infiny, Frequency.oneByDay, 3, 8, Importance.High));
+
+        activities.add(new Activity("5 Fruits", Duration.infiny, Frequency.oneByDay, 5, 10, Importance.High));
+
+        return activities;
     }
 }

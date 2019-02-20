@@ -3,15 +3,22 @@ package controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import model.*;
+import view.View;
 
-public class Controller {
+import java.io.IOException;
+
+public class Activity_List_Controller {
     /*@FXML
     private Button addButton;
     @FXML
@@ -72,7 +79,7 @@ public class Controller {
         activities = FXCollections.observableArrayList();
         tableView.setItems(getActivities());
 
-        BTaddActivity.setOnAction(event -> this.activities.add(new Activity("Vide", null, null, 0, 0, null)));
+        BTaddActivity.setOnAction(event -> pushButtonAddActivity());
     }
 
     public ObservableList<Activity> getActivities(){
@@ -85,5 +92,22 @@ public class Controller {
         activities.add(new Activity("5 Fruits", Duration.infiny, Frequency.oneByDay, 5, 10, Importance.High));
 
         return activities;
+    }
+
+    public void pushButtonAddActivity(){
+        FXMLLoader loader = new FXMLLoader();
+        New_Activity_Controller controller = new New_Activity_Controller();
+        loader.setController(controller);
+        Parent root = null;
+        try {
+            root = loader.load(getClass().getResourceAsStream("../resources/New_Activity.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        controller.init();
+        Stage scene = new Stage();
+        scene.setScene(new Scene(root, View.WIDTH, View.HEIGHT));
+        scene.setTitle(View.LABEL);
+        scene.show();
     }
 }

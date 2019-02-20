@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="-Infinity" prefWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="-Infinity" prefWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <BorderPane prefHeight="400.0" prefWidth="600.0">
          <center>
@@ -56,7 +56,7 @@
                   <Label text="* Champs obligatoires" />
                   <AnchorPane prefHeight="306.0" prefWidth="600.0">
                      <children>
-                        <Button fx:id="BcreateActivity" layoutX="218.0" layoutY="37.0" mnemonicParsing="false" text="Créer l'activité" />
+                        <Button fx:id="BTcreateActivity" layoutX="218.0" layoutY="37.0" mnemonicParsing="false" text="Créer l'activité" />
                      </children>
                   </AnchorPane>
                </children>

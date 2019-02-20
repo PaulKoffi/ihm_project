@@ -1,16 +1,12 @@
 package main;
 
+import controller.New_Activity_Controller;
 import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import controller.Controller;
-import model.Activity;
-import model.Duration;
-import model.Frequency;
+import controller.Activity_List_Controller;
 import view.View;
 
 public class Main extends Application {
@@ -19,14 +15,8 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         //create a loader
         FXMLLoader loader = new FXMLLoader();
-
-        //create a controller
-        Controller controller = new Controller();
-
-        //attach controller
+        Activity_List_Controller controller = new Activity_List_Controller();
         loader.setController(controller);
-
-        //attach XML file
         Parent root = loader.load(getClass().getResourceAsStream(View.XML_FILE));
 
         //attach css file
@@ -41,7 +31,6 @@ public class Main extends Application {
 
         //show the view
         primaryStage.show();
-
 
     }
 

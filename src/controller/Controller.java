@@ -40,6 +40,10 @@ public class Controller {
     private TableColumn<Activity, Integer> maximumBudget;
     @FXML
     private TableColumn<Activity, Importance> importance;
+    @FXML
+    private Button BTaddActivity;
+
+    private ObservableList<Activity> activities;
 
     /*
     public void valid(char operator){
@@ -65,11 +69,14 @@ public class Controller {
         maximumBudget.setCellValueFactory(new PropertyValueFactory<Activity, Integer>("maximumBudget"));
         importance.setCellValueFactory(new PropertyValueFactory<Activity, Importance>("importance"));
 
+        activities = FXCollections.observableArrayList();
         tableView.setItems(getActivities());
+
+        BTaddActivity.setOnAction(event -> this.activities.add(new Activity("Vide", null, null, 0, 0, null)));
     }
 
     public ObservableList<Activity> getActivities(){
-        ObservableList<Activity> activities = FXCollections.observableArrayList();
+        ObservableList<Activity> activities = this.activities;
 
         activities.add(new Activity("Raclette", Duration.oneMounth, Frequency.oneByWeek, 6, 15, Importance.Low));
 

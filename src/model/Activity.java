@@ -1,6 +1,9 @@
 package model;
 
 public class Activity {
+    /**
+     * Attributes
+     */
     private String name;
     private Duration duration;
     private Frequency frequency;
@@ -8,6 +11,15 @@ public class Activity {
     private Integer maximumBudget;
     private Importance importance;
 
+    /**
+     * Constructor
+     * @param name
+     * @param duration
+     * @param frequency
+     * @param minimumBudget
+     * @param maximumBudget
+     * @param importance
+     */
     public Activity(String name, Duration duration, Frequency frequency, int minimumBudget, int maximumBudget, Importance importance) {
         this.name = name;
         this.duration = duration;
@@ -17,48 +29,51 @@ public class Activity {
         this.importance = importance;
     }
 
+    /* Getters */
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public Duration getDuration() {
         return duration;
     }
 
-    public void setDuration(Duration duration) {
-        this.duration = duration;
-    }
-
     public Frequency getFrequency() {
         return frequency;
-    }
-
-    public void setFrequency(Frequency frequency) {
-        this.frequency = frequency;
     }
 
     public Integer getMinimumBudget() {
         return minimumBudget;
     }
 
-    public void setMinimumBudget(Integer minimumBudget) {
-        this.minimumBudget = minimumBudget;
-    }
-
     public Integer getMaximumBudget() {
         return maximumBudget;
     }
 
-    public void setMaximumBudget(Integer maximumBudget) {
-        this.maximumBudget = maximumBudget;
-    }
-
     public Importance getImportance() {
         return importance;
+    }
+
+    /* Setters */
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDuration(Duration duration) {
+        this.duration = duration;
+    }
+
+    public void setFrequency(Frequency frequency) {
+        this.frequency = frequency;
+    }
+
+    public void setMinimumBudget(Integer minimumBudget) {
+        this.minimumBudget = minimumBudget;
+    }
+
+    public void setMaximumBudget(Integer maximumBudget) {
+        this.maximumBudget = maximumBudget;
     }
 
     public void setImportance(Importance importance) {

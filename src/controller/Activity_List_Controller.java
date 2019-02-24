@@ -19,20 +19,6 @@ import view.View;
 import java.io.IOException;
 
 public class Activity_List_Controller {
-    /*@FXML
-    private Button addButton;
-    @FXML
-    private Button minusButton;
-    @FXML
-    private Button timesButton;
-    @FXML
-    private Button divideButton;
-    @FXML
-    private TextField val1;
-    @FXML
-    private TextField val2;
-    @FXML
-    private Text result;*/
     @FXML
     private TableView tableView;
     @FXML
@@ -51,17 +37,6 @@ public class Activity_List_Controller {
     private Button BTaddActivity;
 
     private ObservableList<Activity> activities;
-
-    /*
-    public void valid(char operator){
-        int value1 = Integer.parseInt(val1.getText());
-        int value2 = Integer.parseInt(val2.getText());
-        Model calculator = new Model(value1,value2);
-        result.setText( String.valueOf( calculator.compute(operator) ));
-    }*/
-
-
-
 
     public void init() {
         /*//add istner to validButton
@@ -100,11 +75,11 @@ public class Activity_List_Controller {
         loader.setController(controller);
         Parent root = null;
         try {
-            root = loader.load(getClass().getResourceAsStream("../resources/New_Activity.fxml"));
+            root = loader.load(getClass().getResourceAsStream("../resources/fxml/New_Activity.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        controller.init();
+        controller.init(this.activities);
         Stage scene = new Stage();
         scene.setScene(new Scene(root, View.WIDTH, View.HEIGHT));
         scene.setTitle(View.LABEL);

@@ -5,10 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import model.Activity;
 import model.Duration;
@@ -36,6 +33,7 @@ public class New_Activity_Controller {
     private RadioButton RBmediumimport;
     @FXML
     private RadioButton RBhighimport;
+    private ToggleGroup radioButtonToggleGroup;
     @FXML
     private Button BTcreateActivity;
 
@@ -44,48 +42,33 @@ public class New_Activity_Controller {
     public void init(ObservableList<Activity> activities, Stage scene) {
         //Setting the stage
         this.window = scene;
+
         //Add items in combobox
         CBduration.getItems().addAll(Duration.values());
         CBfrequency.getItems().addAll(Frequency.values());
+
         //Set default combobox values
         CBduration.setValue(Duration.oneDay);
         CBfrequency.setValue(Frequency.oneByDay);
+
         //Set default budget values
         TFminbudget.setText("0");
         TFmaxbudget.setText("0");
-        //Set default Radio button
+
+        //Radio button
+        radioButtonToggleGroup = new ToggleGroup();
+        RBlowimport.setToggleGroup(radioButtonToggleGroup);
+        RBmediumimport.setToggleGroup(radioButtonToggleGroup);
+        RBhighimport.setToggleGroup(radioButtonToggleGroup);
         RBlowimport.setSelected(true);
-        //add listener to other radio buttons
-        RBlowimport.setOnAction(event -> setLow());
-        RBmediumimport.setOnAction(event -> setMedium());
-        RBhighimport.setOnAction(event -> setHigh());
+
         //add listener to button
         BTcreateActivity.setOnAction(event -> createNewActivity(activities));
         //BTcreateActivity.setOnAction(event -> showMessage("Veuillez remplir tous les champs Obligatoires !"));
     }
 
-    private void setHigh() {
-        if (RBlowimport.isSelected()) RBlowimport.setSelected(false);
-        if (RBmediumimport.isSelected()) RBmediumimport.setSelected(false);
-        if (!RBhighimport.isSelected()) RBhighimport.setSelected(true);
-    }
-
-    private void setLow() {
-        if (RBhighimport.isSelected()) RBhighimport.setSelected(false);
-        if (RBmediumimport.isSelected()) RBmediumimport.setSelected(false);
-        if (!RBlowimport.isSelected()) RBlowimport.setSelected(true);
-    }
-
-    private void setMedium() {
-        if (RBhighimport.isSelected()) RBhighimport.setSelected(false);
-        if (RBlowimport.isSelected()) RBlowimport.setSelected(false);
-        if (!RBmediumimport.isSelected()) RBmediumimport.setSelected(true);
-    }
-
     private Importance getImportance(){
-        if(RBlowimport.isSelected()) return Importance.Low;
-        else if (RBmediumimport.isSelected()) return Importance.Medium;
-        else return Importance.High;
+        return Importance.getImportance( ((RadioButton) radioButtonToggleGroup.getSelectedToggle()).getText() );
     }
 
     private void createNewActivity(ObservableList<Activity> activities) {

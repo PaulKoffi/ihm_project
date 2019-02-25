@@ -64,7 +64,6 @@ public class New_Activity_Controller {
 
         //add listener to button
         BTcreateActivity.setOnAction(event -> createNewActivity(activities));
-        //BTcreateActivity.setOnAction(event -> showMessage("Veuillez remplir tous les champs Obligatoires !"));
     }
 
     private void createNewActivity(ObservableList<Activity> activities) {
@@ -82,6 +81,11 @@ public class New_Activity_Controller {
             return;
         }
 
+        if (newActivity.getMinimumBudget() > newActivity.getMaximumBudget()){
+            showMessage("Minimum budget doit etre inférieur a maximum  maximum budget !");
+            return;
+        }
+
         //Checking if activity already exist
         if (activities.contains(newActivity)){
             showMessage("Il existe déjà une activité portant ce nom, veuillez modifier votre saisie !");
@@ -89,10 +93,6 @@ public class New_Activity_Controller {
         }
 
         activities.add(newActivity);
-        closeWindow();
-    }
-
-    private void closeWindow() {
         this.window.close();
     }
 

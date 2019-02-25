@@ -2,7 +2,11 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<<<<<<< HEAD
 <?import javafx.scene.control.Label?>
+=======
+<?import javafx.scene.image.ImageView?>
+>>>>>>> 9fc2833a971048913bb60db265fae0ae7fbd1960
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -13,6 +17,7 @@
    <children>
       <VBox alignment="CENTER" prefHeight="150.0" prefWidth="300.0">
          <children>
+<<<<<<< HEAD
             <Label alignment="CENTER" contentDisplay="CENTER" text="Warning !!!" textAlignment="CENTER" textFill="#e10000">
                <font>
                   <Font name="Arial Rounded MT Bold" size="40.0" />
@@ -21,6 +26,9 @@
                   <Insets />
                </VBox.margin>
             </Label>
+=======
+            <ImageView fx:id="imageView" fitHeight="95.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+>>>>>>> 9fc2833a971048913bb60db265fae0ae7fbd1960
             <Text fx:id="Tmessage" strokeType="OUTSIDE" strokeWidth="0.0" text="Message">
                <font>
                   <Font size="14.0" />

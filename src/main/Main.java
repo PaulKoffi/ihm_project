@@ -20,7 +20,7 @@ public class Main extends Application {
         Parent root = loader.load(getClass().getResourceAsStream(View.LIST_ACTIVITY_XML_FILE));
 
         //attach css file
-        //root.getStylesheets().add(View.CSS);
+        root.getStylesheets().add(View.CSS);
 
         //initialize the controller
         controller.init();

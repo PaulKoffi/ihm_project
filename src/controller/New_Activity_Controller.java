@@ -67,41 +67,29 @@ public class New_Activity_Controller {
         //BTcreateActivity.setOnAction(event -> showMessage("Veuillez remplir tous les champs Obligatoires !"));
     }
 
-    private Importance getImportance(){
-        return Importance.getImportance( ((RadioButton) radioButtonToggleGroup.getSelectedToggle()).getText() );
-    }
-
     private void createNewActivity(ObservableList<Activity> activities) {
-        //getting all values
-        String name = String.valueOf(TFname.getText());
-        Duration duration = (Duration) CBduration.getValue();
-        Frequency frequency = (Frequency) CBfrequency.getValue();
-        int minimumBudget = Integer.valueOf(TFminbudget.getText());
-        int maximumBudget = Integer.valueOf(TFmaxbudget.getText());
-        Importance importance = getImportance();
+        Activity newActivity = new Activity(
+                TFname.getText(),
+                (Duration) CBduration.getValue(),
+                (Frequency) CBfrequency.getValue(),
+                Integer.valueOf(TFminbudget.getText()),
+                Integer.valueOf(TFmaxbudget.getText()),
+                Importance.getImportance( ((RadioButton) radioButtonToggleGroup.getSelectedToggle()).getText() ));
 
-        //boolean to verify if activity is valid
-        boolean activityIsValid = true;
         //Checking required fields
-        if (name.equals("")) {
+        if (newActivity.getName().equals("")) {
             showMessage("Veuillez remplir tous les champs Obligatoires !");
-            activityIsValid = false;
+            return;
         }
-        else {
-            //Checking if activity already exist
-            for (Activity activity:activities) {
-                if (activity.getName().trim().toLowerCase().equals(name.trim().toLowerCase())) {
-                    showMessage("Il existe déjà une activité de ce nom, veuillez modifier votre saisie !");
-                    activityIsValid = false;
-                    break;
-                }
-            }
-            //add to list of activities
-            if (activityIsValid){
-                activities.add(new Activity(name, duration, frequency, minimumBudget, maximumBudget, importance));
-                closeWindow();
-            }
+
+        //Checking if activity already exist
+        if (activities.contains(newActivity)){
+            showMessage("Il existe déjà une activité portant ce nom, veuillez modifier votre saisie !");
+            return;
         }
+
+        activities.add(newActivity);
+        closeWindow();
     }
 
     private void closeWindow() {

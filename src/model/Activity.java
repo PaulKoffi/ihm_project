@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 public class Activity {
     /**
      * Attributes
@@ -78,5 +80,18 @@ public class Activity {
 
     public void setImportance(Importance importance) {
         this.importance = importance;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Activity activity = (Activity) o;
+        return Objects.equals(name.trim().toUpperCase(), activity.name.trim().toUpperCase());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name.trim().toUpperCase());
     }
 }

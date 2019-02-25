@@ -2,14 +2,21 @@ package controller;
 
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import model.Activity;
 import model.Duration;
 import model.Frequency;
 import model.Importance;
+import view.View;
+
+import java.io.IOException;
 
 public class New_Activity_Controller {
 
@@ -32,7 +39,11 @@ public class New_Activity_Controller {
     @FXML
     private Button BTcreateActivity;
 
-    public void init(ObservableList<Activity> activities) {
+    private Stage window;
+
+    public void init(ObservableList<Activity> activities, Stage scene) {
+        //Setting the stage
+        this.window = scene;
         //Add items in combobox
         CBduration.getItems().addAll(Duration.values());
         CBfrequency.getItems().addAll(Frequency.values());
@@ -50,6 +61,7 @@ public class New_Activity_Controller {
         RBhighimport.setOnAction(event -> setHigh());
         //add listener to button
         BTcreateActivity.setOnAction(event -> createNewActivity(activities));
+        //BTcreateActivity.setOnAction(event -> showMessage("Veuillez remplir tous les champs Obligatoires !"));
     }
 
     private void setHigh() {
@@ -102,14 +114,15 @@ public class New_Activity_Controller {
                 }
             }
             //add to list of activities
-            if (activityIsValid)
+            if (activityIsValid){
                 activities.add(new Activity(name, duration, frequency, minimumBudget, maximumBudget, importance));
-            //Close window
-            closeWindow();
+                closeWindow();
+            }
         }
     }
 
     private void closeWindow() {
+        this.window.close();
     }
 
     /**
@@ -117,6 +130,23 @@ public class New_Activity_Controller {
      * @param message
      */
     private void showMessage(String message) {
-        System.out.println(message);
+        //System.out.println(message);
+        FXMLLoader loader = new FXMLLoader();
+        Show_Message_Controller controller = new Show_Message_Controller();
+        loader.setController(controller);
+        Parent root = null;
+        try {
+            root = loader.load(getClass().getResourceAsStream(View.SHOW_MESSAGE_XML_FILE));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Stage scene = new Stage();
+        scene.setScene(new Scene(root, 300, 150));
+        scene.setTitle(View.LABEL_ERROR);
+        scene.show();
+
+        controller.showMessage(message, scene);
+
     }
 }

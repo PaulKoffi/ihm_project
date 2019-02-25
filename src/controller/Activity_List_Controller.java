@@ -39,11 +39,6 @@ public class Activity_List_Controller {
     private ObservableList<Activity> activities;
 
     public void init() {
-        /*//add istner to validButton
-        addButton.setOnAction( event -> valid('+'));
-        minusButton.setOnAction( event -> valid('-'));    //add a listner to validButton
-        timesButton.setOnAction( event -> valid('x'));    //add a listner to validButton
-        divideButton.setOnAction( event -> valid('/'));    //add a listner to validButton*/
         name.setCellValueFactory(new PropertyValueFactory<Activity, String>("name"));
         duration.setCellValueFactory(new PropertyValueFactory<Activity, Duration>("duration"));
         frequency.setCellValueFactory(new PropertyValueFactory<Activity, Frequency>("frequency"));
@@ -75,14 +70,16 @@ public class Activity_List_Controller {
         loader.setController(controller);
         Parent root = null;
         try {
-            root = loader.load(getClass().getResourceAsStream("../resources/fxml/New_Activity.fxml"));
+            root = loader.load(getClass().getResourceAsStream(View.NEW_ACTIVITY_XML_FILE));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        controller.init(this.activities);
+
         Stage scene = new Stage();
         scene.setScene(new Scene(root, View.WIDTH, View.HEIGHT));
-        scene.setTitle(View.LABEL);
+        scene.setTitle(View.LABEL_ADD_ACTIVITY);
         scene.show();
+
+        controller.init(this.activities, scene);
     }
 }

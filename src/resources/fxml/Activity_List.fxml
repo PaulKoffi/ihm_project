@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <BorderPane prefHeight="400.0" prefWidth="600.0">
             <center>
@@ -28,12 +28,12 @@
              <VBox>
                 <TableView fx:id="tableView" prefHeight="266.0" prefWidth="499.0" BorderPane.alignment="CENTER">
                   <columns>
-                    <TableColumn fx:id="name" prefWidth="75.0" text="Nom" />
-                    <TableColumn fx:id="duration" prefWidth="75.0" text="Durée" />
-                      <TableColumn fx:id="frequency" prefWidth="75.0" text="Frequence" />
-                      <TableColumn fx:id="minimumBudget" prefWidth="75.0" text="Budget min" />
-                      <TableColumn fx:id="maximumBudget" prefWidth="75.0" text="Budget max" />
-                      <TableColumn fx:id="importance" prefWidth="75.0" text="Importance" />
+                    <TableColumn fx:id="name" prefWidth="84.66665267944336" text="Nom" />
+                    <TableColumn fx:id="duration" prefWidth="66.66665649414062" text="Durée" />
+                      <TableColumn fx:id="frequency" prefWidth="78.00007629394531" text="Frequence" />
+                      <TableColumn fx:id="minimumBudget" prefWidth="90.6666259765625" text="Budget min" />
+                      <TableColumn fx:id="maximumBudget" prefWidth="90.00006103515625" text="Budget max" />
+                      <TableColumn fx:id="importance" prefWidth="86.66665649414062" text="Importance" />
                   </columns>
                 </TableView>
                <Button fx:id="BTaddActivity" mnemonicParsing="false" prefHeight="37.0" prefWidth="500.0" text="Ajouter une activité" />

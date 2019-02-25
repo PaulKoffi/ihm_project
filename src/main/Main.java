@@ -17,7 +17,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader();
         Activity_List_Controller controller = new Activity_List_Controller();
         loader.setController(controller);
-        Parent root = loader.load(getClass().getResourceAsStream(View.XML_FILE));
+        Parent root = loader.load(getClass().getResourceAsStream(View.LIST_ACTIVITY_XML_FILE));
 
         //attach css file
         //root.getStylesheets().add(View.CSS);
@@ -27,7 +27,7 @@ public class Main extends Application {
 
         //create the view
         primaryStage.setScene(new Scene(root, View.WIDTH, View.HEIGHT));
-        primaryStage.setTitle(View.LABEL);
+        primaryStage.setTitle(View.LABEL_LIST_ACTIVITY);
 
         //show the view
         primaryStage.show();

@@ -17,9 +17,6 @@
                <font>
                   <Font name="Arial Rounded MT Bold" size="40.0" />
                </font>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
             </Label>
             <Text fx:id="Tmessage" strokeType="OUTSIDE" strokeWidth="0.0" text="Message">
                <font>

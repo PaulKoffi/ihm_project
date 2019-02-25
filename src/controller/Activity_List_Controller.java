@@ -71,15 +71,15 @@ public class Activity_List_Controller {
         Parent root = null;
         try {
             root = loader.load(getClass().getResourceAsStream(View.NEW_ACTIVITY_XML_FILE));
+
+            Stage scene = new Stage();
+            scene.setScene(new Scene(root, View.WIDTH, View.HEIGHT));
+            scene.setTitle(View.LABEL_ADD_ACTIVITY);
+            scene.show();
+
+            controller.init(this.activities, scene);
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        Stage scene = new Stage();
-        scene.setScene(new Scene(root, View.WIDTH, View.HEIGHT));
-        scene.setTitle(View.LABEL_ADD_ACTIVITY);
-        scene.show();
-
-        controller.init(this.activities, scene);
     }
 }

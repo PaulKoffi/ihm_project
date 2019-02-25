@@ -108,16 +108,15 @@ public class New_Activity_Controller {
         Parent root = null;
         try {
             root = loader.load(getClass().getResourceAsStream(View.SHOW_MESSAGE_XML_FILE));
+
+            Stage scene = new Stage();
+            scene.setScene(new Scene(root, 300, 150));
+            scene.setTitle(View.LABEL_ERROR);
+            scene.show();
+
+            controller.showMessage(message, scene);
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        Stage scene = new Stage();
-        scene.setScene(new Scene(root, 300, 150));
-        scene.setTitle(View.LABEL_ERROR);
-        scene.show();
-
-        controller.showMessage(message, scene);
-
     }
 }

@@ -15,4 +15,6 @@ public class View {
     //width and height
     public static final int WIDTH = 600;
     public static final int HEIGHT = 400;
+
+    public static final String CSS = "resources/css/rootcss.css";
 }

@@ -1,5 +1,4 @@
 package controller;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -9,9 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.*;
 import view.View;
@@ -38,6 +35,8 @@ public class Activity_List_Controller {
 
     private ObservableList<Activity> activities;
 
+    final String JSON_FILE = "src/resources/json/activities.json";
+
     public void init() {
         name.setCellValueFactory(new PropertyValueFactory<Activity, String>("name"));
         duration.setCellValueFactory(new PropertyValueFactory<Activity, Duration>("duration"));
@@ -53,15 +52,15 @@ public class Activity_List_Controller {
     }
 
     public ObservableList<Activity> getActivities(){
-        ObservableList<Activity> activities = this.activities;
+        ObservableList<Activity> activitie =  ParsingActivities.createActivitiesList(JSON_FILE);
 
-        activities.add(new Activity("Raclette", Duration.oneMounth, Frequency.oneByWeek, 6, 15, Importance.Low));
+//        activities.add(new Activity("Raclette", Duration.oneMounth, Frequency.oneByWeek, 6, 15, Importance.Low));
+//
+//        activities.add(new Activity("5 Legumes", Duration.infiny, Frequency.oneByDay, 3, 8, Importance.High));
+//
+//        activities.add(new Activity("5 Fruits", Duration.infiny, Frequency.oneByDay, 5, 10, Importance.High));
 
-        activities.add(new Activity("5 Legumes", Duration.infiny, Frequency.oneByDay, 3, 8, Importance.High));
-
-        activities.add(new Activity("5 Fruits", Duration.infiny, Frequency.oneByDay, 5, 10, Importance.High));
-
-        return activities;
+        return activitie;
     }
 
     public void pushButtonAddActivity(){

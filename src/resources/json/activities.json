@@ -1,0 +1,13 @@
+{
+  "activities":[
+    {
+      "name" : "Raclette",
+      "duration" : "oneMounth",
+      "frequency" : "oneByWeek",
+      "minimumBudget" : 6,
+      "maximumBudget" : 15,
+      "importance" : "Low"
+    }
+    ]
+}
+

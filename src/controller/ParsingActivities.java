@@ -16,23 +16,13 @@ import java.io.IOException;
 
 public class ParsingActivities {
 
-    private static ObservableList<Activity> activities = FXCollections.observableArrayList();
 
+    public static ObservableList<Activity> getActivityListFromJSON(String jsonFile) {
+        ObservableList<Activity> activities = FXCollections.observableArrayList();
 
-    public static ObservableList<Activity> createActivitiesList(String jsonFile) {
-        createFromJson(jsonFile);
-        return activities;
-    }
-
-
-
-    //---------------------------------------------
-
-
-    private static void createFromJson(String filePath) {
         try {
             // read the json file
-            FileReader reader = new FileReader(filePath);
+            FileReader reader = new FileReader(jsonFile);
             JSONParser jsonParser = new JSONParser();
             //System.out.println("okki");
             JSONObject jsonObject = (JSONObject) jsonParser.parse(reader);
@@ -57,6 +47,7 @@ public class ParsingActivities {
         } catch (IOException | ParseException | NullPointerException ex) {
             ex.printStackTrace();
         }
-    }
 
+        return activities;
+    }
 }

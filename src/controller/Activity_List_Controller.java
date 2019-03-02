@@ -45,22 +45,12 @@ public class Activity_List_Controller {
         maximumBudget.setCellValueFactory(new PropertyValueFactory<Activity, Integer>("maximumBudget"));
         importance.setCellValueFactory(new PropertyValueFactory<Activity, Importance>("importance"));
 
-        activities = FXCollections.observableArrayList();
-        tableView.setItems(getActivities());
+        if (activities == null){
+            activities = ParsingActivities.getActivityListFromJSON(JSON_FILE);
+        }
+        tableView.setItems(activities);
 
         BTaddActivity.setOnAction(event -> pushButtonAddActivity());
-    }
-
-    public ObservableList<Activity> getActivities(){
-        ObservableList<Activity> activitie =  ParsingActivities.createActivitiesList(JSON_FILE);
-
-//        activities.add(new Activity("Raclette", Duration.oneMounth, Frequency.oneByWeek, 6, 15, Importance.Low));
-//
-//        activities.add(new Activity("5 Legumes", Duration.infiny, Frequency.oneByDay, 3, 8, Importance.High));
-//
-//        activities.add(new Activity("5 Fruits", Duration.infiny, Frequency.oneByDay, 5, 10, Importance.High));
-
-        return activitie;
     }
 
     public void pushButtonAddActivity(){

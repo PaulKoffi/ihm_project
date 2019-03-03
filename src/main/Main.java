@@ -1,6 +1,7 @@
 package main;
 
 import controller.Activity_List_Tab_Controller;
+import controller.Home_Controller;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,22 +15,34 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         //create a loader
         FXMLLoader loader = new FXMLLoader();
-        Activity_List_Tab_Controller controller = new Activity_List_Tab_Controller();
-        loader.setController(controller);
-        Parent root = loader.load(getClass().getResourceAsStream(View.ACTIVITY_LIST_TAB_XML_FILE_PATH));
 
-        //attach css file
+        Home_Controller controller = new Home_Controller();
+        loader.setController(controller);
+
+        Parent root = loader.load(getClass().getResourceAsStream(View.HOME_XML_FILE_PATH));
+
         root.getStylesheets().add(View.CSS);
 
-        //initialize the controller
         controller.init();
 
-        //create the view
-        primaryStage.setScene(new Scene(root, View.WIDTH, View.HEIGHT));
+        primaryStage.setScene(new Scene(root, View.HOMEWIDTH, View.HOMEHEIGHT));
+        primaryStage.setTitle("MyBudget");
 
-        //show the view
+        /*FXMLLoader loader = new FXMLLoader();
+
+        Activity_List_Tab_Controller controller = new Activity_List_Tab_Controller();
+        loader.setController(controller);
+
+        Parent root = loader.load(getClass().getResourceAsStream(View.ACTIVITY_LIST_TAB_XML_FILE_PATH));
+
+        root.getStylesheets().add(View.CSS);
+
+        controller.init();
+
+        primaryStage.setScene(new Scene(root, View.TABWIDTH, View.TABHEIGHT));
+        primaryStage.setTitle("MyBudget");*/
+
         primaryStage.show();
-
     }
 
 

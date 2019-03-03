@@ -15,7 +15,7 @@ public class Activity_List_Tab_Controller {
     @FXML
     private GridPane gridPane;
 
-    private double widthHeight = 125.0;
+    private double elementWidthHeight = 125.0;
 
     private ObservableList<Activity> activities;
 
@@ -61,13 +61,8 @@ public class Activity_List_Tab_Controller {
                         root = new Parent(){};
                     }
 
-
-
-
-                    subScenes[x] = new SubScene(root, this.widthHeight, this.widthHeight);
-
+                    subScenes[x] = new SubScene(root, this.elementWidthHeight, this.elementWidthHeight);
                 }
-
                 this.gridPane.addRow(y, subScenes);
             }
         }

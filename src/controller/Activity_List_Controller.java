@@ -61,7 +61,7 @@ public class Activity_List_Controller {
             root = loader.load(getClass().getResourceAsStream(View.NEW_ACTIVITY_XML_FILE_PATH));
 
             Stage scene = new Stage();
-            scene.setScene(new Scene(root, View.WIDTH, View.HEIGHT));
+            scene.setScene(new Scene(root, View.TABWIDTH, View.TABHEIGHT));
             scene.show();
 
             controller.init(this.activities, scene);

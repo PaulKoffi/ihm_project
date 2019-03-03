@@ -1,5 +1,6 @@
 package main;
 
+import controller.Activity_List_Tab_Controller;
 import controller.New_Activity_Controller;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +16,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         //create a loader
         FXMLLoader loader = new FXMLLoader();
-        Activity_List_Controller controller = new Activity_List_Controller();
+        Activity_List_Tab_Controller controller = new Activity_List_Tab_Controller();
         loader.setController(controller);
         Parent root = loader.load(getClass().getResourceAsStream(View.LIST_ACTIVITY_XML_FILE));
 

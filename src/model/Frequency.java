@@ -1,7 +1,7 @@
 package model;
 
 public enum Frequency {
-    oneByDay("Un par jour"), oneByWeek("Un par semaine"), oneByMonth("Un par mois");
+    oneByDay("Un par jour"), oneByWeek("Un par semaine"), oneByMonth("Un par mois"), oneByYear("Un par an");
 
     private final String string;
 

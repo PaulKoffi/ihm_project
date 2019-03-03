@@ -2,9 +2,10 @@ package view;
 
 public class View {
     //paths
-    public static final String LIST_ACTIVITY_XML_FILE = "../resources/fxml/Activity_List.fxml";
+    public static final String LIST_ACTIVITY_XML_FILE = "../resources/fxml/Activity_List_Tab.fxml";
     public static final String NEW_ACTIVITY_XML_FILE = "../resources/fxml/New_Activity.fxml";
     public static final String SHOW_MESSAGE_XML_FILE = "../resources/fxml/Show_Msg.fxml";
+    public static final String ACTIVITY_ELEMENT_XML_FILE = "../resources/fxml/Activity_Element.fxml";
     public static final String SHOW_MESSAGE_ERROR_IMG_FILE = "resources/img/warning.png";
 
     //window names
@@ -17,4 +18,5 @@ public class View {
     public static final int HEIGHT = 400;
 
     public static final String CSS = "resources/css/rootcss.css";
+    public static final String ACTIVITY_ELEMENT_CSS = "resources/css/Activity_Element.css";
 }

@@ -17,7 +17,7 @@ public class Show_Message_Controller {
     private Button buttonOk;
 
     public void showMessage(String message, Stage window){
-        imageView.setImage(new Image(View.SHOW_MESSAGE_ERROR_IMG_FILE));
+        imageView.setImage(new Image(View.SHOW_MESSAGE_ERROR_IMG_FILE_PATH));
         Tmessage.setText(message);
         buttonOk.setOnAction(event -> window.close());
     }

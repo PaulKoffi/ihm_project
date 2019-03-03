@@ -107,7 +107,7 @@ public class New_Activity_Controller {
         loader.setController(controller);
         Parent root = null;
         try {
-            root = loader.load(getClass().getResourceAsStream(View.SHOW_MESSAGE_XML_FILE));
+            root = loader.load(getClass().getResourceAsStream(View.SHOW_MESSAGE_XML_FILE_PATH));
 
             Stage scene = new Stage();
             scene.setScene(new Scene(root, 300, 150));

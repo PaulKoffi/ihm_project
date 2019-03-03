@@ -54,7 +54,7 @@ public class Activity_List_Tab_Controller {
                         Activity_Element_Controller controller = new Activity_Element_Controller();
                         loader.setController(controller);
 
-                        root = loader.load(getClass().getResourceAsStream(View.ACTIVITY_ELEMENT_XML_FILE));
+                        root = loader.load(getClass().getResourceAsStream(View.ACTIVITY_ELEMENT_XML_FILE_PATH));
 
                         controller.init(activity[x][y]);
                     } else {

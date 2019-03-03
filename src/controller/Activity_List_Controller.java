@@ -1,5 +1,4 @@
 package controller;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -59,11 +58,10 @@ public class Activity_List_Controller {
         loader.setController(controller);
         Parent root = null;
         try {
-            root = loader.load(getClass().getResourceAsStream(View.NEW_ACTIVITY_XML_FILE));
+            root = loader.load(getClass().getResourceAsStream(View.NEW_ACTIVITY_XML_FILE_PATH));
 
             Stage scene = new Stage();
             scene.setScene(new Scene(root, View.WIDTH, View.HEIGHT));
-            scene.setTitle(View.LABEL_ADD_ACTIVITY);
             scene.show();
 
             controller.init(this.activities, scene);

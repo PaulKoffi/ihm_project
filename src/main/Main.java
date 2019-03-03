@@ -1,13 +1,11 @@
 package main;
 
 import controller.Activity_List_Tab_Controller;
-import controller.New_Activity_Controller;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import controller.Activity_List_Controller;
 import view.View;
 
 public class Main extends Application {
@@ -18,7 +16,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader();
         Activity_List_Tab_Controller controller = new Activity_List_Tab_Controller();
         loader.setController(controller);
-        Parent root = loader.load(getClass().getResourceAsStream(View.LIST_ACTIVITY_XML_FILE));
+        Parent root = loader.load(getClass().getResourceAsStream(View.ACTIVITY_LIST_TAB_XML_FILE_PATH));
 
         //attach css file
         root.getStylesheets().add(View.CSS);
@@ -28,7 +26,6 @@ public class Main extends Application {
 
         //create the view
         primaryStage.setScene(new Scene(root, View.WIDTH, View.HEIGHT));
-        primaryStage.setTitle(View.LABEL_LIST_ACTIVITY);
 
         //show the view
         primaryStage.show();

@@ -15,51 +15,8 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
-  <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+<AnchorPane prefHeight="400.0" prefWidth="640.0">
       <children>
-            <HBox prefHeight="400.0" prefWidth="640.0">
-               <children>
-                  <TabPane prefHeight="403.0" prefWidth="640.0" tabClosingPolicy="UNAVAILABLE">
-                     <tabs>
-                        <Tab text="Accueil">
-                           <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="59.0" prefWidth="523.0" />
-                           </content>
-                        </Tab>
-                        <Tab text="Activités">
-                           <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                 <children>
-                                    <ScrollPane prefHeight="200.0" prefWidth="523.0">
-                                       <content>
-                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
-                                             <children>
-                                                <ListView prefHeight="200.0" prefWidth="509.0" />
-                                             </children>
-                                          </AnchorPane>
-                                       </content>
-                                    </ScrollPane>
-                                 </children>
-                              </AnchorPane>
-                           </content>
-                        </Tab>
-                        <Tab text="Revenus">
-                           <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="255.0" prefWidth="523.0" />
-                           </content>
-                        </Tab>
-                        <Tab text="Profil">
-                           <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                           </content>
-                        </Tab>
-                     </tabs>
-                  </TabPane>
-                  <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="235.0" text="Déconnexion" />
-               </children>
-            </HBox>
             <GridPane layoutX="90.0" layoutY="89.0" prefHeight="164.0" prefWidth="420.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="205.99998604497975" minWidth="10.0" prefWidth="128.46153389654225" />
@@ -88,6 +45,4 @@
                </children>
             </Pane>
       </children>
-    </AnchorPane>
-  </children>
-</VBox>
+</AnchorPane>

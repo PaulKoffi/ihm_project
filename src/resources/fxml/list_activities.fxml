@@ -1,56 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.SubScene?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="450.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
   <children>
-      <HBox prefHeight="400.0" prefWidth="640.0">
+      <VBox>
          <children>
-            <TabPane prefHeight="403.0" prefWidth="640.0" tabClosingPolicy="UNAVAILABLE">
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="640.0" text="Déconnexion" />
+            <TabPane prefHeight="425.0" prefWidth="640.0" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="25.0">
               <tabs>
                 <Tab text="Accueil">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="59.0" prefWidth="523.0" />
-                  </content>
+                     <content>
+                        <SubScene fx:id="SSaccueil" height="400.0" width="640.0">
+                          <root>
+                            <Region />
+                          </root>
+                        </SubScene>
+                     </content>
                 </Tab>
                 <Tab text="Activités">
                   <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <ScrollPane prefHeight="200.0" prefWidth="523.0">
-                                <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
-                                       <children>
-                                          <ListView prefHeight="200.0" prefWidth="509.0" />
-                                       </children>
-                                    </AnchorPane>
-                                </content>
-                              </ScrollPane>
-                           </children>
-                        </AnchorPane>
+                      <SubScene fx:id="SSactivity" height="400.0" width="640.0">
+                          <root>
+                              <Region />
+                          </root>
+                      </SubScene>
                   </content>
                 </Tab>
                   <Tab text="Revenus">
                      <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="255.0" prefWidth="523.0" />
+                         <SubScene fx:id="SSsalary" height="400.0" width="640.0">
+                             <root>
+                                 <Region />
+                             </root>
+                         </SubScene>
                      </content>
                   </Tab>
                   <Tab text="Profil">
                      <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                         <SubScene fx:id="SSprofil" height="400.0" width="640.0">
+                             <root>
+                                 <Region />
+                             </root>
+                         </SubScene>
                      </content>
                   </Tab>
               </tabs>
             </TabPane>
-            <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="235.0" text="Déconnexion" />
          </children>
-      </HBox>
+      </VBox>
   </children>
-</VBox>
+</AnchorPane>

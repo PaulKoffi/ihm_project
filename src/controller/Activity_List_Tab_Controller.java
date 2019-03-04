@@ -4,13 +4,18 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.SubScene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 import model.Activity;
 import model.Activity_Caracteristic;
 import view.View;
+
+
 
 import java.io.IOException;
 import java.util.Comparator;
@@ -23,6 +28,11 @@ public class Activity_List_Tab_Controller {
 
     @FXML
     private GridPane gridPane;
+
+    @FXML
+    private Button BTaddActivity;
+
+
 
     private double elementWidthHeight = 125.0;
 
@@ -114,9 +124,32 @@ public class Activity_List_Tab_Controller {
                 }
                 this.gridPane.addRow(y, subScenes);
             }
+             BTaddActivity.setOnAction(event -> pushButtonAddActivity());
         }
         catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+    public void pushButtonAddActivity() {
+        FXMLLoader loader = new FXMLLoader();
+        New_Activity_Controller controller = new New_Activity_Controller();
+        loader.setController(controller);
+        Parent root = null;
+        try {
+            root = loader.load(getClass().getResourceAsStream("../resources/fxml/New_Activity.fxml"));
+            Stage scene = new Stage();
+            scene.setScene(new Scene(root, 600, 450));
+
+
+            controller.init(this.activities,scene);
+            scene.setTitle("MyBudget - Activity");
+            scene.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
 }

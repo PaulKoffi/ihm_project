@@ -63,7 +63,7 @@ public class Activity_List_Controller {
             Stage scene = new Stage();
             scene.setScene(new Scene(root, View.TABWIDTH, View.TABHEIGHT));
             scene.show();
-
+            scene.setResizable(false);
             controller.init(this.activities, scene);
         } catch (IOException e) {
             e.printStackTrace();

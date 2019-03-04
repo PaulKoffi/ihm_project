@@ -13,6 +13,8 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import model.Activity;
 import model.Activity_Caracteristic;
+import sun.rmi.runtime.Log;
+import sun.security.ssl.Debug;
 import view.View;
 
 
@@ -44,12 +46,10 @@ public class Activity_List_Tab_Controller {
         CBsort.getItems().addAll(Activity_Caracteristic.values());
         CBsort.getSelectionModel().select(Activity_Caracteristic.importance);
 
+
         BTaddActivity.setOnAction(event -> pushButtonAddActivity());
 
-        CBsort.setOnAction(event -> {
-            this.activities.remove(0,1);
-            this.gridPaneInit();
-        });
+        CBsort.setOnAction(event -> this.gridPaneInit());
 
         this.gridPaneInit();
     }
@@ -62,7 +62,9 @@ public class Activity_List_Tab_Controller {
         this.activities.sort(new Comparator<Activity>() {
             @Override
             public int compare(Activity o1, Activity o2) {
-                if (CBsort.getSelectionModel().getSelectedItem() == Activity_Caracteristic.importance){
+                if (CBsort.getSelectionModel().getSelectedItem() == Activity_Caracteristic.name){
+                    return o1.getName().compareTo(o2.getName());
+                } else if (CBsort.getSelectionModel().getSelectedItem() == Activity_Caracteristic.importance){
                     return o1.getImportance().getLevel() - o2.getImportance().getLevel();
                 } else if (CBsort.getSelectionModel().getSelectedItem() == Activity_Caracteristic.averageBudget){
                     return (o1.getMinimumBudget() + o1.getMaximumBudget()) - (o2.getMinimumBudget() + o2.getMaximumBudget());
@@ -75,6 +77,8 @@ public class Activity_List_Tab_Controller {
                 }
             }
         });
+
+        System.out.println(activities.toString());
 
         int nbOfColumns = 4;
         int nbOfLines = (this.activities.size() + 1)/4 + 1;

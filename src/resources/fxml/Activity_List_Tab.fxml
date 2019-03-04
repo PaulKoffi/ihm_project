@@ -30,7 +30,7 @@
              <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
                   <AnchorPane prefHeight="50.0" prefWidth="100.0" />
-                  <ScrollPane prefHeight="250.0" prefWidth="100.0">
+                  <ScrollPane hbarPolicy="NEVER" prefHeight="250.0" prefWidth="100.0">
                     <content>
                         <GridPane fx:id="gridPane" prefWidth="531.0">
                             <columnConstraints>

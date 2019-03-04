@@ -5,13 +5,22 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.SubScene;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import model.Activity;
+import model.Activity_Caracteristic;
 import view.View;
 
 import java.io.IOException;
+import java.util.Comparator;
 
 public class Activity_List_Tab_Controller {
+    @FXML
+    private ComboBox CBsort;
+    @FXML
+    private TextField TFresearch;
+
     @FXML
     private GridPane gridPane;
 
@@ -22,10 +31,35 @@ public class Activity_List_Tab_Controller {
     final String JSON_FILE = "src/resources/json/activities.json";
 
     public void init() {
+        CBsort.getItems().addAll(Activity_Caracteristic.values());
+        CBsort.getSelectionModel().select(Activity_Caracteristic.importance);
 
+        CBsort.setOnAction(event -> this.gridPaneInit());
+
+        this.gridPaneInit();
+    }
+
+    private void gridPaneInit(){
         if (this.activities == null){
             this.activities = ParsingActivities.getActivityListFromJSON(JSON_FILE);
         }
+
+        this.activities.sort(new Comparator<Activity>() {
+            @Override
+            public int compare(Activity o1, Activity o2) {
+                if (CBsort.getSelectionModel().getSelectedItem() == Activity_Caracteristic.importance){
+                    return o1.getImportance().getLevel() - o2.getImportance().getLevel();
+                } else if (CBsort.getSelectionModel().getSelectedItem() == Activity_Caracteristic.averageBudget){
+                    return (o1.getMinimumBudget() + o1.getMaximumBudget()) - (o2.getMinimumBudget() + o2.getMaximumBudget());
+                } else if (CBsort.getSelectionModel().getSelectedItem() == Activity_Caracteristic.duration){
+                    return o1.getFrequency().getLevel() - o2.getFrequency().getLevel();
+                } else if (CBsort.getSelectionModel().getSelectedItem() == Activity_Caracteristic.frequency){
+                    return o1.getFrequency().getLevel() - o2.getFrequency().getLevel();
+                } else {
+                    return 0;
+                }
+            }
+        });
 
         int nbOfColumns = 4;
         int nbOfLines = (this.activities.size() + 1)/4 + 1;

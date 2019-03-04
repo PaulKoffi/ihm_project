@@ -1,7 +1,10 @@
 package model;
 
 public enum Importance{
-    Low, Medium, High;
+    Low(0), Medium(1), High(2);
+
+    private final int level;
+
     public static Importance getImportance(String str){
         switch (str){
             case "Faible":
@@ -13,5 +16,13 @@ public enum Importance{
             default:
                 return Importance.Low;
         }
+    }
+
+    Importance(int level){
+        this.level = level;
+    }
+
+    public int getLevel() {
+        return level;
     }
 }

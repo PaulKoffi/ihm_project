@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
@@ -29,7 +32,11 @@
          <center>
              <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <AnchorPane prefHeight="50.0" prefWidth="100.0" />
+                  <HBox prefHeight="50.0" prefWidth="100.0">
+                     <children>
+                        <ComboBox fx:id="CBsort" prefWidth="150.0" />
+                        <TextField fx:id="TFresearch" promptText="Rechercher" />
+                     </children></HBox>
                   <ScrollPane hbarPolicy="NEVER" prefHeight="250.0" prefWidth="100.0">
                     <content>
                         <GridPane fx:id="gridPane">

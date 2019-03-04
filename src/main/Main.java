@@ -43,6 +43,7 @@ public class Main extends Application {
         primaryStage.setTitle("MyBudget");*/
 
         primaryStage.show();
+        primaryStage.setResizable(false);
     }
 
 

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
     <children>
     <BorderPane prefHeight="400.0" prefWidth="600.0">
     <center>
@@ -32,7 +32,7 @@
                   <AnchorPane prefHeight="50.0" prefWidth="100.0" />
                   <ScrollPane prefHeight="250.0" prefWidth="100.0">
                     <content>
-                        <GridPane fx:id="gridPane">
+                        <GridPane fx:id="gridPane" prefWidth="531.0">
                             <columnConstraints>
                                 <ColumnConstraints hgrow="SOMETIMES" prefWidth="125.0" />
                                 <ColumnConstraints hgrow="SOMETIMES" prefWidth="125.0" />
@@ -43,7 +43,7 @@
                                   <RowConstraints minHeight="125.0" prefHeight="125.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                            <children>
-                              <Button fx:id="BTaddActivity" mnemonicParsing="false" text="+" prefWidth="125.0" prefHeight="125.0" />
+                              <Button fx:id="BTaddActivity" mnemonicParsing="false" prefHeight="125.0" prefWidth="125.0" text="+" />
                            </children>
                               </GridPane>
                     </content>

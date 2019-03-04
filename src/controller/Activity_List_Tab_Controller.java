@@ -4,16 +4,24 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.SubScene;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 import model.Activity;
 import view.View;
 
+import java.awt.*;
 import java.io.IOException;
 
 public class Activity_List_Tab_Controller {
     @FXML
     private GridPane gridPane;
+
+//    @FXML
+//    private Button BTaddActivity;
+
+
 
     private double elementWidthHeight = 125.0;
 
@@ -80,9 +88,30 @@ public class Activity_List_Tab_Controller {
                 }
                 this.gridPane.addRow(y, subScenes);
             }
+            // BTaddActivity.setOnAction(event -> pushButtonAddActivity());
         }
         catch (IOException e) {
             e.printStackTrace();
         }
+
+
+//        public void pushButtonAddActivity(){
+//            FXMLLoader loader = new FXMLLoader();
+//            New_Activity_Controller controller = new New_Activity_Controller();
+//            loader.setController(controller);
+//            Parent root .= null;
+//            try {
+//                root = loader.load(getClass().getResourceAsStream("../resources/New_Activity.fxml"));
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//            controller.init(this.activities);
+//            Stage scene = new Stage();
+//            scene.setScene(new Scene(root, View.WIDTH, View.HEIGHT));
+//            scene.setTitle(View.LABEL);
+//            scene.show();
+//        }
     }
+
+
 }

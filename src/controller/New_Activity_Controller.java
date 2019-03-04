@@ -42,6 +42,7 @@ public class New_Activity_Controller {
     public void init(ObservableList<Activity> activities, Stage scene) {
         //Setting the stage
         this.window = scene;
+        scene.setResizable(false);
 
         //Add items in combobox
         CBduration.getItems().addAll(Duration.values());

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -8,7 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
     <children>
     <BorderPane prefHeight="400.0" prefWidth="600.0">
     <center>
@@ -33,14 +34,17 @@
                     <content>
                         <GridPane fx:id="gridPane">
                             <columnConstraints>
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="125.0" prefWidth="125.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="125.0" prefWidth="125.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="125.0" prefWidth="125.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="125.0" prefWidth="125.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" prefWidth="125.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" prefWidth="125.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" prefWidth="125.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" prefWidth="125.0" />
                             </columnConstraints>
                             <rowConstraints>
                                   <RowConstraints minHeight="125.0" prefHeight="125.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
+                           <children>
+                              <Button fx:id="BTaddActivity" mnemonicParsing="false" text="+" prefWidth="125.0" prefHeight="125.0" />
+                           </children>
                               </GridPane>
                     </content>
                   </ScrollPane>

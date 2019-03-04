@@ -28,7 +28,7 @@ public class Activity_List_Tab_Controller {
         }
 
         int nbOfColumns = 4;
-        int nbOfLines = this.activities.size()/4 + 1;
+        int nbOfLines = (this.activities.size() + 1)/4 + 1;
 
         Activity activity[][] = new Activity[nbOfColumns][nbOfLines];
 
@@ -38,14 +38,24 @@ public class Activity_List_Tab_Controller {
             }
         }
         for (int i = 0; i < this.activities.size(); ++i){
-            activity[i%nbOfColumns][i/nbOfColumns] = this.activities.get(i);
+            activity[(i + 1)%nbOfColumns][(i + 1)/nbOfColumns] = this.activities.get(i);
         }
 
         try {
             for (int y = 0; y < nbOfLines; ++y){
-                SubScene subScenes[] = new SubScene[nbOfColumns];
+                SubScene subScenes[];
+
+                //If it's the first line -> button
+                if (y == 0) {
+                    subScenes = new SubScene[nbOfColumns - 1];
+                } else {//Or an other line
+                    subScenes = new SubScene[nbOfColumns];
+                }
 
                 for (int x = 0; x < nbOfColumns; ++x){
+                    if (x == 0 && y == 0)
+                        continue;
+
                     Parent root;
 
                     if(activity[x][y] != null){
@@ -61,7 +71,12 @@ public class Activity_List_Tab_Controller {
                         root = new Parent(){};
                     }
 
-                    subScenes[x] = new SubScene(root, this.elementWidthHeight, this.elementWidthHeight);
+                    //If it's the first line -> button
+                    if (y == 0) {
+                        subScenes[x - 1] = new SubScene(root, this.elementWidthHeight, this.elementWidthHeight);
+                    } else {//Or an other line
+                        subScenes[x] = new SubScene(root, this.elementWidthHeight, this.elementWidthHeight);
+                    }
                 }
                 this.gridPane.addRow(y, subScenes);
             }

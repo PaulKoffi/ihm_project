@@ -30,7 +30,7 @@
              <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
                   <AnchorPane prefHeight="50.0" prefWidth="100.0" />
-                  <ScrollPane prefHeight="250.0" prefWidth="100.0">
+                  <ScrollPane hbarPolicy="NEVER" prefHeight="250.0" prefWidth="100.0">
                     <content>
                         <GridPane fx:id="gridPane">
                             <columnConstraints>
@@ -43,7 +43,7 @@
                                   <RowConstraints minHeight="125.0" prefHeight="125.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                            <children>
-                              <Button fx:id="BTaddActivity" mnemonicParsing="false" text="+" prefWidth="125.0" prefHeight="125.0" />
+                              <Button fx:id="BTaddActivity" mnemonicParsing="false" prefHeight="125.0" prefWidth="125.0" text="+" />
                            </children>
                               </GridPane>
                     </content>

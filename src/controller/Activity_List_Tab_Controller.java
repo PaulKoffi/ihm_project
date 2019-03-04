@@ -44,7 +44,12 @@ public class Activity_List_Tab_Controller {
         CBsort.getItems().addAll(Activity_Caracteristic.values());
         CBsort.getSelectionModel().select(Activity_Caracteristic.importance);
 
-        CBsort.setOnAction(event -> this.gridPaneInit());
+        BTaddActivity.setOnAction(event -> pushButtonAddActivity());
+
+        CBsort.setOnAction(event -> {
+            this.activities.remove(0,1);
+            this.gridPaneInit();
+        });
 
         this.gridPaneInit();
     }
@@ -124,7 +129,6 @@ public class Activity_List_Tab_Controller {
                 }
                 this.gridPane.addRow(y, subScenes);
             }
-             BTaddActivity.setOnAction(event -> pushButtonAddActivity());
         }
         catch (IOException e) {
             e.printStackTrace();

@@ -7,8 +7,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.SubScene;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import model.Activity;
@@ -18,7 +21,7 @@ import sun.security.ssl.Debug;
 import view.View;
 
 
-
+import java.io.File;
 import java.io.IOException;
 import java.util.Comparator;
 
@@ -46,8 +49,18 @@ public class Activity_List_Tab_Controller {
         CBsort.getItems().addAll(Activity_Caracteristic.values());
         CBsort.getSelectionModel().select(Activity_Caracteristic.importance);
 
+        ImageView icon = new ImageView(new Image(getClass().getResourceAsStream("../resources/img/images.png")));
+        icon.setPreserveRatio(false);
+        icon.setFitWidth(110);
+        icon.setFitHeight(110);
+        BTaddActivity.setGraphic(icon);
+        BTaddActivity.setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
 
-        BTaddActivity.setOnAction(event -> pushButtonAddActivity());
+
+        BTaddActivity.setOnAction(event -> {
+            pushButtonAddActivity();
+            this.gridPaneInit();
+        });
 
         CBsort.setOnAction(event -> this.gridPaneInit());
 

@@ -64,6 +64,7 @@ public class New_Activity_Controller {
         RBlowimport.setSelected(true);
 
         //add listener to button
+        BTcreateActivity.getStylesheets().add(getClass().getResource("../resources/css/style.css").toExternalForm());
         BTcreateActivity.setOnAction(event -> createNewActivity(activities));
     }
 

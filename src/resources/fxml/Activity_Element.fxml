@@ -13,7 +13,7 @@
    <children>
       <VBox prefHeight="125.0" prefWidth="125.0">
          <children>
-            <AnchorPane>
+            <AnchorPane prefWidth="131.0">
                <children>
                   <Label fx:id="LBLname" text="Nan" />
                   <Button fx:id="BTsuppr" layoutX="100.0">

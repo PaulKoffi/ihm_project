@@ -1,8 +1,9 @@
 package model;
 
 public enum Importance{
-    Low(0), Medium(1), High(2);
+    Low("Faible", 0), Medium("Moyenne", 1), High("Forte", 2);
 
+    private final String str;
     private final int level;
 
     public static Importance getImportance(String str){
@@ -18,11 +19,17 @@ public enum Importance{
         }
     }
 
-    Importance(int level){
+    Importance(String str, int level){
+        this.str = str;
         this.level = level;
     }
 
     public int getLevel() {
         return level;
+    }
+
+    @Override
+    public String toString() {
+        return str;
     }
 }

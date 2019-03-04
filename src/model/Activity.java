@@ -82,6 +82,10 @@ public class Activity {
         this.importance = importance;
     }
 
+    public String toResearch(){
+        return name + duration.toString() + frequency.toString() + minimumBudget.toString() + maximumBudget.toString() + importance.toString();
+    }
+
     @Override
     public String toString() {
         return "Activity{" +

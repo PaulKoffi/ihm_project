@@ -49,6 +49,8 @@ public class Activity_List_Tab_Controller {
 
         BTaddActivity.setOnAction(event -> pushButtonAddActivity());
 
+        TFresearch.setOnKeyReleased(event -> this.gridPaneInit());
+
         CBsort.setOnAction(event -> this.gridPaneInit());
 
         this.gridPaneInit();
@@ -59,6 +61,10 @@ public class Activity_List_Tab_Controller {
             this.activities = ParsingActivities.getActivityListFromJSON(JSON_FILE);
         }
 
+        //removing from the textfield
+        ObservableList<Activity> tmpActivities = this.activities;
+
+        //Sort from the sort comboxbox
         this.activities.sort(new Comparator<Activity>() {
             @Override
             public int compare(Activity o1, Activity o2) {

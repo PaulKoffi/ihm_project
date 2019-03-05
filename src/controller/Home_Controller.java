@@ -28,12 +28,9 @@ public class Home_Controller {
         try {
             FXMLLoader loader = new FXMLLoader();
 
-            Activity_List_Tab_Controller controller = new Activity_List_Tab_Controller();
-            loader.setController(controller);
-
             Parent root = loader.load(getClass().getResourceAsStream(View.ACTIVITY_LIST_TAB_XML_FILE_PATH));
 
-            controller.init();
+            ((Activity_List_Tab_Controller)loader.getController()).init();
 
             this.SSactivity.setRoot(root);
         } catch (IOException e) {

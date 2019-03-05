@@ -16,14 +16,11 @@ public class Main extends Application {
         //create a loader
         FXMLLoader loader = new FXMLLoader();
 
-        Home_Controller controller = new Home_Controller();
-        loader.setController(controller);
-
         Parent root = loader.load(getClass().getResourceAsStream(View.HOME_XML_FILE_PATH));
 
         root.getStylesheets().add(View.CSS);
 
-        controller.init();
+        ((Home_Controller)loader.getController()).init();
 
         primaryStage.setScene(new Scene(root, View.HOMEWIDTH, View.HOMEHEIGHT));
         primaryStage.setTitle("MyBudget");

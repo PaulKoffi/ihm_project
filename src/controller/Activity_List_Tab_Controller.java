@@ -54,7 +54,6 @@ public class Activity_List_Tab_Controller {
         CBsort.getItems().addAll(Activity_Caracteristic.values());
         CBsort.getSelectionModel().select(Activity_Caracteristic.importance.toString());
 
-
         BTaddActivity.setOnAction(event -> pushButtonAddActivity());
 
         RBcroiss.setOnAction(event -> this.gridPaneInit());
@@ -113,12 +112,9 @@ public class Activity_List_Tab_Controller {
                     if(activity[x][y] != null){
                         FXMLLoader loader = new FXMLLoader();
 
-                        Activity_Element_Controller controller = new Activity_Element_Controller();
-                        loader.setController(controller);
-
                         root = loader.load(getClass().getResourceAsStream(View.ACTIVITY_ELEMENT_XML_FILE_PATH));
 
-                        controller.init(activity[x][y]);
+                        ((Activity_Element_Controller)loader.getController()).init(activity[x][y]);
                     } else {
                         root = new Parent(){};
                     }
@@ -191,8 +187,6 @@ public class Activity_List_Tab_Controller {
 
     public void pushButtonAddActivity() {
         FXMLLoader loader = new FXMLLoader();
-        New_Activity_Controller controller = new New_Activity_Controller();
-        loader.setController(controller);
         Parent root = null;
         try {
             root = loader.load(getClass().getResourceAsStream("../resources/fxml/New_Activity.fxml"));
@@ -200,7 +194,7 @@ public class Activity_List_Tab_Controller {
             scene.setScene(new Scene(root, 600, 450));
 
 
-            controller.init(this.activities,scene);
+            ((New_Activity_Controller)loader.getController()).init(this.activities,scene);
             scene.setTitle("MyBudget - Activity");
             scene.show();
         } catch (IOException e) {

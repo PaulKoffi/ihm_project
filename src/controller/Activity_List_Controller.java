@@ -54,8 +54,6 @@ public class Activity_List_Controller {
 
     public void pushButtonAddActivity(){
         FXMLLoader loader = new FXMLLoader();
-        New_Activity_Controller controller = new New_Activity_Controller();
-        loader.setController(controller);
         Parent root = null;
         try {
             root = loader.load(getClass().getResourceAsStream(View.NEW_ACTIVITY_XML_FILE_PATH));
@@ -64,7 +62,7 @@ public class Activity_List_Controller {
             scene.setScene(new Scene(root, View.TABWIDTH, View.TABHEIGHT));
             scene.show();
             scene.setResizable(false);
-            controller.init(this.activities, scene);
+            ((New_Activity_Controller)loader.getController()).init(this.activities, scene);
         } catch (IOException e) {
             e.printStackTrace();
         }

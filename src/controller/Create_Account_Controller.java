@@ -61,8 +61,6 @@ public class Create_Account_Controller {
     }
     public void showMessage(String message){
         FXMLLoader loader = new FXMLLoader();
-        Show_Message_Controller controller = new Show_Message_Controller();
-        loader.setController(controller);
         Parent root = null;
         try {
             root = loader.load(getClass().getResourceAsStream(View.SHOW_MESSAGE_XML_FILE_PATH));
@@ -72,7 +70,7 @@ public class Create_Account_Controller {
             scene.setTitle(View.LABEL_ERROR);
             scene.show();
 
-            controller.showMessage(message, scene);
+            ((Show_Message_Controller)loader.getController()).showMessage(message, scene);
         } catch (IOException e) {
             e.printStackTrace();
         }

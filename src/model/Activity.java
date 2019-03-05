@@ -1,8 +1,9 @@
 package model;
 
 import java.util.Objects;
+import java.util.Observable;
 
-public class Activity {
+public class Activity extends Observable {
     /**
      * Attributes
      */

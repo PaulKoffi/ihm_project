@@ -33,7 +33,8 @@ public class New_Activity_Controller {
     private RadioButton RBmediumimport;
     @FXML
     private RadioButton RBhighimport;
-    private ToggleGroup radioButtonToggleGroup;
+    @FXML
+    private ToggleGroup importanceToggleGroup;
     @FXML
     private Button BTcreateActivity;
 
@@ -56,13 +57,6 @@ public class New_Activity_Controller {
         TFminbudget.setText("0");
         TFmaxbudget.setText("0");
 
-        //Radio button
-        radioButtonToggleGroup = new ToggleGroup();
-        RBlowimport.setToggleGroup(radioButtonToggleGroup);
-        RBmediumimport.setToggleGroup(radioButtonToggleGroup);
-        RBhighimport.setToggleGroup(radioButtonToggleGroup);
-        RBlowimport.setSelected(true);
-
         //add listener to button
         BTcreateActivity.setOnAction(event -> createNewActivity(activities));
     }
@@ -74,7 +68,7 @@ public class New_Activity_Controller {
                 (Frequency) CBfrequency.getValue(),
                 Integer.valueOf(TFminbudget.getText()),
                 Integer.valueOf(TFmaxbudget.getText()),
-                Importance.getImportance( ((RadioButton) radioButtonToggleGroup.getSelectedToggle()).getText() ));
+                Importance.getImportance( ((RadioButton) importanceToggleGroup.getSelectedToggle()).getText() ));
 
         //Checking required fields
         if (newActivity.getName().equals("")) {

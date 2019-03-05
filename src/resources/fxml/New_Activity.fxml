@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -44,9 +45,12 @@
                         <TextField fx:id="TFmaxbudget" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                            <children>
-                              <RadioButton fx:id="RBlowimport" mnemonicParsing="false" text="Faible" textFill="GREEN" />
-                              <RadioButton fx:id="RBmediumimport" mnemonicParsing="false" text="Moyenne" textFill="ORANGE" />
-                              <RadioButton fx:id="RBhighimport" mnemonicParsing="false" text="Forte" textFill="RED" />
+                              <RadioButton fx:id="RBlowimport" mnemonicParsing="false" selected="true" text="Faible" textFill="GREEN">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="importanceToggleGroup" />
+                                 </toggleGroup></RadioButton>
+                              <RadioButton fx:id="RBmediumimport" mnemonicParsing="false" text="Moyenne" textFill="ORANGE" toggleGroup="$importanceToggleGroup" />
+                              <RadioButton fx:id="RBhighimport" mnemonicParsing="false" text="Forte" textFill="RED" toggleGroup="$importanceToggleGroup" />
                            </children>
                         </HBox>
                         <ComboBox fx:id="CBduration" prefHeight="25.0" prefWidth="348.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />

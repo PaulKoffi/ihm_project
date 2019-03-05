@@ -6,9 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.SubScene;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import model.Activity;
@@ -20,11 +18,18 @@ import view.View;
 
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.Comparator;
 
 public class Activity_List_Tab_Controller {
     @FXML
     private ComboBox CBsort;
+    @FXML
+    private ToggleGroup croissDecr;
+    @FXML
+    private RadioButton RBdecr;
+    @FXML
+    private RadioButton RBcroiss;
     @FXML
     private TextField TFresearch;
 
@@ -44,10 +49,13 @@ public class Activity_List_Tab_Controller {
 
     public void init() {
         CBsort.getItems().addAll(Activity_Caracteristic.values());
-        CBsort.getSelectionModel().select(Activity_Caracteristic.importance);
+        CBsort.getSelectionModel().select(Activity_Caracteristic.importance.toString());
 
 
         BTaddActivity.setOnAction(event -> pushButtonAddActivity());
+
+        RBcroiss.setOnAction(event -> this.gridPaneInit());
+        RBdecr.setOnAction(event -> this.gridPaneInit());
 
         TFresearch.setOnKeyReleased(event -> this.gridPaneInit());
 
@@ -64,25 +72,49 @@ public class Activity_List_Tab_Controller {
         //removing from the textfield
         ObservableList<Activity> tmpActivities = this.activities;
 
+
+
         //Sort from the sort comboxbox
         this.activities.sort(new Comparator<Activity>() {
             @Override
             public int compare(Activity o1, Activity o2) {
-                if (CBsort.getSelectionModel().getSelectedItem() == Activity_Caracteristic.name){
-                    return o1.getName().compareTo(o2.getName());
-                } else if (CBsort.getSelectionModel().getSelectedItem() == Activity_Caracteristic.importance){
-                    return o1.getImportance().getLevel() - o2.getImportance().getLevel();
-                } else if (CBsort.getSelectionModel().getSelectedItem() == Activity_Caracteristic.averageBudget){
-                    return (o1.getMinimumBudget() + o1.getMaximumBudget()) - (o2.getMinimumBudget() + o2.getMaximumBudget());
-                } else if (CBsort.getSelectionModel().getSelectedItem() == Activity_Caracteristic.duration){
-                    return o1.getFrequency().getLevel() - o2.getFrequency().getLevel();
-                } else if (CBsort.getSelectionModel().getSelectedItem() == Activity_Caracteristic.frequency){
-                    return o1.getFrequency().getLevel() - o2.getFrequency().getLevel();
+                if (CBsort.getSelectionModel().getSelectedItem().toString().equals(Activity_Caracteristic.name.toString())){
+                    if (croissDecr.getSelectedToggle() == RBcroiss) {
+                        return o1.getName().compareTo(o2.getName());
+                    } else {
+                        return o2.getName().compareTo(o1.getName());
+                    }
+                } else if (CBsort.getSelectionModel().getSelectedItem().toString().equals(Activity_Caracteristic.importance.toString())){
+                    if (croissDecr.getSelectedToggle() == RBcroiss) {
+                        return o1.getImportance().getLevel() - o2.getImportance().getLevel();
+                    } else {
+                        return o2.getImportance().getLevel() - o1.getImportance().getLevel();
+                    }
+                } else if (CBsort.getSelectionModel().getSelectedItem().toString().equals(Activity_Caracteristic.averageBudget.toString())){
+                    if (croissDecr.getSelectedToggle() == RBcroiss) {
+                        return (o1.getMinimumBudget() + o1.getMaximumBudget()) - (o2.getMinimumBudget() + o2.getMaximumBudget());
+                    } else {
+                        return (o2.getMinimumBudget() + o1.getMaximumBudget()) - (o1.getMinimumBudget() + o2.getMaximumBudget());
+                    }
+                } else if (CBsort.getSelectionModel().getSelectedItem().toString().equals(Activity_Caracteristic.duration.toString())){
+                        if (croissDecr.getSelectedToggle() == RBcroiss) {
+                            return o1.getFrequency().getLevel() - o2.getFrequency().getLevel();
+                        } else {
+                            return o2.getFrequency().getLevel() - o1.getFrequency().getLevel();
+                        }
+                } else if (CBsort.getSelectionModel().getSelectedItem().toString().equals(Activity_Caracteristic.frequency.toString())){
+                        if (croissDecr.getSelectedToggle() == RBcroiss) {
+                            return o1.getFrequency().getLevel() - o2.getFrequency().getLevel();
+                        } else {
+                            return o2.getFrequency().getLevel() - o1.getFrequency().getLevel();
+                        }
                 } else {
                     return 0;
                 }
             }
         });
+
+
 
         System.out.println(activities.toString());
 

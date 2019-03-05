@@ -82,8 +82,14 @@ public class Activity {
         this.importance = importance;
     }
 
-    public String toResearch(){
-        return name + duration.toString() + frequency.toString() + minimumBudget.toString() + maximumBudget.toString() + importance.toString();
+    public boolean match(String str){
+        str = str.toUpperCase();
+        return this.name.toUpperCase().contains(str) ||
+                this.duration.toString().toUpperCase().contains(str) ||
+                this.frequency.toString().toUpperCase().contains(str) ||
+                this.minimumBudget.toString().toUpperCase().contains(str) ||
+                this.maximumBudget.toString().toUpperCase().contains(str) ||
+                this.importance.toString().toUpperCase().contains(str);
     }
 
     @Override

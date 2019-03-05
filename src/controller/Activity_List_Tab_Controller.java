@@ -1,5 +1,6 @@
 package controller;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +19,7 @@ import view.View;
 
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
@@ -44,6 +46,7 @@ public class Activity_List_Tab_Controller {
     private double elementWidthHeight = 125.0;
 
     private ObservableList<Activity> activities;
+    private ArrayList<Activity> activitiesAfterSorting;
 
     final String JSON_FILE = "src/resources/json/activities.json";
 
@@ -69,57 +72,15 @@ public class Activity_List_Tab_Controller {
             this.activities = ParsingActivities.getActivityListFromJSON(JSON_FILE);
         }
 
-        //removing from the textfield
-        ObservableList<Activity> tmpActivities = this.activities;
+        this.activitiesAfterSorting = new ArrayList<>(this.activities);
+        this.sortActivitiesList();
+        this.removeUnmatchingActivities();
 
 
-
-        //Sort from the sort comboxbox
-        this.activities.sort(new Comparator<Activity>() {
-            @Override
-            public int compare(Activity o1, Activity o2) {
-                if (CBsort.getSelectionModel().getSelectedItem().toString().equals(Activity_Caracteristic.name.toString())){
-                    if (croissDecr.getSelectedToggle() == RBcroiss) {
-                        return o1.getName().compareTo(o2.getName());
-                    } else {
-                        return o2.getName().compareTo(o1.getName());
-                    }
-                } else if (CBsort.getSelectionModel().getSelectedItem().toString().equals(Activity_Caracteristic.importance.toString())){
-                    if (croissDecr.getSelectedToggle() == RBcroiss) {
-                        return o1.getImportance().getLevel() - o2.getImportance().getLevel();
-                    } else {
-                        return o2.getImportance().getLevel() - o1.getImportance().getLevel();
-                    }
-                } else if (CBsort.getSelectionModel().getSelectedItem().toString().equals(Activity_Caracteristic.averageBudget.toString())){
-                    if (croissDecr.getSelectedToggle() == RBcroiss) {
-                        return (o1.getMinimumBudget() + o1.getMaximumBudget()) - (o2.getMinimumBudget() + o2.getMaximumBudget());
-                    } else {
-                        return (o2.getMinimumBudget() + o1.getMaximumBudget()) - (o1.getMinimumBudget() + o2.getMaximumBudget());
-                    }
-                } else if (CBsort.getSelectionModel().getSelectedItem().toString().equals(Activity_Caracteristic.duration.toString())){
-                        if (croissDecr.getSelectedToggle() == RBcroiss) {
-                            return o1.getFrequency().getLevel() - o2.getFrequency().getLevel();
-                        } else {
-                            return o2.getFrequency().getLevel() - o1.getFrequency().getLevel();
-                        }
-                } else if (CBsort.getSelectionModel().getSelectedItem().toString().equals(Activity_Caracteristic.frequency.toString())){
-                        if (croissDecr.getSelectedToggle() == RBcroiss) {
-                            return o1.getFrequency().getLevel() - o2.getFrequency().getLevel();
-                        } else {
-                            return o2.getFrequency().getLevel() - o1.getFrequency().getLevel();
-                        }
-                } else {
-                    return 0;
-                }
-            }
-        });
-
-
-
-        System.out.println(activities.toString());
+        System.out.println(activitiesAfterSorting.toString());
 
         int nbOfColumns = 4;
-        int nbOfLines = (this.activities.size() + 1)/4 + 1;
+        int nbOfLines = (this.activitiesAfterSorting.size() + 1)/4 + 1;
 
         Activity activity[][] = new Activity[nbOfColumns][nbOfLines];
 
@@ -128,8 +89,8 @@ public class Activity_List_Tab_Controller {
                 activity[i][j] = null;
             }
         }
-        for (int i = 0; i < this.activities.size(); ++i){
-            activity[(i + 1)%nbOfColumns][(i + 1)/nbOfColumns] = this.activities.get(i);
+        for (int i = 0; i < this.activitiesAfterSorting.size(); ++i){
+            activity[(i + 1)%nbOfColumns][(i + 1)/nbOfColumns] = this.activitiesAfterSorting.get(i);
         }
 
         try {
@@ -175,6 +136,57 @@ public class Activity_List_Tab_Controller {
         catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void removeUnmatchingActivities() {
+
+        for (Activity activity : this.activities){
+            if (!activity.match(this.TFresearch.getText())){
+                activitiesAfterSorting.remove(activity);
+            }
+        }
+    }
+
+    private void sortActivitiesList() {
+        //Sort from the sort comboxbox
+        this.activities.sort(new Comparator<Activity>() {
+            @Override
+            public int compare(Activity o1, Activity o2) {
+                if (CBsort.getSelectionModel().getSelectedItem().toString().equals(Activity_Caracteristic.name.toString())){
+                    if (croissDecr.getSelectedToggle() == RBcroiss) {
+                        return o1.getName().compareTo(o2.getName());
+                    } else {
+                        return o2.getName().compareTo(o1.getName());
+                    }
+                } else if (CBsort.getSelectionModel().getSelectedItem().toString().equals(Activity_Caracteristic.importance.toString())){
+                    if (croissDecr.getSelectedToggle() == RBcroiss) {
+                        return o1.getImportance().getLevel() - o2.getImportance().getLevel();
+                    } else {
+                        return o2.getImportance().getLevel() - o1.getImportance().getLevel();
+                    }
+                } else if (CBsort.getSelectionModel().getSelectedItem().toString().equals(Activity_Caracteristic.averageBudget.toString())){
+                    if (croissDecr.getSelectedToggle() == RBcroiss) {
+                        return (o1.getMinimumBudget() + o1.getMaximumBudget()) - (o2.getMinimumBudget() + o2.getMaximumBudget());
+                    } else {
+                        return (o2.getMinimumBudget() + o1.getMaximumBudget()) - (o1.getMinimumBudget() + o2.getMaximumBudget());
+                    }
+                } else if (CBsort.getSelectionModel().getSelectedItem().toString().equals(Activity_Caracteristic.duration.toString())){
+                    if (croissDecr.getSelectedToggle() == RBcroiss) {
+                        return o1.getFrequency().getLevel() - o2.getFrequency().getLevel();
+                    } else {
+                        return o2.getFrequency().getLevel() - o1.getFrequency().getLevel();
+                    }
+                } else if (CBsort.getSelectionModel().getSelectedItem().toString().equals(Activity_Caracteristic.frequency.toString())){
+                    if (croissDecr.getSelectedToggle() == RBcroiss) {
+                        return o1.getFrequency().getLevel() - o2.getFrequency().getLevel();
+                    } else {
+                        return o2.getFrequency().getLevel() - o1.getFrequency().getLevel();
+                    }
+                } else {
+                    return 0;
+                }
+            }
+        });
     }
 
     public void pushButtonAddActivity() {

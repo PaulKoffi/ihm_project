@@ -20,8 +20,6 @@
 <AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Activity_List_Tab_Controller">
     <children>
     <BorderPane prefHeight="800.0" prefWidth="1200.0">
-    <center>
-    </center>
     <top>
         <AnchorPane prefHeight="100.0" prefWidth="1200.0" BorderPane.alignment="CENTER" />
     </top>

@@ -7,18 +7,20 @@ public class Account {
      * Attributes
      */
     private String firstName;
-    private String famillyName;
+    private String name;
     private String email;
     private String password;
+    private double salary;
 
     /**
      * Constructor
      */
-    public Account(String firstName, String famillyName, String email, String password) {
+    public Account(String firstName, String name, String email, String password, double salary) {
         this.firstName = firstName;
-        this.famillyName = famillyName;
+        this.name = name;
         this.email = email;
         this.password = password;
+        this.salary = salary;
     }
 
     /*Getters*/
@@ -27,8 +29,8 @@ public class Account {
         return firstName;
     }
 
-    public String getFamillyName() {
-        return famillyName;
+    public String getName() {
+        return name;
     }
 
     public String getEmail() {
@@ -38,14 +40,19 @@ public class Account {
     public String getPassword() {
         return password;
     }
+
+    public double getSalary() {
+        return salary;
+    }
+
     /*Setters*/
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    public void setFamillyName(String famillyName) {
-        this.famillyName = famillyName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setEmail(String email) {
@@ -54,6 +61,10 @@ public class Account {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
     }
 
     @Override

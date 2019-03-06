@@ -37,15 +37,6 @@
                       </SubScene>
                   </content>
                 </Tab>
-                  <Tab text="Revenus">
-                     <content>
-                         <SubScene fx:id="SSsalary" height="800.0" width="1200.0">
-                             <root>
-                                 <Region />
-                             </root>
-                         </SubScene>
-                     </content>
-                  </Tab>
                   <Tab text="Profil">
                      <content>
                          <SubScene fx:id="SSprofil" height="800.0" width="1200.0">

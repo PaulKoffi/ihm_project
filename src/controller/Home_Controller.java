@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.SubScene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
+import model.Account;
 import view.View;
 
 import java.io.IOException;
@@ -23,7 +24,10 @@ public class Home_Controller {
     @FXML
     private SubScene SSprofil;
 
-    public void init(){
+    private Account currentAccount;
+
+    public void init(Account account){
+        this.currentAccount = account;
 
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -43,6 +47,8 @@ public class Home_Controller {
             FXMLLoader loader = new FXMLLoader();
 
             Parent root = loader.load(getClass().getResourceAsStream(View.PROFILE_XML_FILE_PATH));
+
+            ((Profil_Controller)loader.getController()).init(account);
 
             this.SSprofil.setRoot(root);
         } catch (IOException e) {

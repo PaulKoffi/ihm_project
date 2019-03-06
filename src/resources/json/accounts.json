@@ -1,0 +1,24 @@
+{
+  "accounts":[
+    {
+      "name" : "DELABY",
+      "firstName" : "Mael",
+      "email" : "mael1delabouyyahoo.fr",
+      "password" : "ninja2000",
+      "salary" : 1600
+    },{
+      "name" : "GINET",
+      "firstName" : "Mael",
+      "email" : "mael2delabouy@yahoo.fr",
+      "password" : "ninja2000",
+      "salary" : 1600
+    },{
+      "name" : "SOLEAU",
+      "firstName" : "Mael",
+      "email" : "mael3delabouy@yahoo.fr",
+      "password" : "ninja2000",
+      "salary" : 1600
+    }
+    ]
+}
+

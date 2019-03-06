@@ -43,7 +43,8 @@ public class Create_Account_Controller {
                 TFFirstName.getText(),
                 TFFamillytName.getText(),
                 TFEmail.getText(),
-                TFPassword.getText() ) ;
+                TFPassword.getText(),
+                0) ;
 
         //Checking required fields
         if (newAccount.getFirstName().equals("")) {

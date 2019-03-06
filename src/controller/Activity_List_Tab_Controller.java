@@ -42,8 +42,6 @@ public class Activity_List_Tab_Controller {
     private ObservableList<Activity> activities;
     private ArrayList<Activity> activitiesAfterSorting;
 
-    final String JSON_FILE = "src/resources/json/activities.json";
-
     public void init() {
         CBsort.getItems().addAll(Activity_Caracteristic.values());
         CBsort.getSelectionModel().select(Activity_Caracteristic.importance.toString());
@@ -72,7 +70,7 @@ public class Activity_List_Tab_Controller {
 
     private void gridPaneInit(){
         if (this.activities == null){
-            this.activities = ParsingActivities.getActivityListFromJSON(JSON_FILE);
+            this.activities = ParsingActivities.getActivityListFromJSON(View.ACTIVITIES_JSON_FILE);
         }
 
         this.activitiesAfterSorting = new ArrayList<>(this.activities);

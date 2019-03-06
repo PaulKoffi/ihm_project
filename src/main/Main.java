@@ -2,6 +2,7 @@ package main;
 
 import controller.Activity_List_Tab_Controller;
 import controller.Home_Controller;
+import controller.ParsingAccounts;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -20,7 +21,7 @@ public class Main extends Application {
 
         root.getStylesheets().add(View.CSS);
 
-        ((Home_Controller)loader.getController()).init();
+        ((Home_Controller)loader.getController()).init(ParsingAccounts.getAccountListFromJSON(View.ACCOUNT_JSON_FILE).get(0));
 
         primaryStage.setScene(new Scene(root, View.HOMEWIDTH, View.HOMEHEIGHT));
         primaryStage.setTitle("MyBudget");

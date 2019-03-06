@@ -31,6 +31,8 @@ public class Create_Account_Controller {
 
         //Setting the stage
         this.window = scene;
+        BTcreateAccount.getStylesheets().add(getClass().getResource("../resources/css/style.css").toExternalForm());
+
 
         //add listener to button
         BTcreateAccount.setOnAction(event -> createAccount(accounts));

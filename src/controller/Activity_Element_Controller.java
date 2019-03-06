@@ -46,7 +46,7 @@ public class Activity_Element_Controller {
         BTsuppr.setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
 
         this.LBLname.setText(activity.getName());
-        this.LBLendDate.setText(activity.getEndDate().toString());
+        this.LBLendDate.setText(activity.getEndDate() == null ? "Infini" : activity.getEndDate().toString());
         this.LBLfrequency.setText(activity.getFrequency().toString());
         this.LBLminBudget.setText(activity.getMinimumBudget().toString());
         this.LBLmaxBudget.setText(activity.getMaximumBudget().toString());

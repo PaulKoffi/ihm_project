@@ -58,6 +58,7 @@ public class New_Activity_Controller {
         TFmaxbudget.setText("0");
 
         //add listener to button
+        //BTcreateActivity.getStylesheets().add(getClass().getResource("../resources/css/style.css").toExternalForm());
         BTcreateActivity.setOnAction(event -> createNewActivity(activities));
     }
 

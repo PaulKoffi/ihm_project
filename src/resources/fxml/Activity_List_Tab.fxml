@@ -72,7 +72,7 @@
                                   <RowConstraints minHeight="125.0" prefHeight="125.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                            <children>
-                              <Button fx:id="BTaddActivity" mnemonicParsing="false" prefHeight="125.0" prefWidth="125.0" text="+" />
+                              <Button fx:id="BTaddActivity" mnemonicParsing="false" prefHeight="158.0" prefWidth="163.0" text="+" />
                            </children>
                               </GridPane>
                     </content>

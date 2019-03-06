@@ -8,6 +8,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.SubScene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import model.Activity;
@@ -17,7 +19,7 @@ import sun.security.ssl.Debug;
 import view.View;
 
 
-
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -54,7 +56,17 @@ public class Activity_List_Tab_Controller {
         CBsort.getItems().addAll(Activity_Caracteristic.values());
         CBsort.getSelectionModel().select(Activity_Caracteristic.importance.toString());
 
-        BTaddActivity.setOnAction(event -> pushButtonAddActivity());
+        /*ImageView icon = new ImageView(new Image(getClass().getResourceAsStream("../resources/img/images.png")));
+        icon.setPreserveRatio(false);
+        icon.setFitWidth(110);
+        icon.setFitHeight(110);
+        BTaddActivity.setGraphic(icon);
+        BTaddActivity.setContentDisplay(ContentDisplay.GRAPHIC_ONLY);*/
+
+        BTaddActivity.setOnAction(event -> {
+            pushButtonAddActivity();
+            this.gridPaneInit();
+        });
 
         RBcroiss.setOnAction(event -> this.gridPaneInit());
         RBdecr.setOnAction(event -> this.gridPaneInit());

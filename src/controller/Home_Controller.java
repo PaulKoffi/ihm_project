@@ -30,6 +30,8 @@ public class Home_Controller {
 
             Parent root = loader.load(getClass().getResourceAsStream(View.ACTIVITY_LIST_TAB_XML_FILE_PATH));
 
+            root.getStylesheets().add(View.ACTIVITY_LIST_TAB_CSS);
+
             ((Activity_List_Tab_Controller)loader.getController()).init();
 
             this.SSactivity.setRoot(root);

@@ -20,11 +20,17 @@ public class View {
     public static final String LABEL_ADD_ACTIVITY = "MyBudget - Ajouter une activité";
     public static final String LABEL_ERROR = "Erreur";
     //width and height
-    public static final int TABWIDTH = 600;
-    public static final int TABHEIGHT = 400;
-    public static final int HOMEWIDTH = 600;
-    public static final int HOMEHEIGHT = 450;
-
-    public static final String CSS = "resources/css/rootcss.css";
+    public static final int TABWIDTH = 1200;
+    public static final int TABHEIGHT = 800;
+    public static final int HOMEWIDTH = 1200;
+    public static final int HOMEHEIGHT = 850;
+    public static final double ELEMENT_HEIGHT_WIDTH = 250.0;
+    //css
     public static final String ACTIVITY_ELEMENT_CSS = "resources/css/Activity_Element.css";
+    public static final String ACTIVITY_LIST_TAB_CSS = "resources/css/Activity_List_Tab.css";
+    public static final String CSS = "resources/css/rootcss.css";
+
+    //images
+    public static final String CORBEILLE_IMG_PATH = "../resources/img/corbeille.png";
+    public static final String NEW_ACTIVITY_IMG_PATH = "../resources/img/new_activity.png";
 }

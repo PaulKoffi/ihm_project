@@ -44,9 +44,6 @@ public class Activity_List_Tab_Controller {
     private Button BTaddActivity;
 
 
-
-    private double elementWidthHeight = 125.0;
-
     private ObservableList<Activity> activities;
     private ArrayList<Activity> activitiesAfterSorting;
 
@@ -56,7 +53,7 @@ public class Activity_List_Tab_Controller {
         CBsort.getItems().addAll(Activity_Caracteristic.values());
         CBsort.getSelectionModel().select(Activity_Caracteristic.importance.toString());
 
-        ImageView icon = new ImageView(new Image(getClass().getResourceAsStream("../resources/img/images.png")));
+        ImageView icon = new ImageView(new Image(getClass().getResourceAsStream(View.NEW_ACTIVITY_IMG_PATH)));
         icon.setPreserveRatio(false);
         icon.setFitWidth(110);
         icon.setFitHeight(110);
@@ -126,6 +123,8 @@ public class Activity_List_Tab_Controller {
 
                         root = loader.load(getClass().getResourceAsStream(View.ACTIVITY_ELEMENT_XML_FILE_PATH));
 
+                        root.getStylesheets().add(View.ACTIVITY_ELEMENT_CSS);
+
                         ((Activity_Element_Controller)loader.getController()).init(activity[x][y]);
                     } else {
                         root = new Parent(){};
@@ -133,9 +132,9 @@ public class Activity_List_Tab_Controller {
 
                     //If it's the first line -> button
                     if (y == 0) {
-                        subScenes[x - 1] = new SubScene(root, this.elementWidthHeight, this.elementWidthHeight);
+                        subScenes[x - 1] = new SubScene(root, View.ELEMENT_HEIGHT_WIDTH, View.ELEMENT_HEIGHT_WIDTH);
                     } else {//Or an other line
-                        subScenes[x] = new SubScene(root, this.elementWidthHeight, this.elementWidthHeight);
+                        subScenes[x] = new SubScene(root, View.ELEMENT_HEIGHT_WIDTH, View.ELEMENT_HEIGHT_WIDTH);
                     }
                 }
                 this.gridPane.addRow(y, subScenes);

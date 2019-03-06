@@ -35,7 +35,7 @@ public class Activity_Element_Controller {
     public void init(Activity activity){
         this.activity = activity;
 
-        ImageView icon = new ImageView(new Image(getClass().getResourceAsStream("../resources/img/corbeille_318-10194.jpg")));
+        ImageView icon = new ImageView(new Image(getClass().getResourceAsStream(View.CORBEILLE_IMG_PATH)));
         icon.setPreserveRatio(false);
         icon.setFitWidth(20);
         icon.setFitHeight(20);

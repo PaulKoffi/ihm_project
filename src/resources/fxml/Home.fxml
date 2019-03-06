@@ -8,16 +8,16 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Home_Controller">
+<AnchorPane prefHeight="850.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Home_Controller">
   <children>
       <VBox>
          <children>
-            <Button fx:id="BTdeconnection" mnemonicParsing="false" prefHeight="25.0" prefWidth="600.0" text="Déconnexion" />
-            <TabPane prefHeight="425.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="25.0">
+            <Button fx:id="BTdeconnection" mnemonicParsing="false" prefHeight="50.0" prefWidth="1200.0" text="Déconnexion" />
+            <TabPane prefHeight="850.0" prefWidth="1200.0" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="50.0">
               <tabs>
                 <Tab text="Accueil">
                      <content>
-                        <SubScene fx:id="SSaccueil" height="400.0" width="600.0">
+                        <SubScene fx:id="SSaccueil" height="800.0" width="1200.0">
                           <root>
                             <Region />
                           </root>
@@ -26,7 +26,7 @@
                 </Tab>
                 <Tab text="Activités">
                   <content>
-                      <SubScene fx:id="SSactivity" height="400.0" width="600.0">
+                      <SubScene fx:id="SSactivity" height="800.0" width="1200.0">
                           <root>
                               <Region />
                           </root>
@@ -35,7 +35,7 @@
                 </Tab>
                   <Tab text="Revenus">
                      <content>
-                         <SubScene fx:id="SSsalary" height="400.0" width="600.0">
+                         <SubScene fx:id="SSsalary" height="800.0" width="1200.0">
                              <root>
                                  <Region />
                              </root>
@@ -44,7 +44,7 @@
                   </Tab>
                   <Tab text="Profil">
                      <content>
-                         <SubScene fx:id="SSprofil" height="400.0" width="600.0">
+                         <SubScene fx:id="SSprofil" height="800.0" width="1200.0">
                              <root>
                                  <Region />
                              </root>

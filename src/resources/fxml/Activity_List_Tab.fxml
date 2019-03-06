@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
@@ -82,10 +83,13 @@
                                   <RowConstraints prefHeight="250.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                            <children>
-                              <Button fx:id="BTaddActivity" mnemonicParsing="false" prefHeight="250.0" prefWidth="250.0" text="+">
+                              <Button fx:id="BTaddActivity" mnemonicParsing="false" prefHeight="230.0" prefWidth="230.0" text="+">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
-                                 </cursor></Button>
+                                 </cursor>
+                                 <GridPane.margin>
+                                    <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+                                 </GridPane.margin></Button>
                            </children>
                               </GridPane>
                     </content>

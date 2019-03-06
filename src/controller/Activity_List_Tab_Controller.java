@@ -1,6 +1,5 @@
 package controller;
 
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,15 +13,11 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import model.Activity;
 import model.Activity_Caracteristic;
-import sun.rmi.runtime.Log;
-import sun.security.ssl.Debug;
 import view.View;
 
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 
 public class Activity_List_Tab_Controller {
@@ -156,7 +151,7 @@ public class Activity_List_Tab_Controller {
 
     private void sortActivitiesList() {
         //Sort from the sort comboxbox
-        this.activities.sort(new Comparator<Activity>() {
+        this.activitiesAfterSorting.sort(new Comparator<Activity>() {
             @Override
             public int compare(Activity o1, Activity o2) {
                 if (CBsort.getSelectionModel().getSelectedItem().toString().equals(Activity_Caracteristic.name.toString())){
@@ -177,7 +172,7 @@ public class Activity_List_Tab_Controller {
                     } else {
                         return (o2.getMinimumBudget() + o1.getMaximumBudget()) - (o1.getMinimumBudget() + o2.getMaximumBudget());
                     }
-                } else if (CBsort.getSelectionModel().getSelectedItem().toString().equals(Activity_Caracteristic.duration.toString())){
+                } else if (CBsort.getSelectionModel().getSelectedItem().toString().equals(Activity_Caracteristic.endDate.toString())){
                     if (croissDecr.getSelectedToggle() == RBcroiss) {
                         return o1.getFrequency().getLevel() - o2.getFrequency().getLevel();
                     } else {

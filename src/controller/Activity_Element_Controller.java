@@ -1,16 +1,14 @@
 package controller;
 
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
+import javafx.scene.layout.BorderPane;
 import model.Activity;
 import view.View;
-
-import java.io.File;
 
 
 public class Activity_Element_Controller {
@@ -22,7 +20,12 @@ public class Activity_Element_Controller {
     private ImageView IVsuppr;
 
     @FXML
-    private Label LBLduration;
+    private BorderPane BPcenter;
+
+    @FXML
+    private Label LBLimportance;
+    @FXML
+    private Label LBLendDate;
     @FXML
     private Label LBLfrequency;
     @FXML
@@ -43,10 +46,23 @@ public class Activity_Element_Controller {
         BTsuppr.setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
 
         this.LBLname.setText(activity.getName());
-        this.LBLduration.setText(activity.getDuration().toString());
+        this.LBLendDate.setText(activity.getEndDate().toString());
         this.LBLfrequency.setText(activity.getFrequency().toString());
         this.LBLminBudget.setText(activity.getMinimumBudget().toString());
         this.LBLmaxBudget.setText(activity.getMaximumBudget().toString());
+        this.LBLimportance.setText(activity.getImportance().toString());
+
+        switch (activity.getImportance()){
+            case Low:
+                this.BPcenter.setStyle("-fx-background-color: #" + View.LOW_IMPORTANCE_BACKGROUND_COLOR + "; -fx-border-color: #" + View.LOW_IMPORTANCE_BORDER_COLOR + "; " + this.BPcenter.getStyle());
+                break;
+            case Medium:
+                this.BPcenter.setStyle("-fx-background-color: #" + View.MEDIUM_IMPORTANCE_BACKGROUND_COLOR + "; -fx-border-color: #" + View.MEDIUM_IMPORTANCE_BORDER_COLOR + "; " + this.BPcenter.getStyle());
+                break;
+            case High:
+                this.BPcenter.setStyle("-fx-background-color: #" + View.HIGH_IMPORTANCE_BACKGROUND_COLOR + "; -fx-border-color: #" + View.HIGH_IMPORTANCE_BORDER_COLOR + "; " + this.BPcenter.getStyle());
+                break;
+        }
 
     }
 }

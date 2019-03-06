@@ -1,5 +1,6 @@
 package model;
 
+import java.util.Date;
 import java.util.Objects;
 import java.util.Observable;
 
@@ -8,7 +9,7 @@ public class Activity extends Observable {
      * Attributes
      */
     private String name;
-    private Duration duration;
+    private Date endDate;
     private Frequency frequency;
     private Integer minimumBudget;
     private Integer maximumBudget;
@@ -17,15 +18,15 @@ public class Activity extends Observable {
     /**
      * Constructor
      * @param name
-     * @param duration
+     * @param endDate
      * @param frequency
      * @param minimumBudget
      * @param maximumBudget
      * @param importance
      */
-    public Activity(String name, Duration duration, Frequency frequency, int minimumBudget, int maximumBudget, Importance importance) {
+    public Activity(String name, Date endDate, Frequency frequency, int minimumBudget, int maximumBudget, Importance importance) {
         this.name = name;
-        this.duration = duration;
+        this.endDate = endDate;
         this.frequency = frequency;
         this.minimumBudget = minimumBudget;
         this.maximumBudget = maximumBudget;
@@ -37,8 +38,8 @@ public class Activity extends Observable {
         return name;
     }
 
-    public Duration getDuration() {
-        return duration;
+    public Date getEndDate() {
+        return endDate;
     }
 
     public Frequency getFrequency() {
@@ -63,8 +64,8 @@ public class Activity extends Observable {
         this.name = name;
     }
 
-    public void setDuration(Duration duration) {
-        this.duration = duration;
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
     }
 
     public void setFrequency(Frequency frequency) {
@@ -86,7 +87,7 @@ public class Activity extends Observable {
     public boolean match(String str){
         str = str.toUpperCase();
         return this.name.toUpperCase().contains(str) ||
-                this.duration.toString().toUpperCase().contains(str) ||
+                this.endDate.toString().toUpperCase().contains(str) ||
                 this.frequency.toString().toUpperCase().contains(str) ||
                 this.minimumBudget.toString().toUpperCase().contains(str) ||
                 this.maximumBudget.toString().toUpperCase().contains(str) ||

@@ -8,19 +8,21 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import model.Activity;
-import model.Duration;
 import model.Frequency;
 import model.Importance;
 import view.View;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 public class New_Activity_Controller {
 
     @FXML
     private TextField TFname;
     @FXML
-    private ComboBox CBduration;
+    private CheckBox CBinfiny;
+    @FXML
+    private DatePicker DPdate;
     @FXML
     private ComboBox CBfrequency;
     @FXML
@@ -46,11 +48,9 @@ public class New_Activity_Controller {
         scene.setResizable(false);
 
         //Add items in combobox
-        CBduration.getItems().addAll(Duration.values());
         CBfrequency.getItems().addAll(Frequency.values());
 
         //Set default combobox values
-        CBduration.setValue(Duration.oneDay);
         CBfrequency.setValue(Frequency.oneByDay);
 
         //Set default budget values
@@ -60,16 +60,32 @@ public class New_Activity_Controller {
         //add listener to button
         //BTcreateActivity.getStylesheets().add(getClass().getResource("../resources/css/style.css").toExternalForm());
         BTcreateActivity.setOnAction(event -> createNewActivity(activities));
+        DPdate.setValue(LocalDate.now());
+        CBinfiny.setOnMouseClicked(event -> {
+            DPdate.disableProperty().setValue(CBinfiny.isSelected());
+        });
     }
 
     private void createNewActivity(ObservableList<Activity> activities) {
-        Activity newActivity = new Activity(
-                TFname.getText(),
-                (Duration) CBduration.getValue(),
-                (Frequency) CBfrequency.getValue(),
-                Integer.valueOf(TFminbudget.getText()),
-                Integer.valueOf(TFmaxbudget.getText()),
-                Importance.getImportance( ((RadioButton) importanceToggleGroup.getSelectedToggle()).getText() ));
+        Activity newActivity;
+        if (CBinfiny.isSelected()){
+            newActivity = new Activity(
+                    TFname.getText(),
+                    null,
+                    (Frequency) CBfrequency.getValue(),
+                    Integer.valueOf(TFminbudget.getText()),
+                    Integer.valueOf(TFmaxbudget.getText()),
+                    Importance.getImportance( ((RadioButton) importanceToggleGroup.getSelectedToggle()).getText() ));
+        }
+         else {
+            newActivity = new Activity(
+                    TFname.getText(),
+                    null,
+                    (Frequency) CBfrequency.getValue(),
+                    Integer.valueOf(TFminbudget.getText()),
+                    Integer.valueOf(TFmaxbudget.getText()),
+                    Importance.getImportance( ((RadioButton) importanceToggleGroup.getSelectedToggle()).getText() ));
+        }
 
         //Checking required fields
         if (newActivity.getName().equals("")) {

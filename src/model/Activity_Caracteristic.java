@@ -1,7 +1,7 @@
 package model;
 
 public enum Activity_Caracteristic {
-    importance("importance"), name("nom"), duration("durée"), frequency("frequence"), averageBudget("budget moyen");
+    importance("importance"), name("nom"), endDate("date de fin"), frequency("frequence"), averageBudget("budget moyen");
 
     private String str;
 

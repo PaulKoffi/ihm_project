@@ -13,11 +13,11 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="200" maxWidth="200" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Activity_Element_Controller">
+<AnchorPane maxHeight="200" maxWidth="200.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Activity_Element_Controller">
    <children>
        <BorderPane>
        <center>
-          <BorderPane id="tab" style="-fx-background-color: #ff6666; -fx-border-color: #ff4444; -fx-border-width: 5; -fx-border-radius: 5;">
+          <BorderPane id="tab" fx:id="BPcenter" style="-fx-border-width: 5; -fx-border-radius: 5;">
              <center>
                 <VBox BorderPane.alignment="CENTER">
                    <children>
@@ -45,20 +45,23 @@
                                 <ColumnConstraints hgrow="SOMETIMES" prefWidth="90" />
                               </columnConstraints>
                               <rowConstraints>
-                                <RowConstraints prefHeight="40" />
-                                  <RowConstraints prefHeight="40" />
-                                  <RowConstraints prefHeight="40" />
-                                  <RowConstraints prefHeight="40" />
+                                <RowConstraints prefHeight="35" />
+                                  <RowConstraints prefHeight="35" />
+                                  <RowConstraints prefHeight="35" />
+                                  <RowConstraints prefHeight="35" />
+                                  <RowConstraints prefHeight="35" />
                               </rowConstraints>
                                <children>
-                                  <Label text="Durée :" />
-                                  <Label fx:id="LBLduration" text="Nan" GridPane.columnIndex="1" />
-                                  <Label text="Frequence" GridPane.rowIndex="1" />
-                                  <Label fx:id="LBLfrequency" text="Nan" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                  <Label text="Frequence" />
+                                  <Label fx:id="LBLfrequency" text="Nan" GridPane.columnIndex="1" />
+                                   <Label text="Importance" GridPane.rowIndex="1" />
+                                   <Label fx:id="LBLimportance" text="Nan" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                   <Label text="Budget min" GridPane.rowIndex="2" />
                                   <Label fx:id="LBLminBudget" text="Nan" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                    <Label text="Budget max" GridPane.rowIndex="3" />
                                    <Label fx:id="LBLmaxBudget" text="Nan" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                   <Label text="Date de fin" GridPane.rowIndex="4" />
+                                   <Label fx:id="LBLendDate" text="Nan" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                                </children>
                             </GridPane>
                          </children>

@@ -2,63 +2,63 @@
   "activities":[
     {
       "name" : "Raclette",
-      "duration" : "oneMounth",
+      "endDate" : "25/12/2050",
       "frequency" : "oneByWeek",
       "minimumBudget" : 6,
       "maximumBudget" : 15,
       "importance" : "Low"
     },{
       "name" : "5 Legumes",
-      "duration" : "infiny",
+      "endDate" : "25/12/2050",
       "frequency" : "oneByDay",
       "minimumBudget" : 3,
       "maximumBudget" : 8,
       "importance" : "High"
     },{
       "name" : "5 Fruits",
-      "duration" : "infiny",
+      "endDate" : "25/12/2050",
       "frequency" : "oneByDay",
       "minimumBudget" : 5,
       "maximumBudget" : 10,
       "importance" : "High"
     },{
       "name" : "Noel",
-      "duration" : "infiny",
+      "endDate" : "25/12/2050",
       "frequency" : "oneByYear",
       "minimumBudget" : 40,
       "maximumBudget" : 50,
       "importance" : "High"
     },{
       "name" : "New Year",
-      "duration" : "infiny",
+      "endDate" : "25/12/2050",
       "frequency" : "oneByYear",
       "minimumBudget" : 60,
       "maximumBudget" : 70,
       "importance" : "High"
     },{
       "name" : "Petit dej",
-      "duration" : "infiny",
+      "endDate" : "25/12/2050",
       "frequency" : "oneByDay",
       "minimumBudget" : 1,
       "maximumBudget" : 3,
       "importance" : "Medium"
     },{
       "name" : "Diner",
-      "duration" : "infiny",
+      "endDate" : "25/12/2050",
       "frequency" : "oneByDay",
       "minimumBudget" : 3,
       "maximumBudget" : 5,
       "importance" : "High"
     },{
       "name" : "Souper",
-      "duration" : "infiny",
+      "endDate" : "25/12/2050",
       "frequency" : "oneByDay",
       "minimumBudget" : 3,
       "maximumBudget" : 5,
       "importance" : "Medium"
     },{
       "name" : "4H",
-      "duration" : "infiny",
+      "endDate" : "25/12/2050",
       "frequency" : "oneByDay",
       "minimumBudget" : 0,
       "maximumBudget" : 2,

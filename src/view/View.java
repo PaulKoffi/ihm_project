@@ -3,7 +3,6 @@ package view;
 public class View {
     //paths
     public static final String ACTIVITY_ELEMENT_XML_FILE_PATH = "../resources/fxml/Activity_Element.fxml";
-    public static final String ACTIVITY_LIST_XML_FILE_PATH = "../resources/fxml/Activity_List.fxml";
     public static final String ACTIVITY_LIST_TAB_XML_FILE_PATH = "../resources/fxml/Activity_List_Tab.fxml";
     public static final String CONNECTION_XML_FILE_PATH = "../resources/fxml/Connection.fxml";
     public static final String CREATE_ACCOUNT_XML_FILE_PATH = "../resources/fxml/Create_Account.fxml";
@@ -29,6 +28,14 @@ public class View {
     public static final String ACTIVITY_ELEMENT_CSS = "resources/css/Activity_Element.css";
     public static final String ACTIVITY_LIST_TAB_CSS = "resources/css/Activity_List_Tab.css";
     public static final String CSS = "resources/css/rootcss.css";
+
+    //Color of importance
+    public static final String HIGH_IMPORTANCE_BACKGROUND_COLOR = "ff6666";
+    public static final String HIGH_IMPORTANCE_BORDER_COLOR = "ff4444";
+    public static final String MEDIUM_IMPORTANCE_BACKGROUND_COLOR = "ffaa66";
+    public static final String MEDIUM_IMPORTANCE_BORDER_COLOR = "ffaa44";
+    public static final String LOW_IMPORTANCE_BACKGROUND_COLOR = "ffee66";
+    public static final String LOW_IMPORTANCE_BORDER_COLOR = "ffee44";
 
     //images
     public static final String CORBEILLE_IMG_PATH = "../resources/img/corbeille.png";

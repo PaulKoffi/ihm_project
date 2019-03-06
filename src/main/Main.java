@@ -25,20 +25,6 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, View.HOMEWIDTH, View.HOMEHEIGHT));
         primaryStage.setTitle("MyBudget");
 
-        /*FXMLLoader loader = new FXMLLoader();
-
-        Activity_List_Tab_Controller controller = new Activity_List_Tab_Controller();
-        loader.setController(controller);
-
-        Parent root = loader.load(getClass().getResourceAsStream(View.ACTIVITY_LIST_TAB_XML_FILE_PATH));
-
-        root.getStylesheets().add(View.CSS);
-
-        controller.init();
-
-        primaryStage.setScene(new Scene(root, View.TABWIDTH, View.TABHEIGHT));
-        primaryStage.setTitle("MyBudget");*/
-
         primaryStage.show();
         primaryStage.setResizable(false);
     }

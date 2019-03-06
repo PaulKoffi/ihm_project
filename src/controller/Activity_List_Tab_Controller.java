@@ -56,12 +56,12 @@ public class Activity_List_Tab_Controller {
         CBsort.getItems().addAll(Activity_Caracteristic.values());
         CBsort.getSelectionModel().select(Activity_Caracteristic.importance.toString());
 
-        /*ImageView icon = new ImageView(new Image(getClass().getResourceAsStream("../resources/img/images.png")));
+        ImageView icon = new ImageView(new Image(getClass().getResourceAsStream("../resources/img/images.png")));
         icon.setPreserveRatio(false);
         icon.setFitWidth(110);
         icon.setFitHeight(110);
         BTaddActivity.setGraphic(icon);
-        BTaddActivity.setContentDisplay(ContentDisplay.GRAPHIC_ONLY);*/
+        BTaddActivity.setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
 
         BTaddActivity.setOnAction(event -> {
             pushButtonAddActivity();

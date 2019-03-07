@@ -68,7 +68,7 @@
                         </GridPane>
                         <TextField fx:id="TFresearch" promptText="Rechercher" />
                      </children></HBox>
-                  <ScrollPane hbarPolicy="NEVER" prefHeight="500.0">
+                  <ScrollPane hbarPolicy="NEVER" prefHeight="600.0">
                     <content>
                         <GridPane fx:id="gridPane">
                             <columnConstraints>

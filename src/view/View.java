@@ -40,6 +40,7 @@ public class View {
     //images
     public static final String CORBEILLE_IMG_PATH = "../resources/img/corbeille.png";
     public static final String NEW_ACTIVITY_IMG_PATH = "../resources/img/new_activity.png";
+    public static final String KEY_PASSWORD_IMG_PATH = "../resources/img/key_password.png";
 
     //JSON
     public static final String ACTIVITIES_JSON_FILE = "src/resources/json/activities.json";

@@ -40,11 +40,11 @@ public class Activity_List_Tab_Controller {
 
 
     private ObservableList<Activity> activities;
-    private ArrayList<Activity> activitiesAfterSorting;
 
-    public void init() {
-        CBsort.getItems().addAll(Activity_Caracteristic.values());
-        CBsort.getSelectionModel().select(Activity_Caracteristic.importance.toString());
+    public void init(ObservableList<Activity> activities) {
+        this.activities = activities;
+        this.CBsort.getItems().addAll(Activity_Caracteristic.values());
+        this.CBsort.getSelectionModel().select(Activity_Caracteristic.importance.toString());
 
         ImageView icon = new ImageView(new Image(getClass().getResourceAsStream(View.NEW_ACTIVITY_IMG_PATH)));
         icon.setPreserveRatio(false);
@@ -53,45 +53,31 @@ public class Activity_List_Tab_Controller {
         BTaddActivity.setGraphic(icon);
         BTaddActivity.setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
 
-        BTaddActivity.setOnAction(event -> {
-            pushButtonAddActivity();
-            this.gridPaneInit();
-        });
-
-        RBcroiss.setOnAction(event -> this.gridPaneInit());
-        RBdecr.setOnAction(event -> this.gridPaneInit());
-
-        TFresearch.setOnKeyReleased(event -> this.gridPaneInit());
-
-        CBsort.setOnAction(event -> this.gridPaneInit());
 
         this.gridPaneInit();
     }
 
     private void gridPaneInit(){
-        if (this.activities == null){
-            this.activities = ParsingActivities.getActivityListFromJSON(View.ACTIVITIES_JSON_FILE);
-        }
+        ArrayList<Activity> activitiesAfterSorting = new ArrayList<>(this.activities);
 
-        this.activitiesAfterSorting = new ArrayList<>(this.activities);
-        this.sortActivitiesList();
-        this.removeUnmatchingActivities();
+        this.sortActivitiesList(activitiesAfterSorting);
+        this.removeUnmatchingActivities(activitiesAfterSorting);
 
 
         System.out.println(activitiesAfterSorting.toString());
 
         int nbOfColumns = 4;
-        int nbOfLines = (this.activitiesAfterSorting.size() + 1)/4 + 1;
+        int nbOfLines = (activitiesAfterSorting.size() + 1)/4 + 1;
 
-        Activity activity[][] = new Activity[nbOfColumns][nbOfLines];
+        Activity activitiesArray[][] = new Activity[nbOfColumns][nbOfLines];
 
         for (int i = 0; i < nbOfColumns; ++i) {
             for (int j = 0; j < nbOfLines; ++j) {
-                activity[i][j] = null;
+                activitiesArray[i][j] = null;
             }
         }
-        for (int i = 0; i < this.activitiesAfterSorting.size(); ++i){
-            activity[(i + 1)%nbOfColumns][(i + 1)/nbOfColumns] = this.activitiesAfterSorting.get(i);
+        for (int i = 0; i < activitiesAfterSorting.size(); ++i){
+            activitiesArray[(i + 1)%nbOfColumns][(i + 1)/nbOfColumns] = activitiesAfterSorting.get(i);
         }
 
         try {
@@ -111,14 +97,14 @@ public class Activity_List_Tab_Controller {
 
                     Parent root;
 
-                    if(activity[x][y] != null){
+                    if(activitiesArray[x][y] != null){
                         FXMLLoader loader = new FXMLLoader();
 
                         root = loader.load(getClass().getResourceAsStream(View.ACTIVITY_ELEMENT_XML_FILE_PATH));
 
                         root.getStylesheets().add(View.ACTIVITY_ELEMENT_CSS);
 
-                        ((Activity_Element_Controller)loader.getController()).init(activity[x][y]);
+                        ((Activity_Element_Controller)loader.getController()).init(this.activities, activitiesArray[x][y], this);
                     } else {
                         root = new Parent(){};
                     }
@@ -138,7 +124,7 @@ public class Activity_List_Tab_Controller {
         }
     }
 
-    private void removeUnmatchingActivities() {
+    private void removeUnmatchingActivities(ArrayList<Activity> activitiesAfterSorting) {
 
         for (Activity activity : this.activities){
             if (!activity.match(this.TFresearch.getText())){
@@ -147,9 +133,9 @@ public class Activity_List_Tab_Controller {
         }
     }
 
-    private void sortActivitiesList() {
+    private void sortActivitiesList(ArrayList<Activity> activitiesAfterSorting) {
         //Sort from the sort comboxbox
-        this.activitiesAfterSorting.sort(new Comparator<Activity>() {
+        activitiesAfterSorting.sort(new Comparator<Activity>() {
             @Override
             public int compare(Activity o1, Activity o2) {
                 if (CBsort.getSelectionModel().getSelectedItem().toString().equals(Activity_Caracteristic.name.toString())){
@@ -207,5 +193,12 @@ public class Activity_List_Tab_Controller {
 
     }
 
+    public void newActivity(){
+        pushButtonAddActivity();
+        this.gridPaneInit();
+    }
 
+    public void refreshGridPane(){
+        this.gridPaneInit();
+    }
 }

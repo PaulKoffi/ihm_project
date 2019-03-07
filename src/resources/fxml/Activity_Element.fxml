@@ -24,7 +24,7 @@
                       <AnchorPane>
                          <children>
                             <Label fx:id="LBLname" text="Nan" />
-                            <Button fx:id="BTsuppr" layoutX="160.0">
+                            <Button fx:id="BTsuppr" layoutX="160.0" onMouseReleased="#delete">
                                <graphic>
                                   <ImageView fx:id="IVsuppr" fitHeight="30.0" fitWidth="30.0">
                                      <cursor>

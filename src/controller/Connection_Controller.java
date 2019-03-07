@@ -11,8 +11,9 @@ import model.*;
 import view.View;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
-public class Connection_Page_Controller {
+public class Connection_Controller {
 
 
     @FXML
@@ -22,29 +23,25 @@ public class Connection_Page_Controller {
     @FXML
     private CheckBox CBremember;
     @FXML
-    private Button BTconnection;
+    private Hyperlink HLcreateAccount;
     @FXML
-    private Label LnewAccount;
-    @FXML
-    private Label Lforgot;
+    private Hyperlink HLforgetPassword;
 
 
-    private Stage window;
 
-    public void init(ObservableList<Account> accounts) {
+    private Stage thisWindows;
+    private ArrayList<Account> accounts;
 
-        String id = TFmail.getText();
-        String password = TFpassword.getText();
-
-
-        BTconnection.setOnAction(event -> pushButtonConnection(accounts,id,password));
-
-        this.window.close();
-
+    public void init(ArrayList<Account> accounts, Stage thisWindows) {
+        this.accounts = accounts;
+        this.thisWindows = thisWindows;
     }
 
 
-    public void pushButtonConnection(ObservableList<Account> accounts,String id, String password) {
+    public void connexion() {
+        String id = TFmail.getText();
+        String password = TFpassword.getText();
+
         //Checking required fields
         if (id.equals("") || password.equals("")) {
             showMessage("Veuillez remplir tous les champs Obligatoires !");
@@ -52,48 +49,40 @@ public class Connection_Page_Controller {
         }
 
         //Checking if account already exist
-        for ( Account account: accounts) {
+        for (Account account: accounts) {
             if (account.getEmail().equals(id)){
                 if (account.getPassword().equals(password)){
 
                     FXMLLoader loader = new FXMLLoader();
-                    Home_Controller controller = new Home_Controller();
-                    loader.setController(controller);
-                    Parent root = null;
                     try {
-                        root = loader.load(getClass().getResourceAsStream("../resources/fxml/Home.fxml"));
+                        Parent root = loader.load(getClass().getResourceAsStream("../resources/fxml/Home.fxml"));
                         Stage scene = new Stage();
-                        scene.setScene(new Scene(root, 600, 450));
+                        scene.setScene(new Scene(root, View.HOMEWIDTH, View.HOMEHEIGHT));
 
-                        controller.init(account);
-                        scene.setTitle("MyBudget - Home");
+                        ((Home_Controller)loader.getController()).init(account);
+                        scene.setTitle("MyBudget");
                         scene.show();
+
+                        thisWindows.close();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 }
             }
         }
-
-
-
     }
 
-
     public void showMessage(String message) {
-        FXMLLoader loader = new FXMLLoader();
-        Show_Message_Controller controller = new Show_Message_Controller();
-        loader.setController(controller);
-        Parent root = null;
         try {
-            root = loader.load(getClass().getResourceAsStream(View.SHOW_MESSAGE_XML_FILE_PATH));
+            FXMLLoader loader = new FXMLLoader();
+            Parent root = loader.load(getClass().getResourceAsStream(View.SHOW_MESSAGE_XML_FILE_PATH));
 
             Stage scene = new Stage();
             scene.setScene(new Scene(root, 300, 150));
             scene.setTitle(View.LABEL_ERROR);
             scene.show();
 
-            controller.showMessage(message, scene);
+            ((Show_Message_Controller)loader.getController()).showMessage(message, scene);
         } catch (IOException e) {
             e.printStackTrace();
         }

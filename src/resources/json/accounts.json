@@ -18,6 +18,12 @@
       "email" : "mael3delabouy@yahoo.fr",
       "password" : "ninja2000",
       "salary" : 1600
+    },{
+      "name" : "a",
+      "firstName" : "a",
+      "email" : "a",
+      "password" : "a",
+      "salary" : 1600
     }
     ]
 }

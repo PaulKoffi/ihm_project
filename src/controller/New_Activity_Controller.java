@@ -7,12 +7,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import model.Activity;
 import model.Frequency;
 import model.Importance;
 import view.View;
 
 import java.io.IOException;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 
 public class New_Activity_Controller {
@@ -40,9 +42,35 @@ public class New_Activity_Controller {
     @FXML
     private Button BTcreateActivity;
 
+    private ObservableList<Activity> activities;
     private Stage window;
 
+    // Factory to create Cell of DatePicker
+    private Callback<DatePicker, DateCell> getDayCellFactory() {
+
+        final Callback<DatePicker, DateCell> dayCellFactory = new Callback<DatePicker, DateCell>() {
+
+            @Override
+            public DateCell call(final DatePicker datePicker) {
+                return new DateCell() {
+                    @Override
+                    public void updateItem(LocalDate item, boolean empty) {
+                        super.updateItem(item, empty);
+
+                        // Disable Monday, Tueday, Wednesday.
+                        if (item.isBefore(LocalDate.now())) {
+                            setDisable(true);
+                            setStyle("-fx-background-color: #ffc0cb;");
+                        }
+                    }
+                };
+            }
+        };
+        return dayCellFactory;
+    }
+
     public void init(ObservableList<Activity> activities, Stage scene) {
+        this.activities = activities;
         //Setting the stage
         this.window = scene;
         scene.setResizable(false);
@@ -57,16 +85,17 @@ public class New_Activity_Controller {
         TFminbudget.setText("0");
         TFmaxbudget.setText("0");
 
-        //add listener to button
-        //BTcreateActivity.getStylesheets().add(getClass().getResource("../resources/css/style.css").toExternalForm());
-        BTcreateActivity.setOnAction(event -> createNewActivity(activities));
+
         DPdate.setValue(LocalDate.now());
-        CBinfiny.setOnMouseClicked(event -> {
-            DPdate.disableProperty().setValue(CBinfiny.isSelected());
-        });
+        Callback<DatePicker, DateCell> dayCellFactory= this.getDayCellFactory();
+        DPdate.setDayCellFactory(dayCellFactory);
     }
 
-    private void createNewActivity(ObservableList<Activity> activities) {
+    public void infinyChange(){
+        DPdate.disableProperty().setValue(CBinfiny.isSelected());
+    }
+
+    public void createActivity() {
         Activity newActivity;
         if (CBinfiny.isSelected()){
             newActivity = new Activity(
@@ -99,12 +128,12 @@ public class New_Activity_Controller {
         }
 
         //Checking if activity already exist
-        if (activities.contains(newActivity)){
+        if (this.activities.contains(newActivity)){
             showMessage("Il existe déjà une activité portant ce nom, veuillez modifier votre saisie !");
             return;
         }
 
-        activities.add(newActivity);
+        this.activities.add(newActivity);
         this.window.close();
     }
 

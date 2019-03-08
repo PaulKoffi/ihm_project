@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
@@ -17,7 +18,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="-Infinity" prefWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.New_Activity_Controller">
+<AnchorPane prefHeight="-Infinity" prefWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.New_Activity_Controller">
    <children>
       <BorderPane prefHeight="400.0" prefWidth="600.0">
          <center>
@@ -51,23 +52,41 @@
                               <RadioButton fx:id="RBlowimport" mnemonicParsing="false" selected="true" text="Faible" textFill="GREEN">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="importanceToggleGroup" />
-                                 </toggleGroup></RadioButton>
-                              <RadioButton fx:id="RBmediumimport" mnemonicParsing="false" text="Moyenne" textFill="ORANGE" toggleGroup="$importanceToggleGroup" />
-                              <RadioButton fx:id="RBhighimport" mnemonicParsing="false" text="Forte" textFill="RED" toggleGroup="$importanceToggleGroup" />
+                                 </toggleGroup>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></RadioButton>
+                              <RadioButton fx:id="RBmediumimport" mnemonicParsing="false" text="Moyenne" textFill="ORANGE" toggleGroup="$importanceToggleGroup">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></RadioButton>
+                              <RadioButton fx:id="RBhighimport" mnemonicParsing="false" text="Forte" textFill="RED" toggleGroup="$importanceToggleGroup">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></RadioButton>
                            </children>
                         </HBox>
-                        <ComboBox fx:id="CBfrequency" prefHeight="25.0" prefWidth="345.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <ComboBox fx:id="CBfrequency" prefHeight="25.0" prefWidth="345.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></ComboBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <children>
                               <DatePicker fx:id="DPdate" disable="true" editable="false">
                                  <HBox.margin>
                                     <Insets top="5.0" />
                                  </HBox.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
                               </DatePicker>
-                              <CheckBox fx:id="CBinfiny" mnemonicParsing="false" selected="true" text="Infini">
+                              <CheckBox fx:id="CBinfiny" mnemonicParsing="false" onMouseClicked="#infinyChange" selected="true" text="Infini">
                                  <HBox.margin>
                                     <Insets left="50.0" top="8.0" />
                                  </HBox.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
                               </CheckBox>
                            </children>
                         </HBox>
@@ -76,7 +95,10 @@
                   <Label text="* Champs obligatoires" />
                   <AnchorPane prefHeight="306.0" prefWidth="600.0">
                      <children>
-                        <Button fx:id="BTcreateActivity" layoutX="218.0" layoutY="37.0" mnemonicParsing="false" text="Créer l'activité" />
+                        <Button fx:id="BTcreateActivity" layoutX="218.0" layoutY="37.0" mnemonicParsing="false" onAction="#createActivity" text="Créer l'activité">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
                      </children>
                   </AnchorPane>
                </children>

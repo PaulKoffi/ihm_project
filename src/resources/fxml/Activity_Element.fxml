@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.effect.Lighting?>
-<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="200" maxWidth="200.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Activity_Element_Controller">
+<AnchorPane maxHeight="200" maxWidth="200.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Activity_Element_Controller">
    <children>
        <BorderPane>
        <center>
@@ -24,17 +23,17 @@
                       <AnchorPane>
                          <children>
                             <Label fx:id="LBLname" text="Nan" />
-                            <Button fx:id="BTsuppr" layoutX="160.0">
-                               <graphic>
-                                  <ImageView fx:id="IVsuppr" fitHeight="30.0" fitWidth="30.0">
-                                     <cursor>
-                                        <Cursor fx:constant="HAND" />
-                                     </cursor></ImageView>
-                               </graphic>
-                               <cursor>
-                                  <Cursor fx:constant="HAND" />
-                               </cursor>
-                            </Button>
+                              <Pane layoutX="150.0" onMouseEntered="#redTrash" onMouseExited="#blackTrash" prefHeight="30.0" prefWidth="30.0">
+                                 <children>
+                                        <ImageView fx:id="IVsuppr" fitHeight="30.0" fitWidth="30.0">
+                                           <cursor>
+                                              <Cursor fx:constant="HAND" />
+                                           </cursor>
+                                        </ImageView>
+                                 </children>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Pane>
                          </children>
                       </AnchorPane>
                       <AnchorPane>
@@ -60,20 +59,11 @@
                                   <Label fx:id="LBLminBudget" text="Nan" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                    <Label text="Budget max" GridPane.rowIndex="3" />
                                    <Label fx:id="LBLmaxBudget" text="Nan" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                   <Label text="Date de fin" GridPane.rowIndex="4" />
-                                   <Label fx:id="LBLendDate" text="Nan" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                                </children>
                             </GridPane>
                          </children>
                       </AnchorPane>
                    </children>
-                   <effect>
-                      <Lighting>
-                         <bumpInput>
-                            <Shadow />
-                         </bumpInput>
-                      </Lighting>
-                   </effect>
                 </VBox>
              </center>
              <top>
@@ -86,7 +76,15 @@
                 <AnchorPane prefWidth="12.5" BorderPane.alignment="CENTER" />
              </right>
              <bottom>
-                <AnchorPane prefHeight="12.5" BorderPane.alignment="CENTER" />
+                <AnchorPane prefHeight="12.5" BorderPane.alignment="CENTER">
+                     <children>
+                        <HBox alignment="TOP_RIGHT" prefHeight="17.0" prefWidth="206.0">
+                           <children>
+                              <Label fx:id="LBLfini" alignment="CENTER_RIGHT" text="Fini le " />
+                             <Label fx:id="LBLendDate" alignment="CENTER_RIGHT" text="Nan" />
+                           </children>
+                        </HBox>
+                     </children></AnchorPane>
              </bottom>
           </BorderPane>
        </center>

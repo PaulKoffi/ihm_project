@@ -38,7 +38,8 @@ public class View {
     public static final String LOW_IMPORTANCE_BORDER_COLOR = "ffee44";
 
     //images
-    public static final String CORBEILLE_IMG_PATH = "../resources/img/corbeille.png";
+    public static final String BLACK_TRASH_IMG_PATH = "../resources/img/blackTrash.png";
+    public static final String RED_TRASH_IMG_PATH = "../resources/img/redTrash.png";
     public static final String NEW_ACTIVITY_IMG_PATH = "../resources/img/new_activity.png";
     public static final String KEY_PASSWORD_IMG_PATH = "../resources/img/key_password.png";
 

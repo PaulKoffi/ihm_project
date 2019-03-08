@@ -37,7 +37,7 @@
       <Pane prefHeight="135.0" prefWidth="600.0">
          <children>
             <CheckBox fx:id="CBremember" alignment="CENTER_RIGHT" layoutX="239.0" layoutY="14.0" mnemonicParsing="false" text="Se souvenir de moi" />
-            <Button layoutX="276.0" layoutY="53.0" mnemonicParsing="false" onMouseReleased="#connexion" text="Connection" />
+            <Button layoutX="276.0" layoutY="53.0" mnemonicParsing="false" onMouseReleased="#connexion" text="Connexion" />
          </children>
       </Pane>
       <GridPane prefWidth="600.0">

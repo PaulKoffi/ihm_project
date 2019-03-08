@@ -27,6 +27,8 @@ public class Profil_Controller {
     private GridPane GPform;
     @FXML
     private ImageView IVkeyPassword;
+    @FXML
+    private ImageView imgU;
 
     private String password;
 
@@ -44,6 +46,7 @@ public class Profil_Controller {
         this.SPsalary.setValueFactory(new SpinnerValueFactory.DoubleSpinnerValueFactory(0, 10000, account.getSalary(), 10));
 
         this.IVkeyPassword.setImage(new Image(getClass().getResourceAsStream(View.KEY_PASSWORD_IMG_PATH)));
+        this.imgU.setImage(new Image(getClass().getResourceAsStream(View.U_IMG_PATH)));
     }
 
     public void save(){

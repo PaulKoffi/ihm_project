@@ -12,6 +12,7 @@ public class View {
     public static final String SHOW_MESSAGE_XML_FILE_PATH = "../resources/fxml/Show_Message.fxml";
 
     public static final String SHOW_MESSAGE_ERROR_IMG_FILE_PATH = "resources/img/warning.png";
+    public static final String U_IMG_PATH = "../resources/img/utilisateur.png";
 
     //window names
     public static final String LABEL_HOME = "MyBudget - Home";
@@ -27,6 +28,7 @@ public class View {
     //css
     public static final String ACTIVITY_ELEMENT_CSS = "resources/css/Activity_Element.css";
     public static final String ACTIVITY_LIST_TAB_CSS = "resources/css/Activity_List_Tab.css";
+    public static final String PROFILE_CSS = "resources/css/profile.css";
     public static final String CSS = "resources/css/rootcss.css";
     public static final String ButtonCSS = "resources/css/style.css";
 

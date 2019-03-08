@@ -14,7 +14,7 @@
   <children>
       <VBox>
          <children>
-            <Button fx:id="BTdeconnection" mnemonicParsing="false" prefHeight="40.0" prefWidth="1200.0" text="Déconnexion">
+            <Button fx:id="BTdeconnection" mnemonicParsing="false" onAction="#voidD" prefHeight="40.0" prefWidth="1200.0" text="Déconnexion">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

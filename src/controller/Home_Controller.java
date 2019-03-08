@@ -4,11 +4,13 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.SubScene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 import model.Account;
 import model.Activity;
 import view.View;
@@ -35,7 +37,15 @@ public class Home_Controller {
 
     private ObservableList<Activity> activities;
 
-    public void init(Account account){
+    // page de connexion
+    private Stage thisWindows;
+    // Page de base
+    private Stage scene;
+
+
+    public void init(Account account, Stage thisWindows, Stage scene){
+        this.thisWindows = thisWindows;
+        this.scene = scene;
         this.currentAccount = account;
         this.IMDec.setImage(new Image(getClass().getResourceAsStream(View.DEC_IMG_PATH)));
         this.activities = ParsingActivities.getActivityListFromJSON(View.ACTIVITIES_JSON_FILE);
@@ -69,5 +79,11 @@ public class Home_Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+    }
+
+    public void voidD(){
+        this.scene.close();
+        this.thisWindows.show();
     }
 }

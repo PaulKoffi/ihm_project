@@ -2,6 +2,11 @@
     -fx-background-image: url("../img/connexion.jpg");
 }
 
+.button:hover {
+    -fx-background-color: green;
+    -fx-text-fill: white;
+}
+
 .label {
     -fx-font-size: 13pt;
     -fx-font-family: "Garamond";

@@ -54,6 +54,8 @@ public class Connection_Controller {
             if (account.getEmail().equals(id)){
                 if (account.getPassword().equals(password)){
 
+                    TFmail.setText("");
+                    TFpassword.setText("");
                     FXMLLoader loader = new FXMLLoader();
                     try {
                         Parent root = loader.load(getClass().getResourceAsStream("../resources/fxml/Home.fxml"));
@@ -62,11 +64,11 @@ public class Connection_Controller {
 
                         scene.getIcons().add(new Image("resources/img/act.jpg"));
                         scene.setResizable(false);
-                        ((Home_Controller)loader.getController()).init(account);
+                        ((Home_Controller)loader.getController()).init(account,thisWindows,scene);
                         scene.setTitle("MyBudget");
                         scene.show();
 
-                        thisWindows.close();
+                        thisWindows.hide();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }

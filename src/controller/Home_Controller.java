@@ -8,6 +8,7 @@ import javafx.scene.SubScene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import model.Account;
 import model.Activity;
 import view.View;
@@ -17,6 +18,9 @@ import java.io.IOException;
 public class Home_Controller {
     @FXML
     private Button BTdeconnection;
+
+    @FXML
+    private ImageView IMDec;
 
     @FXML
     private SubScene SSaccueil;
@@ -33,6 +37,7 @@ public class Home_Controller {
 
     public void init(Account account){
         this.currentAccount = account;
+        this.IMDec.setImage(new Image(getClass().getResourceAsStream(View.DEC_IMG_PATH)));
         this.activities = ParsingActivities.getActivityListFromJSON(View.ACTIVITIES_JSON_FILE);
 
         try {

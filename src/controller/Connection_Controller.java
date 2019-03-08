@@ -59,6 +59,7 @@ public class Connection_Controller {
                         Parent root = loader.load(getClass().getResourceAsStream("../resources/fxml/Home.fxml"));
                         Stage scene = new Stage();
                         scene.setScene(new Scene(root, View.HOMEWIDTH, View.HOMEHEIGHT));
+
                         scene.getIcons().add(new Image("resources/img/act.jpg"));
                         scene.setResizable(false);
                         ((Home_Controller)loader.getController()).init(account);
@@ -78,7 +79,7 @@ public class Connection_Controller {
         try {
             FXMLLoader loader = new FXMLLoader();
             Parent root = loader.load(getClass().getResourceAsStream(View.SHOW_MESSAGE_XML_FILE_PATH));
-
+            root.getStylesheets().add(getClass().getResource("../resources/css/style.css").toExternalForm());
             Stage scene = new Stage();
             scene.setScene(new Scene(root, 300, 150));
             scene.setTitle(View.LABEL_ERROR);

@@ -133,7 +133,16 @@ public class New_Activity_Controller {
             return;
         }
 
+        /* Verification des données */
+        System.out.println("Nom "+newActivity.getName()+"\n");
+        System.out.println("Date "+newActivity.getEndDate()+"\n");
+        System.out.println("Freq "+newActivity.getFrequency()+"\n");
+        System.out.println("Imp "+newActivity.getImportance()+"\n");
+        System.out.println("Mini "+newActivity.getMinimumBudget()+"\n");
+        System.out.println("Maxi "+newActivity.getMaximumBudget()+"\n");
+        /* FIn Verification*/
         this.activities.add(newActivity);
+
         this.window.close();
     }
 

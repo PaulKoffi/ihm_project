@@ -38,3 +38,10 @@
     -fx-font-weight: bold;
     -fx-text-fill: white;
 }
+
+.radio-button {
+    -fx-font-size: 9pt;
+    -fx-font-family: "Century Gothic";
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}

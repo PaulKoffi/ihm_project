@@ -118,18 +118,18 @@ public class New_Activity_Controller {
 
         //Checking required fields
         if (newActivity.getName().equals("")) {
-            showMessage("Veuillez remplir tous les champs Obligatoires !");
+            showMessage("Veuillez remplir tous les champs Obligatoires !",300);
             return;
         }
 
         if (newActivity.getMinimumBudget() > newActivity.getMaximumBudget()){
-            showMessage("Minimum budget doit etre inférieur a maximum  maximum budget !");
+            showMessage("Minimum budget doit etre inférieur a maximum  maximum budget !",410);
             return;
         }
 
         //Checking if activity already exist
         if (this.activities.contains(newActivity)){
-            showMessage("Il existe déjà une activité portant ce nom, veuillez modifier votre saisie !");
+            showMessage("Il existe déjà une activité portant ce nom, veuillez modifier votre saisie !",430);
             return;
         }
 
@@ -141,7 +141,7 @@ public class New_Activity_Controller {
      * Dialog box to notify a message to user.
      * @param message
      */
-    private void showMessage(String message) {
+    private void showMessage(String message, int widthFen) {
         //System.out.println(message);
         FXMLLoader loader = new FXMLLoader();
         Parent root = null;
@@ -149,7 +149,7 @@ public class New_Activity_Controller {
             root = loader.load(getClass().getResourceAsStream(View.SHOW_MESSAGE_XML_FILE_PATH));
 
             Stage scene = new Stage();
-            scene.setScene(new Scene(root, 300, 150));
+            scene.setScene(new Scene(root, widthFen, 150));
             scene.setTitle(View.LABEL_ERROR);
             scene.show();
 

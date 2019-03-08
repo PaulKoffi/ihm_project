@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.SubScene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
+import javafx.scene.image.Image;
 import model.Account;
 import model.Activity;
 import view.View;
@@ -39,7 +40,11 @@ public class Home_Controller {
 
             Parent root = loader.load(getClass().getResourceAsStream(View.ACTIVITY_LIST_TAB_XML_FILE_PATH));
 
-            root.getStylesheets().add(View.ACTIVITY_LIST_TAB_CSS);
+            // String style= getClass().getResource("../resources/css/style.css").toExternalForm();
+            // BTdeconnection.setId("button");
+            // root.getStylesheets().add(style);
+            BTdeconnection.getStylesheets().add(getClass().getResource("../resources/css/style.css").toExternalForm());
+            //root.getStylesheets().add(View.ACTIVITY_LIST_TAB_CSS);
 
             ((Activity_List_Tab_Controller)loader.getController()).init(this.activities);
 

@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.*;
 import view.View;
@@ -58,7 +59,8 @@ public class Connection_Controller {
                         Parent root = loader.load(getClass().getResourceAsStream("../resources/fxml/Home.fxml"));
                         Stage scene = new Stage();
                         scene.setScene(new Scene(root, View.HOMEWIDTH, View.HOMEHEIGHT));
-
+                        scene.getIcons().add(new Image("resources/img/act.jpg"));
+                        scene.setResizable(false);
                         ((Home_Controller)loader.getController()).init(account);
                         scene.setTitle("MyBudget");
                         scene.show();

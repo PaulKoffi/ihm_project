@@ -21,13 +21,14 @@ public class View {
     //width and height
     public static final int TABWIDTH = 1200;
     public static final int TABHEIGHT = 800;
-    public static final int HOMEWIDTH = 1200;
-    public static final int HOMEHEIGHT = 850;
+    public static final int HOMEWIDTH = 1180;
+    public static final int HOMEHEIGHT = 700;
     public static final double ELEMENT_HEIGHT_WIDTH = 250.0;
     //css
     public static final String ACTIVITY_ELEMENT_CSS = "resources/css/Activity_Element.css";
     public static final String ACTIVITY_LIST_TAB_CSS = "resources/css/Activity_List_Tab.css";
     public static final String CSS = "resources/css/rootcss.css";
+    public static final String ButtonCSS = "resources/css/style.css";
 
     //Color of importance
     public static final String HIGH_IMPORTANCE_BACKGROUND_COLOR = "ff6666";

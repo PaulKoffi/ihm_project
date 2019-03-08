@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.Account;
 import view.View;
@@ -33,6 +34,9 @@ public class Main extends Application {
 
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.setTitle("MyBudget");
+
+        // Set the application icon.
+        primaryStage.getIcons().add(new Image("resources/img/appli.jpg"));
 
         primaryStage.show();
         primaryStage.setResizable(false);

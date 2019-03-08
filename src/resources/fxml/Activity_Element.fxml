@@ -23,7 +23,7 @@
                       <AnchorPane>
                          <children>
                             <Label fx:id="LBLname" text="Nan" />
-                              <Pane layoutX="150.0" onMouseEntered="#redTrash" onMouseExited="#blackTrash" prefHeight="30.0" prefWidth="30.0">
+                              <Pane layoutX="150.0" onMouseEntered="#redTrash" onMouseExited="#blackTrash" prefHeight="30.0" prefWidth="30.0" onMouseReleased="#delete">
                                  <children>
                                         <ImageView fx:id="IVsuppr" fitHeight="30.0" fitWidth="30.0">
                                            <cursor>

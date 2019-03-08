@@ -1,5 +1,6 @@
 package controller;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -34,10 +35,17 @@ public class Activity_Element_Controller {
     @FXML
     private Label LBLmaxBudget;
 
+    private ObservableList<Activity> activities;
+
     private Activity activity;
 
-    public void init(Activity activity){
+    private Activity_List_Tab_Controller activity_List_Tab_Controller;
+
+    public void init(ObservableList<Activity> activities, Activity activity, Activity_List_Tab_Controller activity_List_Tab_Controller){
+        this.activity_List_Tab_Controller = activity_List_Tab_Controller;
+        this.activities = activities;
         this.activity = activity;
+        this.activity_List_Tab_Controller = activity_List_Tab_Controller;
 
         this.blackTrash();
 
@@ -73,5 +81,10 @@ public class Activity_Element_Controller {
 
     public void blackTrash(){
         this.IVsuppr.setImage(new Image(getClass().getResourceAsStream(View.BLACK_TRASH_IMG_PATH)));
+    }
+
+    public void delete(){
+        this.activities.remove(activity);
+        this.activity_List_Tab_Controller.refreshGridPane();
     }
 }

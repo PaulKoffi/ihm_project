@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Activity_List_Tab_Controller">
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Activity_List_Tab_Controller">
     <children>
     <BorderPane prefHeight="800.0" prefWidth="1200.0">
     <top>
@@ -47,11 +47,11 @@
                             <RowConstraints prefHeight="60.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <ComboBox fx:id="CBsort" prefHeight="25.0" prefWidth="150.0" GridPane.rowIndex="1">
+                              <ComboBox fx:id="CBsort" onAction="#refreshGridPane" prefHeight="25.0" prefWidth="150.0" GridPane.rowIndex="1">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor></ComboBox>
-                              <RadioButton fx:id="RBcroiss" mnemonicParsing="false" selected="true" text="Decroissant" GridPane.columnIndex="1">
+                              <RadioButton fx:id="RBcroiss" mnemonicParsing="false" onAction="#refreshGridPane" selected="true" text="Decroissant" GridPane.columnIndex="1">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="croissDecr" />
                                  </toggleGroup>
@@ -59,14 +59,14 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </RadioButton>
-                              <RadioButton fx:id="RBdecr" mnemonicParsing="false" text="Croissant" toggleGroup="$croissDecr" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <RadioButton fx:id="RBdecr" mnemonicParsing="false" onAction="#refreshGridPane" text="Croissant" toggleGroup="$croissDecr" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor></RadioButton>
                               <Label text="Tri par :" />
                            </children>
                         </GridPane>
-                        <TextField fx:id="TFresearch" promptText="Rechercher" />
+                        <TextField fx:id="TFresearch" onAction="#refreshGridPane" promptText="Rechercher" />
                      </children></HBox>
                   <ScrollPane hbarPolicy="NEVER" prefHeight="600.0">
                     <content>
@@ -81,7 +81,7 @@
                                   <RowConstraints prefHeight="250.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                            <children>
-                              <Button fx:id="BTaddActivity" mnemonicParsing="false" prefHeight="230.0" prefWidth="230.0" text="+">
+                              <Button fx:id="BTaddActivity" mnemonicParsing="false" onAction="#newActivity" prefHeight="230.0" prefWidth="230.0" text="+">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>

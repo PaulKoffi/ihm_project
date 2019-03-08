@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -9,8 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Connection_Controller">
    <children>
       <Pane prefHeight="101.0" prefWidth="600.0">
          <children>
@@ -27,15 +28,16 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="245.0" text="Identifiant" />
+            <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="245.0" text="Email" />
             <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="263.0" text="Mot de passe" textAlignment="RIGHT" GridPane.rowIndex="1" />
-            <TextField maxWidth="200.0" prefHeight="25.0" prefWidth="150.0" GridPane.columnIndex="1" />
-            <TextField maxWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="TFmail" maxWidth="200.0" prefHeight="25.0" prefWidth="150.0" GridPane.columnIndex="1" />
+            <TextField fx:id="TFpassword" maxWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
       <Pane prefHeight="105.0" prefWidth="600.0">
          <children>
-            <CheckBox alignment="CENTER_RIGHT" layoutX="193.0" layoutY="14.0" mnemonicParsing="false" text="Se souvenir de moi" />
+            <CheckBox fx:id="CBremember" alignment="CENTER_RIGHT" layoutX="193.0" layoutY="14.0" mnemonicParsing="false" text="Se souvenir de moi" />
+            <Button layoutX="276.0" layoutY="53.0" mnemonicParsing="false" onMouseReleased="#connexion" text="Connection" />
          </children>
       </Pane>
       <GridPane prefWidth="499.0">
@@ -47,8 +49,8 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="303.0" text="Créer un compte" textFill="#3e04ea" underline="true" />
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="134.0" text="Mot de passe oublié ?" textFill="#3408e3" underline="true" GridPane.columnIndex="1" />
+            <Hyperlink fx:id="HLcreateAccount" prefHeight="23.0" prefWidth="303.0" text="Creer un compte" underline="true" />
+            <Hyperlink fx:id="HLforgetPassword" text="Mot de passe oublié ?" underline="true" GridPane.columnIndex="1" />
          </children>
       </GridPane>
    </children>

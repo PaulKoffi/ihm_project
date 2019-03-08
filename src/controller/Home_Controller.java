@@ -1,5 +1,6 @@
 package controller;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -7,6 +8,7 @@ import javafx.scene.SubScene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import model.Account;
+import model.Activity;
 import view.View;
 
 import java.io.IOException;
@@ -26,8 +28,11 @@ public class Home_Controller {
 
     private Account currentAccount;
 
+    private ObservableList<Activity> activities;
+
     public void init(Account account){
         this.currentAccount = account;
+        this.activities = ParsingActivities.getActivityListFromJSON(View.ACTIVITIES_JSON_FILE);
 
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -36,7 +41,7 @@ public class Home_Controller {
 
             root.getStylesheets().add(View.ACTIVITY_LIST_TAB_CSS);
 
-            ((Activity_List_Tab_Controller)loader.getController()).init();
+            ((Activity_List_Tab_Controller)loader.getController()).init(this.activities);
 
             this.SSactivity.setRoot(root);
         } catch (IOException e) {

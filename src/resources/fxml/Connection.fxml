@@ -18,7 +18,7 @@
             <Label alignment="CENTER" layoutY="51.0" prefHeight="17.0" prefWidth="600.0" text="Connexion" />
          </children>
       </Pane>
-      <GridPane prefWidth="499.0">
+      <GridPane prefHeight="91.0" prefWidth="600.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -34,13 +34,13 @@
             <TextField fx:id="TFpassword" maxWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
-      <Pane prefHeight="105.0" prefWidth="600.0">
+      <Pane prefHeight="135.0" prefWidth="600.0">
          <children>
-            <CheckBox fx:id="CBremember" alignment="CENTER_RIGHT" layoutX="193.0" layoutY="14.0" mnemonicParsing="false" text="Se souvenir de moi" />
+            <CheckBox fx:id="CBremember" alignment="CENTER_RIGHT" layoutX="239.0" layoutY="14.0" mnemonicParsing="false" text="Se souvenir de moi" />
             <Button layoutX="276.0" layoutY="53.0" mnemonicParsing="false" onMouseReleased="#connexion" text="Connection" />
          </children>
       </Pane>
-      <GridPane prefWidth="499.0">
+      <GridPane prefWidth="600.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="468.0" minWidth="10.0" prefWidth="468.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="132.0" />

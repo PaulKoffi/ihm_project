@@ -9,17 +9,22 @@
 
 .label {
     -fx-font-size: 13pt;
-    -fx-font-family: "Garamond";
+    -fx-font-family: "Century Gothic";
     -fx-text-fill: white;
+    -fx-font-weight: bold;
     /*-fx-opacity: 0.6;*/
 }
 
 .hyperlink {
     -fx-font-size: 9pt;
+    -fx-font-family: "Century Gothic";
+    -fx-font-weight: bold;
     /*-fx-opacity: 0.6;*/
 }
 
 .check-box {
     -fx-font-size: 9pt;
+    -fx-font-family: "Century Gothic";
+    -fx-font-weight: bold;
     -fx-text-fill: white;
 }

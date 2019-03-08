@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Profil_Controller">
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Profil_Controller">
       <children>
           <BorderPane prefHeight="800.0" prefWidth="1200.0">
               <top>
@@ -35,7 +35,7 @@
                    <children>
                   <VBox>
                      <children>
-                            <GridPane fx:id="GPform" disable="true">
+                            <GridPane fx:id="GPform" disable="true" prefHeight="243.0" prefWidth="3421.0">
                               <columnConstraints>
                                 <ColumnConstraints prefWidth="200.0" />
                                 <ColumnConstraints prefWidth="200.0" />
@@ -75,7 +75,7 @@
                               <Insets left="400.0" right="400.0" top="200.0" />
                            </VBox.margin>
                             </GridPane>
-                        <HBox prefHeight="100.0" prefWidth="200.0">
+                        <HBox prefHeight="168.0" prefWidth="4247.0">
                            <children>
                                   <Button fx:id="BTmodify" onMouseReleased="#modify" text="Modifier">
                                  <HBox.margin>

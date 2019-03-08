@@ -47,6 +47,8 @@ public class Profil_Controller {
 
         this.IVkeyPassword.setImage(new Image(getClass().getResourceAsStream(View.KEY_PASSWORD_IMG_PATH)));
         this.imgU.setImage(new Image(getClass().getResourceAsStream(View.U_IMG_PATH)));
+        this.GPform.setDisable(false);
+        this.disable(true);
     }
 
     public void save(){
@@ -55,11 +57,11 @@ public class Profil_Controller {
         this.account.setEmail(TFmail.getText());
         this.account.setPassword(TFpassword.getText());
         this.account.setSalary(SPsalary.getValue());
-        this.GPform.setDisable(true);
+        this.disable(true);
     }
 
     public void modify(){
-        GPform.setDisable(false);
+        this.disable(false);
     }
 
     public void pushButtonPassword(){
@@ -93,5 +95,13 @@ public class Profil_Controller {
             }
         }
         this.TFpassword.setText(getCryptyPassword(this.password.length()));
+    }
+
+    private void disable(boolean bool){
+        this.TFname.setDisable(bool);
+        this.TFfirstname.setDisable(bool);
+        this.TFmail.setDisable(bool);
+        this.TFpassword.setDisable(bool);
+        this.SPsalary.setDisable(bool);
     }
 }

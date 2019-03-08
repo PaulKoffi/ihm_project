@@ -19,6 +19,16 @@
     -fx-font-size: 9pt;
     -fx-font-family: "Century Gothic";
     -fx-font-weight: bold;
+    -fx-border-color: transparent;
+    /*-fx-opacity: 0.6;*/
+}
+
+.hyperlink:visited {
+    -fx-font-size: 9pt;
+    -fx-font-family: "Century Gothic";
+    -fx-font-weight: bold;
+    -fx-border-color: transparent;
+    -fx-text-fill: #19b2cc;
     /*-fx-opacity: 0.6;*/
 }
 

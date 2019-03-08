@@ -46,14 +46,17 @@ public class Connection_Controller {
         //Checking required fields
         if (id.equals("") || password.equals("")) {
             showMessage("Veuillez remplir tous les champs Obligatoires !");
+            TFmail.setText("");
+            TFpassword.setText("");
             return;
         }
 
+        boolean connected = false;
         //Checking if account already exist
         for (Account account: accounts) {
             if (account.getEmail().equals(id)){
                 if (account.getPassword().equals(password)){
-
+                    connected = true;
                     TFmail.setText("");
                     TFpassword.setText("");
                     FXMLLoader loader = new FXMLLoader();
@@ -75,6 +78,13 @@ public class Connection_Controller {
                 }
             }
         }
+
+        if(!connected){
+            showMessage("Vos paramètres de connexion sont incorrects !");
+            TFmail.setText("");
+            TFpassword.setText("");
+        }
+
     }
 
     public void showMessage(String message) {
@@ -85,6 +95,7 @@ public class Connection_Controller {
             Stage scene = new Stage();
             scene.setScene(new Scene(root, 300, 150));
             scene.setTitle(View.LABEL_ERROR);
+            scene.setResizable(false);
             scene.show();
 
             ((Show_Message_Controller)loader.getController()).showMessage(message, scene);

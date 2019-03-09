@@ -15,7 +15,7 @@
    <children>
       <Pane prefHeight="101.0" prefWidth="600.0">
          <children>
-            <Label alignment="CENTER" layoutY="51.0" prefHeight="17.0" prefWidth="600.0" text="Connexion" />
+            <Label alignment="CENTER" layoutY="51.0" prefHeight="17.0" prefWidth="600.0" text="    Connexion" />
          </children>
       </Pane>
       <GridPane prefHeight="91.0" prefWidth="600.0">
@@ -37,7 +37,7 @@
       <Pane prefHeight="135.0" prefWidth="600.0">
          <children>
             <CheckBox fx:id="CBremember" alignment="CENTER_RIGHT" layoutX="239.0" layoutY="14.0" mnemonicParsing="false" text="Se souvenir de moi" />
-            <Button layoutX="276.0" layoutY="53.0" mnemonicParsing="false" onMouseReleased="#connexion" text="Connexion" />
+            <Button layoutX="256.0" layoutY="80.0" mnemonicParsing="false" onMouseReleased="#connexion" text="Connexion" />
          </children>
       </Pane>
       <GridPane prefHeight="79.0" prefWidth="600.0">

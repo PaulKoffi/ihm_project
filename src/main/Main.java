@@ -16,6 +16,8 @@ import java.util.ArrayList;
 
 public class Main extends Application {
 
+    public static Boolean isSplashLoaded = false;
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         //Creating a list of accounts
@@ -27,12 +29,16 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader();
 
         Parent root = loader.load(getClass().getResourceAsStream(View.CONNECTION_XML_FILE_PATH));
+        //Parent root = loader.load(getClass().getResourceAsStream(View.SPLASH_FORM_XML_FILE_PATH));
+        //Parent root = FXMLLoader.load(getClass().getResource("../resources/fxml/Connection2.fxml"));
 
+        //Style
         root.getStylesheets().add(View.CSSR);
 
         ((Connection_Controller)loader.getController()).init(accounts, primaryStage);
 
-        primaryStage.setScene(new Scene(root, 600, 400));
+        //primaryStage.setScene(new Scene(root, 600, 400));
+        primaryStage.setScene(new Scene(root));
         primaryStage.setTitle("MyBudget");
 
         // Set the application icon.

@@ -41,7 +41,7 @@ public class View {
     //images
     public static final String BLACK_TRASH_IMG_PATH = "../resources/img/blackTrash.png";
     public static final String RED_TRASH_IMG_PATH = "../resources/img/redTrash.png";
-    public static final String DEC_IMG_PATH = "../resources/img/deco1.jpg";
+    public static final String DEC_IMG_PATH = "../resources/img/clos.png";
     public static final String NEW_ACTIVITY_IMG_PATH = "../resources/img/new_activity.png";
     public static final String KEY_PASSWORD_IMG_PATH = "../resources/img/key_password.png";
     public static final String USER_IMG_PATH = "../resources/img/user.png";

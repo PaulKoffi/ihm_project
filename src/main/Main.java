@@ -28,7 +28,7 @@ public class Main extends Application {
 
         Parent root = loader.load(getClass().getResourceAsStream(View.CONNECTION_XML_FILE_PATH));
 
-        root.getStylesheets().add(View.CSS);
+        root.getStylesheets().add(View.CSSR);
 
         ((Connection_Controller)loader.getController()).init(accounts, primaryStage);
 

@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import model.Activity;
@@ -160,6 +161,7 @@ public class New_Activity_Controller {
             Stage scene = new Stage();
             scene.setScene(new Scene(root, widthFen, 150));
             scene.setTitle(View.LABEL_ERROR);
+            scene.getIcons().add(new Image("resources/img/warning.png"));
             scene.show();
 
             ((Show_Message_Controller)loader.getController()).showMessage(message, scene);

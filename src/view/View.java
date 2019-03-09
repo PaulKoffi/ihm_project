@@ -29,6 +29,7 @@ public class View {
     public static final String ACTIVITY_ELEMENT_CSS = "resources/css/Activity_Element.css";
     public static final String ACTIVITY_LIST_TAB_CSS = "resources/css/Activity_List_Tab.css";
     public static final String PROFILE_CSS = "resources/css/profile.css";
+    public static final String CSSR = "resources/css/myroot.css";
     public static final String CSS = "resources/css/rootcss.css";
     public static final String ButtonCSS = "resources/css/style.css";
 
@@ -43,7 +44,7 @@ public class View {
     //images
     public static final String BLACK_TRASH_IMG_PATH = "../resources/img/blackTrash.png";
     public static final String RED_TRASH_IMG_PATH = "../resources/img/redTrash.png";
-    public static final String DEC_IMG_PATH = "../resources/img/deco.jpg";
+    public static final String DEC_IMG_PATH = "../resources/img/deco1.jpg";
     public static final String NEW_ACTIVITY_IMG_PATH = "../resources/img/new_activity.png";
     public static final String KEY_PASSWORD_IMG_PATH = "../resources/img/key_password.png";
 

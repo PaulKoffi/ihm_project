@@ -64,7 +64,7 @@ public class Connection_Controller {
                         Parent root = loader.load(getClass().getResourceAsStream("../resources/fxml/Home.fxml"));
                         Stage scene = new Stage();
                         scene.setScene(new Scene(root, View.HOMEWIDTH, View.HOMEHEIGHT));
-
+                        root.getStylesheets().add(View.ACTIVITY_LIST_TAB_CSS);
                         scene.getIcons().add(new Image("resources/img/act.jpg"));
                         scene.setResizable(false);
                         ((Home_Controller)loader.getController()).init(account,thisWindows,scene);
@@ -94,6 +94,7 @@ public class Connection_Controller {
             root.getStylesheets().add(getClass().getResource("../resources/css/style.css").toExternalForm());
             Stage scene = new Stage();
             scene.setScene(new Scene(root, 300, 150));
+            scene.getIcons().add(new Image("resources/img/warning.png"));
             scene.setTitle(View.LABEL_ERROR);
             scene.setResizable(false);
             scene.show();

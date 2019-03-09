@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import model.*;
 import view.View;
@@ -19,8 +20,13 @@ public class Connection_Controller {
 
     @FXML
     private TextField TFmail;
+
     @FXML
-    private TextField TFpassword;
+    private PasswordField TFpassword;
+
+    @FXML
+    private  TextField TFpass;
+
     @FXML
     private CheckBox CBremember;
     @FXML
@@ -28,6 +34,11 @@ public class Connection_Controller {
     @FXML
     private Hyperlink HLforgetPassword;
 
+    @FXML
+    private ImageView IVkeyPassword;
+    @FXML
+    private ImageView IVUser;
+    private String password;
 
 
     private Stage thisWindows;
@@ -36,12 +47,20 @@ public class Connection_Controller {
     public void init(ArrayList<Account> accounts, Stage thisWindows) {
         this.accounts = accounts;
         this.thisWindows = thisWindows;
+        this.TFmail.setMaxWidth(200);
+        this.TFpassword.setMaxWidth(200);
+        this.TFpass.setMaxWidth(200);
+        this.TFpass.setManaged(false);
+        this.TFpass.setVisible(false);
+        TFpass.textProperty().bindBidirectional(TFpassword.textProperty());
+        this.IVkeyPassword.setImage(new Image(getClass().getResourceAsStream(View.KEY_PASSWORD_IMG_PATH)));
+        this.IVUser.setImage(new Image(getClass().getResourceAsStream(View.USER_IMG_PATH)));
     }
 
 
     public void connexion() {
         String id = TFmail.getText();
-        String password = TFpassword.getText();
+        String password = TFpassword.getText();;
 
         //Checking required fields
         if (id.equals("") || password.equals("")) {
@@ -103,6 +122,21 @@ public class Connection_Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+
+    public void pushButtonPassword(){
+        this.TFpass.setManaged(true);
+        this.TFpass.setVisible(true);
+        this.TFpassword.setManaged(false);
+        this.TFpassword.setVisible(false);
+    }
+
+    public void releasedButtonPassword(){
+        this.TFpass.setManaged(false);
+        this.TFpass.setVisible(false);
+        this.TFpassword.setManaged(true);
+        this.TFpassword.setVisible(true);
     }
 
 }

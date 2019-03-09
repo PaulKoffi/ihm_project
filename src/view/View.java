@@ -11,9 +11,6 @@ public class View {
     public static final String PROFILE_XML_FILE_PATH = "../resources/fxml/Profile.fxml";
     public static final String SHOW_MESSAGE_XML_FILE_PATH = "../resources/fxml/Show_Message.fxml";
 
-    public static final String SHOW_MESSAGE_ERROR_IMG_FILE_PATH = "resources/img/warning.png";
-    public static final String U_IMG_PATH = "../resources/img/utilisateur.png";
-
     //window names
     public static final String LABEL_HOME = "MyBudget - Home";
     public static final String LABEL_LIST_ACTIVITY = "MyBudget - Liste des activités";
@@ -47,6 +44,9 @@ public class View {
     public static final String DEC_IMG_PATH = "../resources/img/deco1.jpg";
     public static final String NEW_ACTIVITY_IMG_PATH = "../resources/img/new_activity.png";
     public static final String KEY_PASSWORD_IMG_PATH = "../resources/img/key_password.png";
+    public static final String USER_IMG_PATH = "../resources/img/user.png";
+    public static final String SHOW_MESSAGE_ERROR_IMG_FILE_PATH = "resources/img/warning.png";
+    public static final String U_IMG_PATH = "../resources/img/utilisateur.png";
 
     //JSON
     public static final String ACTIVITIES_JSON_FILE = "src/resources/json/activities.json";

@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Connection_Controller">
+<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Connection_Controller">
    <children>
       <Pane prefHeight="107.0" prefWidth="600.0">
          <children>
@@ -36,17 +36,8 @@
             <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="245.0" text="Email" />
             <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="263.0" text="Mot de passe" textAlignment="RIGHT" GridPane.rowIndex="1" />
             <TextField fx:id="TFmail" maxWidth="200.0" prefHeight="25.0" prefWidth="175.0" GridPane.columnIndex="1" />
-            <Button id="black" mnemonicParsing="false" onMousePressed="#pushButtonPassword" onMouseReleased="#releasedButtonPassword" prefHeight="24.0" prefWidth="47.0" style="-fx-border-width: 0;" stylesheets="@../css/myroot.css" GridPane.rowIndex="1">
-               <graphic>
-                  <ImageView fx:id="IVkeyPassword" fitHeight="10.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true" />
-               </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <GridPane.margin>
-                  <Insets left="296.0" />
-               </GridPane.margin>
-            </Button>
+            <PasswordField fx:id="TFpassword" maxWidth="200.0" prefHeight="25.0" prefWidth="175.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="TFpass" maxWidth="200.0" prefHeight="25.0" prefWidth="175.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Button fx:id="fxbt" mnemonicParsing="false" prefHeight="24.0" prefWidth="46.0" style="-fx-border-width: 0;">
                <graphic>
                   <ImageView fx:id="IVUser" fitHeight="10.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true" />
@@ -58,8 +49,17 @@
                   <Insets left="296.0" />
                </GridPane.margin>
             </Button>
-            <PasswordField fx:id="TFpassword" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="TFpass" maxWidth="200.0" prefHeight="25.0" prefWidth="175.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button id="black" mnemonicParsing="false" onMousePressed="#pushButtonPassword" onMouseReleased="#releasedButtonPassword" prefHeight="24.0" prefWidth="47.0" style="-fx-border-width: 0;" stylesheets="@../css/myroot.css" GridPane.rowIndex="1">
+               <graphic>
+                  <ImageView fx:id="IVkeyPassword" fitHeight="10.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true" />
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <GridPane.margin>
+                  <Insets left="296.0" />
+               </GridPane.margin>
+            </Button>
          </children>
       </GridPane>
       <Pane prefHeight="117.0" prefWidth="600.0">

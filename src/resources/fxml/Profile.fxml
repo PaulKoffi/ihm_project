@@ -65,9 +65,9 @@
                                   <TextField fx:id="TFfirstname" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                   <TextField fx:id="TFmail" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                    <Spinner fx:id="SPsalary" editable="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                              <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                  <children>
-                                    <Button mnemonicParsing="false" onMousePressed="#pushButtonPassword" onMouseReleased="#releasedButtonPassword" style="-fx-border-width: 0;">
+                                    <Button mnemonicParsing="false" onMousePressed="#pushButtonPassword" onMouseReleased="#releasedButtonPassword" prefHeight="24.0" prefWidth="32.0" style="-fx-border-width: 0;">
                                        <graphic>
                                           <ImageView fx:id="IVkeyPassword" fitHeight="10.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true" />
                                        </graphic>

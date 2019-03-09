@@ -48,6 +48,8 @@ public class Home_Controller {
         this.scene = scene;
         this.currentAccount = account;
         this.IMDec.setImage(new Image(getClass().getResourceAsStream(View.DEC_IMG_PATH)));
+        // this.IMDec.setFitHeight(30);
+        // this.IMDec.setFitWidth(30);
         this.activities = ParsingActivities.getActivityListFromJSON(View.ACTIVITIES_JSON_FILE);
 
         try {

@@ -62,7 +62,6 @@ public class Home_Controller {
             FXMLLoader loader = new FXMLLoader();
 
             Parent root = loader.load(getClass().getResourceAsStream(View.ACTIVITY_LIST_TAB_XML_FILE_PATH));
-            root.getStylesheets().add(View.CSS);
             // String style= getClass().getResource("../resources/css/style.css").toExternalForm();
             // BTdeconnection.setId("button");
             // root.getStylesheets().add(style);
@@ -80,7 +79,6 @@ public class Home_Controller {
             FXMLLoader loader = new FXMLLoader();
 
             Parent root = loader.load(getClass().getResourceAsStream(View.PROFILE_XML_FILE_PATH));
-            root.getStylesheets().add(View.CSS);
             ((Profil_Controller)loader.getController()).init(account);
 
             this.SSprofil.setRoot(root);

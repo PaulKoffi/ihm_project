@@ -28,7 +28,6 @@ public class View {
     public static final String ACTIVITY_LIST_TAB_CSS = "resources/css/Activity_List_Tab.css";
     public static final String PROFILE_CSS = "resources/css/profile.css";
     public static final String CSSR = "resources/css/myroot.css";
-    public static final String CSS = "resources/css/rootcss.css";
     public static final String ButtonCSS = "resources/css/style.css";
     public static final String CSS_SPLASH = "resources/css/splash.css";
 

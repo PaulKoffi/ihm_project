@@ -1,16 +1,20 @@
 package controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import model.*;
 import view.View;
 
+import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -52,6 +56,15 @@ public class Connection_Controller {
         this.TFpassword.setVisible(false);
         TFpassword.textProperty().bindBidirectional(PFpassword.textProperty());
         this.IVkeyPassword.setImage(new Image(getClass().getResourceAsStream(View.KEY_PASSWORD_IMG_PATH)));
+
+        this.TFmail.setOnKeyReleased(event -> {
+            if (event.getCode().equals(KeyCode.ENTER))
+                connexion();
+        });
+        this.PFpassword.setOnKeyReleased(event -> {
+            if (event.getCode().equals(KeyCode.ENTER))
+                connexion();
+        });
     }
 
 
@@ -62,45 +75,40 @@ public class Connection_Controller {
         //Checking required fields
         if (id.equals("") || password.equals("")) {
             showMessage("Veuillez remplir tous les champs Obligatoires !");
-            TFmail.setText("");
-            PFpassword.setText("");
             return;
         }
 
         boolean connected = false;
         //Checking if account already exist
         for (Account account: accounts) {
-            if (account.getEmail().equals(id)){
-                if (account.getPassword().equals(password)){
-                    connected = true;
-                    TFmail.setText("");
-                    PFpassword.setText("");
-                    FXMLLoader loader = new FXMLLoader();
-                    try {
-                        Parent root = loader.load(getClass().getResourceAsStream("../resources/fxml/Home.fxml"));
-                        Stage scene = new Stage();
-                        scene.setScene(new Scene(root, View.HOMEWIDTH, View.HOMEHEIGHT));
-                        root.getStylesheets().add(View.ACTIVITY_LIST_TAB_CSS);
-                        scene.getIcons().add(new Image("resources/img/appli.jpg"));
-                        scene.setResizable(false);
-                        ((Home_Controller)loader.getController()).init(account,thisWindows,scene);
-                        scene.setTitle("MyBudget");
-                        scene.show();
-
-                        thisWindows.hide();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
+            if (account.getEmail().equals(id) && account.getPassword().equals(password)){
+                    nextPage(account);
+                    return;
             }
         }
 
-        if(!connected){
-            showMessage("Vos paramètres de connexion sont incorrects !");
-            TFmail.setText("");
-            PFpassword.setText("");
-        }
+        showMessage("Votre id ou/et mdp de connexion est incorrect !");
+        PFpassword.setText("");
 
+    }
+
+    private void nextPage(Account account){
+        FXMLLoader loader = new FXMLLoader();
+        try {
+            Parent root = loader.load(getClass().getResourceAsStream("../resources/fxml/Home.fxml"));
+            Stage scene = new Stage();
+            scene.setScene(new Scene(root, View.HOMEWIDTH, View.HOMEHEIGHT));
+            root.getStylesheets().add(View.ACTIVITY_LIST_TAB_CSS);
+            scene.getIcons().add(new Image("resources/img/appli.jpg"));
+            scene.setResizable(false);
+            ((Home_Controller)loader.getController()).init(account,thisWindows,scene);
+            scene.setTitle("MyBudget");
+            scene.show();
+
+            thisWindows.hide();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void showMessage(String message) {
@@ -134,6 +142,11 @@ public class Connection_Controller {
         this.TFpassword.setVisible(false);
         this.PFpassword.setManaged(true);
         this.PFpassword.setVisible(true);
+    }
+
+    @FXML
+    public void keyReleased(ActionEvent event){
+        System.out.println(event);
     }
 
 }

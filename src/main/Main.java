@@ -22,8 +22,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         //Creating a list of accounts
         ParsingAccounts parsingAccounts= new ParsingAccounts();
-        final String ACCOUNT_JSON_FILE = "src/resources/json/accounts.json";
-        ArrayList<Account> accounts = new ArrayList<>(parsingAccounts.getAccountListFromJSON(ACCOUNT_JSON_FILE));
+        ArrayList<Account> accounts = new ArrayList<>(parsingAccounts.getAccountListFromJSON(View.ACCOUNT_JSON_FILE));
 
         //create a loader
         FXMLLoader loader = new FXMLLoader();
@@ -41,8 +40,12 @@ public class Main extends Application {
         // Set the application icon.
         primaryStage.getIcons().add(new Image("resources/img/appli.jpg"));
 
-        primaryStage.show();
         primaryStage.setResizable(false);
+
+        //If people dont connect directly with the remember
+        if (!((Connection_Controller)loader.getController()).isDirectlyConnect()) {
+            primaryStage.show();
+        }
     }
 
 

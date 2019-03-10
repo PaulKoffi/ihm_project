@@ -15,14 +15,15 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 
 public class ParsingAccounts {
 
 
-    public static ObservableList<Account> getAccountListFromJSON(String jsonFile) {
-        ObservableList<Account> accounts = FXCollections.observableArrayList();
+    public static ArrayList<Account> getAccountListFromJSON(String jsonFile) {
+        ArrayList<Account> accounts = new ArrayList<>();
 
         try {
             // read the json file

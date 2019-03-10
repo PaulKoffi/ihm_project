@@ -13,14 +13,15 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 
 public class ParsingActivities {
 
 
-    public static ObservableList<Activity> getActivityListFromJSON(String jsonFile) {
-        ObservableList<Activity> activities = FXCollections.observableArrayList();
+    public static ArrayList<Activity> getActivityListFromJSON(String jsonFile) {
+        ArrayList<Activity> activities = new ArrayList<>();
 
         try {
             // read the json file

@@ -52,4 +52,5 @@ public class View {
     //JSON
     public static final String ACTIVITIES_JSON_FILE = "src/resources/json/activities.json";
     public static final String ACCOUNT_JSON_FILE = "src/resources/json/accounts.json";
+    public static final String ACCOUNT_REMEMBER_JSON_FILE = "src/resources/json/accountRemember.json";
 }

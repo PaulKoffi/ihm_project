@@ -1,26 +1,21 @@
 package controller;
 
-import javafx.animation.FadeTransition;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.SubScene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Tab;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import javafx.util.Duration;
-import main.Main;
 import model.Account;
 import model.Activity;
+import org.json.simple.JSONObject;
 import view.View;
 
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class Home_Controller {
@@ -44,19 +39,19 @@ public class Home_Controller {
     private ObservableList<Activity> activities;
 
     // page de connexion
-    private Stage thisWindows;
+    private Stage connectionWindow;
     // Page de base
     private Stage scene;
 
 
-    public void init(Account account, Stage thisWindows, Stage scene){
-        this.thisWindows = thisWindows;
+    public void init(Account account, Stage connectionWindow, Stage scene){
+        this.connectionWindow = connectionWindow;
         this.scene = scene;
         this.currentAccount = account;
         this.IMDec.setImage(new Image(getClass().getResourceAsStream(View.DEC_IMG_PATH)));
         // this.IMDec.setFitHeight(30);
         // this.IMDec.setFitWidth(30);
-        this.activities = ParsingActivities.getActivityListFromJSON(View.ACTIVITIES_JSON_FILE);
+        this.activities = FXCollections.observableArrayList(ParsingActivities.getActivityListFromJSON(View.ACTIVITIES_JSON_FILE));
 
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -89,7 +84,18 @@ public class Home_Controller {
     }
 
     public void voidD(){
+        try {
+            JSONObject json = new JSONObject();
+            json.put("email", "empty");
+            FileWriter file = new FileWriter(View.ACCOUNT_REMEMBER_JSON_FILE);
+            file.write(json.toJSONString());
+            file.close();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+
         this.scene.close();
-        this.thisWindows.show();
+        this.connectionWindow.show();
     }
 }

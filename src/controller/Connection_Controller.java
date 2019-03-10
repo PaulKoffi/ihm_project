@@ -12,10 +12,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import model.*;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import view.View;
 
 import java.awt.*;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 
 public class Connection_Controller {
@@ -42,19 +46,21 @@ public class Connection_Controller {
 
     private String password;
 
+    private boolean directlyConnect = false;
+
 
     private Stage thisWindows;
     private ArrayList<Account> accounts;
 
     public void init(ArrayList<Account> accounts, Stage thisWindows) {
-        this.accounts = accounts;
         this.thisWindows = thisWindows;
+        this.accounts = accounts;
         this.TFmail.setMaxWidth(200);
         this.PFpassword.setMaxWidth(200);
         this.TFpassword.setMaxWidth(200);
         this.TFpassword.setManaged(false);
         this.TFpassword.setVisible(false);
-        TFpassword.textProperty().bindBidirectional(PFpassword.textProperty());
+        this.TFpassword.textProperty().bindBidirectional(PFpassword.textProperty());
         this.IVkeyPassword.setImage(new Image(getClass().getResourceAsStream(View.KEY_PASSWORD_IMG_PATH)));
 
         this.TFmail.setOnKeyReleased(event -> {
@@ -65,6 +71,29 @@ public class Connection_Controller {
             if (event.getCode().equals(KeyCode.ENTER))
                 connexion();
         });
+
+        try {
+            FileReader reader = new FileReader(View.ACCOUNT_REMEMBER_JSON_FILE);
+            JSONParser jsonParser = new JSONParser();
+            JSONObject jsonObject = (JSONObject) jsonParser.parse(reader);
+            // get an array from the JSON object
+            String email = (String) jsonObject.get("email");
+            if (!email.equals("empty")){
+                for (Account account : accounts){
+                    if (account.getEmail().equals(email)){
+                        this.directlyConnect = true;
+                        nextPage(account);
+                        return;
+                    }
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -89,10 +118,20 @@ public class Connection_Controller {
 
         showMessage("Votre id ou/et mdp de connexion est incorrect !");
         PFpassword.setText("");
-
     }
 
     private void nextPage(Account account){
+        JSONObject json = new JSONObject();
+        json.put("email", this.CBremember.isSelected() ? account.getEmail() : "empty");
+        try {
+            FileWriter file = new FileWriter(View.ACCOUNT_REMEMBER_JSON_FILE);
+            file.write(json.toJSONString());
+            file.close();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+
         FXMLLoader loader = new FXMLLoader();
         try {
             Parent root = loader.load(getClass().getResourceAsStream("../resources/fxml/Home.fxml"));
@@ -105,7 +144,7 @@ public class Connection_Controller {
             scene.setTitle("MyBudget");
             scene.show();
 
-            thisWindows.hide();
+            if (!this.directlyConnect) thisWindows.hide();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -149,5 +188,8 @@ public class Connection_Controller {
         System.out.println(event);
     }
 
+    public boolean isDirectlyConnect() {
+        return directlyConnect;
+    }
 }
 

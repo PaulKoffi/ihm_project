@@ -136,7 +136,7 @@ public class Connection_Controller {
         try {
             Parent root = loader.load(getClass().getResourceAsStream("../resources/fxml/Home.fxml"));
             Stage scene = new Stage();
-            scene.setScene(new Scene(root, View.HOMEWIDTH, View.HOMEHEIGHT));
+            scene.setScene(new Scene(root));
             root.getStylesheets().add(View.ACTIVITY_LIST_TAB_CSS);
             scene.getIcons().add(new Image("resources/img/appli.jpg"));
             scene.setResizable(false);
@@ -175,7 +175,7 @@ public class Connection_Controller {
         try {
             Parent root = loader.load(getClass().getResourceAsStream("../resources/fxml/Create_Account.fxml"));
             Stage scene = new Stage();
-            scene.setScene(new Scene(root, View.HOMEWIDTH, View.HOMEHEIGHT));
+            scene.setScene(new Scene(root));
             scene.setResizable(false);
             ((Create_Account_Controller) loader.getController()).init(accounts, scene);
             scene.setTitle("MyBudget");
@@ -201,11 +201,6 @@ public class Connection_Controller {
         this.TFpassword.setVisible(false);
         this.PFpassword.setManaged(true);
         this.PFpassword.setVisible(true);
-    }
-
-    @FXML
-    public void keyReleased(ActionEvent event){
-        System.out.println(event);
     }
 
     public boolean isDirectlyConnect() {

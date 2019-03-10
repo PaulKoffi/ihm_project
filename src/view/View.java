@@ -18,10 +18,6 @@ public class View {
     public static final String LABEL_ADD_ACTIVITY = "MyBudget - Ajouter une activité";
     public static final String LABEL_ERROR = "Erreur";
     //width and height
-    public static final int TABWIDTH = 1200;
-    public static final int TABHEIGHT = 800;
-    public static final int HOMEWIDTH = 1180;
-    public static final int HOMEHEIGHT = 700;
     public static final double ELEMENT_HEIGHT_WIDTH = 250.0;
     //css
     public static final String ACTIVITY_ELEMENT_CSS = "resources/css/Activity_Element.css";

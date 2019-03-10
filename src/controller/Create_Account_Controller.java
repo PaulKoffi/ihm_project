@@ -1,24 +1,16 @@
 package controller;
 
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import jdk.nashorn.internal.parser.JSONParser;
 import model.*;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 import view.View;
 
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.text.ParseException;
 import java.util.ArrayList;
 
 import static controller.AddingAccounts.addNewAccounttoJSON;
@@ -26,15 +18,15 @@ import static controller.AddingAccounts.addNewAccounttoJSON;
 public class Create_Account_Controller {
 
     @FXML
-    private TextField TFFirstName;
+    private TextField TFfirstName;
     @FXML
-    private TextField TFFamillytName;
+    private TextField TFfamillytName;
     @FXML
-    private TextField TFEmail;
+    private TextField TFemail;
     @FXML
-    private PasswordField TFPassword;
+    private PasswordField PFpassword;
     @FXML
-    private Button BTcreateAccount;
+    private TextField TFsalary;
 
     private Stage window;
 
@@ -48,21 +40,38 @@ public class Create_Account_Controller {
 
 
     }
-    public void createAccount() throws IOException {
-        Account newAccount = new Account(
-                TFFirstName.getText(),
-                TFFamillytName.getText(),
-                TFEmail.getText(),
-                TFPassword.getText(),
-                0) ;
+    public void createAccount() {
+        Account newAccount;
+        try{
+            newAccount = new Account(
+                    TFfirstName.getText(),
+                    TFfamillytName.getText(),
+                    TFemail.getText(),
+                    PFpassword.getText(),
+                    Double.valueOf(TFsalary.getText())) ;
+        } catch (Exception e){
+            showMessage("Salaire illisible");
+            return;
+        }
 
         //Checking required fields
-        if (newAccount.getFirstName().equals("")) {
+        if (newAccount.getFirstName().equals("") ||
+                newAccount.getName().equals("") ||
+                newAccount.getEmail().equals("") ||
+                newAccount.getPassword().equals("") ||
+                TFsalary.getText().equals("")) {
             showMessage("Veuillez remplir tous les champs Obligatoires !");
             return;
         }
 
+        if (accounts.contains(newAccount)){
+            showMessage("Cet email correspond deja a un compte");
+            return;
+        }
+
         addNewAccounttoJSON(newAccount);
+
+        accounts.add(newAccount);
 
         this.window.close();
 

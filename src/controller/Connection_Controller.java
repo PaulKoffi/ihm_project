@@ -168,6 +168,26 @@ public class Connection_Controller {
         }
     }
 
+    @FXML
+    private void createNewAccount(){
+
+        FXMLLoader loader = new FXMLLoader();
+        try {
+            Parent root = loader.load(getClass().getResourceAsStream("../resources/fxml/Create_Account.fxml"));
+            Stage scene = new Stage();
+            scene.setScene(new Scene(root, View.HOMEWIDTH, View.HOMEHEIGHT));
+            scene.setResizable(false);
+            ((Create_Account_Controller) loader.getController()).init(accounts, scene);
+            scene.setTitle("MyBudget");
+            scene.show();
+
+            thisWindows.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 
     public void pushButtonPassword(){
         this.TFpassword.setManaged(true);

@@ -2,11 +2,12 @@ package controller;
 
 import javafx.collections.ObservableList;
 import model.Account;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static junit.framework.TestCase.assertTrue;
+import static org.junit.Assert.assertFalse;
 
 class ParsingAccountsTest {
 

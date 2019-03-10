@@ -6,11 +6,22 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import jdk.nashorn.internal.parser.JSONParser;
 import model.*;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import view.View;
 
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.text.ParseException;
+import java.util.ArrayList;
+
+import static controller.AddingAccounts.addNewAccounttoJSON;
 
 public class Create_Account_Controller {
 
@@ -21,24 +32,23 @@ public class Create_Account_Controller {
     @FXML
     private TextField TFEmail;
     @FXML
-    private TextField TFPassword;
+    private PasswordField TFPassword;
     @FXML
     private Button BTcreateAccount;
 
     private Stage window;
 
-    public void init(ObservableList<Account> accounts, Stage scene){
+    private ArrayList<Account> accounts;
 
+    public void init(ArrayList<Account> accounts, Stage scene){
+        this.accounts = accounts;
         //Setting the stage
         this.window = scene;
-        BTcreateAccount.getStylesheets().add(getClass().getResource("../resources/css/style.css").toExternalForm());
 
 
-        //add listener to button
-        BTcreateAccount.setOnAction(event -> createAccount(accounts));
 
     }
-    public void createAccount(ObservableList<Account> accounts){
+    public void createAccount() throws IOException {
         Account newAccount = new Account(
                 TFFirstName.getText(),
                 TFFamillytName.getText(),
@@ -52,14 +62,26 @@ public class Create_Account_Controller {
             return;
         }
 
-        //Checking if account already exist
-        if (accounts.contains(newAccount)){
-            showMessage("Il existe déjà un compte associé a cette adresse email, veuillez modifier votre saisie !");
-            return;
-        }
+        addNewAccounttoJSON(newAccount);
 
-        accounts.add(newAccount);
         this.window.close();
+
+        FXMLLoader loader = new FXMLLoader();
+        try {
+            Parent root = loader.load(getClass().getResourceAsStream(View.CONNECTION_XML_FILE_PATH));
+            Stage scene = new Stage();
+            scene.setScene(new Scene(root));
+            root.getStylesheets().add(View.CSSR);
+            scene.getIcons().add(new Image("resources/img/appli.jpg"));
+            scene.setResizable(false);
+            ((Connection_Controller)loader.getController()).init(accounts,scene);
+            scene.setTitle("MyBudget");
+            scene.show();
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
     public void showMessage(String message){
@@ -79,6 +101,7 @@ public class Create_Account_Controller {
         }
 
     }
+
 
 
 }

@@ -42,7 +42,7 @@ public class ParsingAccounts {
                 String firstName = (String) innerObj.get("firstName");
                 String email = (String) innerObj.get("email");
                 String password = (String) innerObj.get("password");
-                Double salary = Double.valueOf((Long)innerObj.get("salary"));
+                double salary = Double.valueOf((double)innerObj.get("salary"));
                 accounts.add(new Account(name,firstName,email,password, salary));
             }
 

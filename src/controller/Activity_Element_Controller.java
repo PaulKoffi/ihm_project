@@ -2,21 +2,20 @@ package controller;
 
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.ContentDisplay;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.Label;
-import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import model.Activity;
 import view.View;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 
 public class Activity_Element_Controller {
     @FXML
     private Label LBLname;
-    @FXML
-    private Button BTsuppr;
     @FXML
     private ImageView IVsuppr;
 
@@ -27,6 +26,8 @@ public class Activity_Element_Controller {
     private Label LBLimportance;
     @FXML
     private Label LBLendDate;
+    @FXML
+    private Label LBLfini;
     @FXML
     private Label LBLfrequency;
     @FXML
@@ -46,15 +47,15 @@ public class Activity_Element_Controller {
         this.activity = activity;
         this.activity_List_Tab_Controller = activity_List_Tab_Controller;
 
-        ImageView icon = new ImageView(new Image(getClass().getResourceAsStream(View.CORBEILLE_IMG_PATH)));
-        icon.setPreserveRatio(false);
-        icon.setFitWidth(20);
-        icon.setFitHeight(20);
-        BTsuppr.setGraphic(icon);
-        BTsuppr.setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+        this.blackTrash();
 
         this.LBLname.setText(activity.getName());
-        this.LBLendDate.setText(activity.getEndDate() == null ? "Infini" : activity.getEndDate().toString());
+        if (activity.getEndDate() == null){
+            this.LBLfini.setText("");
+            this.LBLendDate.setText("Infini");
+        } else {
+            this.LBLendDate.setText(new SimpleDateFormat("dd/MM/yy").format(activity.getEndDate()));
+        }
         this.LBLfrequency.setText(activity.getFrequency().toString());
         this.LBLminBudget.setText(activity.getMinimumBudget().toString());
         this.LBLmaxBudget.setText(activity.getMaximumBudget().toString());
@@ -72,6 +73,14 @@ public class Activity_Element_Controller {
                 break;
         }
 
+    }
+
+    public void redTrash(){
+        this.IVsuppr.setImage(new Image(getClass().getResourceAsStream(View.RED_TRASH_IMG_PATH)));
+    }
+
+    public void blackTrash(){
+        this.IVsuppr.setImage(new Image(getClass().getResourceAsStream(View.BLACK_TRASH_IMG_PATH)));
     }
 
     public void delete(){

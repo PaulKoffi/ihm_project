@@ -15,11 +15,11 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Profil_Controller">
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Profil_Controller">
       <children>
           <BorderPane prefHeight="800.0" prefWidth="1200.0">
               <top>
-                  <AnchorPane prefHeight="100.0" prefWidth="1200.0" BorderPane.alignment="CENTER" />
+                  <AnchorPane prefHeight="100.0" prefWidth="7409.0" BorderPane.alignment="CENTER" />
               </top>
               <left>
                   <AnchorPane prefHeight="800.0" prefWidth="90.0" BorderPane.alignment="CENTER" />
@@ -31,14 +31,19 @@
                   <AnchorPane prefHeight="100.0" prefWidth="1200.0" BorderPane.alignment="CENTER" />
               </bottom>
               <center>
-                <AnchorPane>
+                <AnchorPane prefHeight="509.0" prefWidth="4247.0">
                    <children>
                   <VBox>
                      <children>
-                            <GridPane fx:id="GPform" disable="true">
+                        <ImageView fx:id="imgU" fitHeight="208.0" fitWidth="261.0" pickOnBounds="true" preserveRatio="true">
+                           <VBox.margin>
+                              <Insets bottom="60.0" left="530.0" top="-40.0" />
+                           </VBox.margin>
+                        </ImageView>
+                            <GridPane fx:id="GPform" disable="true" prefHeight="259.0" prefWidth="6569.0">
                               <columnConstraints>
-                                <ColumnConstraints prefWidth="200.0" />
-                                <ColumnConstraints prefWidth="200.0" />
+                                <ColumnConstraints maxWidth="200.0" minWidth="187.0" prefWidth="193.0" />
+                                <ColumnConstraints maxWidth="213.0" minWidth="200.0" prefWidth="207.0" />
                               </columnConstraints>
                               <rowConstraints>
                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -53,13 +58,16 @@
                                   <Label text="Adresse mail" GridPane.rowIndex="2" />
                                   <Label text="Mot de passe" GridPane.rowIndex="3" />
                                    <Label text="Revenue" GridPane.rowIndex="4" />
-                                  <TextField fx:id="TFname" GridPane.columnIndex="1" />
+                                  <TextField fx:id="TFname" prefWidth="200.0" GridPane.columnIndex="1">
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin></TextField>
                                   <TextField fx:id="TFfirstname" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                   <TextField fx:id="TFmail" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                    <Spinner fx:id="SPsalary" editable="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                              <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                  <children>
-                                    <Button mnemonicParsing="false" onMousePressed="#pushButtonPassword" onMouseReleased="#releasedButtonPassword" style="-fx-border-width: 0;">
+                                    <Button mnemonicParsing="false" onMousePressed="#pushButtonPassword" onMouseReleased="#releasedButtonPassword" prefHeight="24.0" prefWidth="32.0" style="-fx-border-width: 0;">
                                        <graphic>
                                           <ImageView fx:id="IVkeyPassword" fitHeight="10.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true" />
                                        </graphic>
@@ -72,14 +80,14 @@
                               </HBox>
                                </children>
                            <VBox.margin>
-                              <Insets left="400.0" right="400.0" top="200.0" />
+                              <Insets bottom="200.0" left="400.0" right="400.0" top="-20.0" />
                            </VBox.margin>
                             </GridPane>
-                        <HBox prefHeight="100.0" prefWidth="200.0">
+                        <HBox prefHeight="482.0" prefWidth="7369.0">
                            <children>
                                   <Button fx:id="BTmodify" onMouseReleased="#modify" text="Modifier">
                                  <HBox.margin>
-                                    <Insets left="500.0" top="30.0" />
+                                    <Insets left="540.0" top="30.0" />
                                  </HBox.margin>
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
@@ -87,15 +95,21 @@
                               </Button>
                               <Button fx:id="BTsave" onMouseReleased="#save" text="Sauvegarder">
                                  <HBox.margin>
-                                    <Insets left="50.0" top="30.0" />
+                                    <Insets left="70.0" top="30.0" />
                                  </HBox.margin>
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
                            </children>
+                           <padding>
+                              <Insets right="200.0" top="-200.0" />
+                           </padding>
                         </HBox>
                      </children>
+                     <padding>
+                        <Insets bottom="-40.0" left="-130.0" />
+                     </padding>
                   </VBox>
                    </children>
                 </AnchorPane>

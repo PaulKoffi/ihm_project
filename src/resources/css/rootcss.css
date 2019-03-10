@@ -1,0 +1,59 @@
+.root {
+    -fx-background-image: url("../img/money4.jpg");
+}
+
+.button:hover {
+    -fx-background-color: green;
+    -fx-text-fill: white;
+}
+
+.label {
+    -fx-font-size: 13pt;
+    -fx-font-family: "Century Gothic";
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    /*-fx-opacity: 0.6;*/
+}
+
+.hyperlink {
+    -fx-font-size: 9pt;
+    -fx-font-family: "Century Gothic";
+    -fx-font-weight: bold;
+    -fx-border-color: transparent;
+    /*-fx-text-fill: white;*/
+    /*-fx-opacity: 0.6;*/
+}
+
+.hyperlink:visited {
+    -fx-font-size: 9pt;
+    -fx-font-family: "Century Gothic";
+    -fx-font-weight: bold;
+    -fx-border-color: transparent;
+    -fx-text-fill: white;
+    /*-fx-opacity: 0.6;*/
+}
+
+.check-box {
+    -fx-font-size: 9pt;
+    -fx-font-family: "Century Gothic";
+    -fx-font-weight: bold;
+    -fx-text-fill: #010e0a;
+    -fx-background-color: #0ca67d;
+    -fx-background-radius: 10;
+
+}
+
+.radio-button {
+    -fx-font-size: 9pt;
+    -fx-font-family: "Century Gothic";
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.text-field:disabled {
+    -fx-background-color: #eaeaea;
+}
+
+/*.sp:disabled {*/
+    /*-fx-background-color: #484c4c;*/
+/*}*/

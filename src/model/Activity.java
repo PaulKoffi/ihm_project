@@ -33,6 +33,10 @@ public class Activity extends Observable {
         this.importance = importance;
     }
 
+    public Activity(String name){
+        this.name = name;
+    }
+
     /* Getters */
     public String getName() {
         return name;

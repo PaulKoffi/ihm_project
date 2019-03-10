@@ -37,7 +37,12 @@ public class ParsingActivities {
                 JSONObject innerObj = (JSONObject) o;
 
                 String name = (String) innerObj.get("name");
-                Date endDate = format.parse((String)innerObj.get("endDate"));
+                Date endDate;
+                if (((String)innerObj.get("endDate")).equals("infiny")){
+                    endDate = null;
+                } else {
+                    endDate = format.parse((String) innerObj.get("endDate"));
+                }
                 Frequency frequency = Frequency.valueOf((String)innerObj.get("frequency"));
                 int minimumBudget = Integer.valueOf((innerObj.get("minimumBudget")).toString());
                 int maximumBudget = Integer.valueOf((innerObj.get("maximumBudget")).toString());

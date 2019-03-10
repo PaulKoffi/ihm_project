@@ -182,7 +182,7 @@ public class Activity_List_Tab_Controller {
             root = loader.load(getClass().getResourceAsStream("../resources/fxml/New_Activity.fxml"));
             Stage scene = new Stage();
             scene.setScene(new Scene(root, 600, 450));
-
+            scene.getIcons().add(new Image("resources/img/new_activity.png"));
 
             ((New_Activity_Controller)loader.getController()).init(this.activities,scene);
             scene.setTitle("MyBudget - Activity");

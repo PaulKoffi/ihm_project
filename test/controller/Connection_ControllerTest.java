@@ -11,7 +11,7 @@ class Connection_ControllerTest {
 
         /*Connection_Controller c_controller = new Connection_Controller();
         c_controller.setTFmail("a");
-        c_controller.setTFpassword("a");
+        c_controller.setPFpassword("a");
         c_controller.connexion();*/
     }
 }

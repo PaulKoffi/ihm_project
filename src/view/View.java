@@ -47,7 +47,7 @@ public class View {
     public static final String KEY_PASSWORD_IMG_PATH = "../resources/img/key_password.png";
     public static final String USER_IMG_PATH = "../resources/img/user.png";
     public static final String SHOW_MESSAGE_ERROR_IMG_FILE_PATH = "resources/img/warning.png";
-    public static final String U_IMG_PATH = "../resources/img/utilisateur.png";
+    public static final String UTILISATEUR_IMG_PATH = "../resources/img/utilisateur.png";
 
     //JSON
     public static final String ACTIVITIES_JSON_FILE = "src/resources/json/activities.json";

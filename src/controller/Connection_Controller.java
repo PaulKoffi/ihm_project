@@ -81,7 +81,7 @@ public class Connection_Controller {
                         Stage scene = new Stage();
                         scene.setScene(new Scene(root, View.HOMEWIDTH, View.HOMEHEIGHT));
                         root.getStylesheets().add(View.ACTIVITY_LIST_TAB_CSS);
-                        scene.getIcons().add(new Image("resources/img/act.jpg"));
+                        scene.getIcons().add(new Image("resources/img/appli.jpg"));
                         scene.setResizable(false);
                         ((Home_Controller)loader.getController()).init(account,thisWindows,scene);
                         scene.setTitle("MyBudget");

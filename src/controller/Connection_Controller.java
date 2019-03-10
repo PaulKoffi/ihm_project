@@ -11,6 +11,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import main.Main;
@@ -25,8 +26,13 @@ public class Connection_Controller {
 
     @FXML
     private TextField TFmail;
+
     @FXML
-    private TextField TFpassword;
+    private PasswordField TFpassword;
+
+    @FXML
+    private  TextField TFpass;
+
     @FXML
     private CheckBox CBremember;
     @FXML
@@ -37,6 +43,12 @@ public class Connection_Controller {
     @FXML
     private AnchorPane anchorRoot;
 
+    @FXML
+    private ImageView IVkeyPassword;
+    @FXML
+    private ImageView IVUser;
+    private String password;
+
 
     private Stage thisWindows;
     private ArrayList<Account> accounts;
@@ -44,15 +56,25 @@ public class Connection_Controller {
     public void init(ArrayList<Account> accounts, Stage thisWindows) {
         this.accounts = accounts;
         this.thisWindows = thisWindows;
+
         if (!Main.isSplashLoaded) {
             loadSplash();
         }
+
+        this.TFmail.setMaxWidth(200);
+        this.TFpassword.setMaxWidth(200);
+        this.TFpass.setMaxWidth(200);
+        this.TFpass.setManaged(false);
+        this.TFpass.setVisible(false);
+        TFpass.textProperty().bindBidirectional(TFpassword.textProperty());
+        this.IVkeyPassword.setImage(new Image(getClass().getResourceAsStream(View.KEY_PASSWORD_IMG_PATH)));
+        this.IVUser.setImage(new Image(getClass().getResourceAsStream(View.USER_IMG_PATH)));
     }
 
 
     public void connexion() {
         String id = TFmail.getText();
-        String password = TFpassword.getText();
+        String password = TFpassword.getText();;
 
         //Checking required fields
         if (id.equals("") || password.equals("")) {
@@ -151,7 +173,7 @@ public class Connection_Controller {
                 //fadeOut.setNode(anchorRoot);
                 try {
                     FXMLLoader theLoader = new FXMLLoader();
-                    AnchorPane parentContent = theLoader.load(getClass().getResource("../resources/fxml/Connection2.fxml"));
+                    AnchorPane parentContent = theLoader.load(getClass().getResource(View.CONNECTION_XML_FILE_PATH));
                     anchorRoot.getStylesheets().add(View.CSSR);
                     //((Connection_Controller)loader.getController()).init(accounts, thisWindows);
                     anchorRoot.getChildren().setAll(parentContent);
@@ -162,6 +184,21 @@ public class Connection_Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+
+    public void pushButtonPassword(){
+        this.TFpass.setManaged(true);
+        this.TFpass.setVisible(true);
+        this.TFpassword.setManaged(false);
+        this.TFpassword.setVisible(false);
+    }
+
+    public void releasedButtonPassword(){
+        this.TFpass.setManaged(false);
+        this.TFpass.setVisible(false);
+        this.TFpassword.setManaged(true);
+        this.TFpassword.setVisible(true);
     }
 
 }

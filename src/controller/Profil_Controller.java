@@ -68,6 +68,7 @@ public class Profil_Controller {
         this.TFpassword.setText(password);
     }
 
+
     public void releasedButtonPassword(){
         this.password = this.TFpassword.getText();
         this.TFpassword.setText(getCryptyPassword(this.password.length()));

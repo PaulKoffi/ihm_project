@@ -2,7 +2,7 @@
     -fx-background-image: url("../img/money2.jpg");
 }
 
-.button {
+.orange {
 -fx-background-color:
 linear-gradient(#ffd65b, #e68400),
 linear-gradient(#ffef84, #f2ba44),
@@ -17,7 +17,13 @@ linear-gradient(from 0% 0% to 15% 50%, rgba(255,255,255,0.9), rgba(255,255,255,0
 -fx-padding: 10 20 10 20;
 }
 
-.button:hover {
+.orange:hover {
+    -fx-background-color: green;
+    -fx-text-fill: white;
+}
+
+
+#black:hover {
     -fx-background-color: green;
     -fx-text-fill: white;
 }

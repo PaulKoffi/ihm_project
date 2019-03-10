@@ -53,6 +53,14 @@ public class Connection_Controller {
     private Stage thisWindows;
     private ArrayList<Account> accounts;
 
+    public void setTFmail(String mail) {
+        this.TFmail.setText(mail);
+    }
+
+    public void setTFpassword(String pwd) {
+        this.TFpassword.setText(pwd);
+    }
+
     public void init(ArrayList<Account> accounts, Stage thisWindows) {
         this.accounts = accounts;
         this.thisWindows = thisWindows;
@@ -74,7 +82,7 @@ public class Connection_Controller {
 
     public void connexion() {
         String id = TFmail.getText();
-        String password = TFpassword.getText();;
+        String password = TFpassword.getText();
 
         //Checking required fields
         if (id.equals("") || password.equals("")) {

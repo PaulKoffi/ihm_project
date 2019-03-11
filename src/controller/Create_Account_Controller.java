@@ -32,68 +32,80 @@ public class Create_Account_Controller {
 
     private ArrayList<Account> accounts;
 
-    public void init(ArrayList<Account> accounts, Stage scene){
+    public void init(ArrayList<Account> accounts, Stage scene) {
         this.accounts = accounts;
         //Setting the stage
         this.window = scene;
 
 
-
     }
-    public void createAccount() {
-        Account newAccount;
-        try{
-            newAccount = new Account(
-                    TFfirstName.getText(),
-                    TFfamillytName.getText(),
-                    TFemail.getText(),
-                    PFpassword.getText(),
-                    Double.valueOf(TFsalary.getText())) ;
-        } catch (Exception e){
-            showMessage("Salaire illisible");
-            return;
-        }
 
-        //Checking required fields
-        if (newAccount.getFirstName().equals("") ||
-                newAccount.getName().equals("") ||
-                newAccount.getEmail().equals("") ||
-                newAccount.getPassword().equals("") ||
+    public void createAccount() {
+        if (TFfirstName.getText().equals("") ||
+                TFfamillytName.getText().equals("") ||
+                TFemail.getText().equals("") ||
+                PFpassword.getText().equals("") ||
                 TFsalary.getText().equals("")) {
             showMessage("Veuillez remplir tous les champs Obligatoires !");
             return;
-        }
+        } else {
+            int emailIndex = TFemail.getText().trim().indexOf("@");
+            int dotIndex = TFemail.getText().trim().lastIndexOf(".");
+            if (emailIndex == 0 || (dotIndex - emailIndex) <= 1 || dotIndex == (TFemail.getText().trim().length()-1)) {
+                showMessage("Email invalide, veuillez renseigner une bonne adresse mail !");
+            } else {
+                String password = PFpassword.getText().trim();
+                if (password.length() < 8)
+                    showMessage("Votre mot de passe doit contenir au moins 8 caractères.");
+                else {
+                    try {
+                        Account newAccount = newAccount = new Account(
+                                TFfirstName.getText(),
+                                TFfamillytName.getText(),
+                                TFemail.getText(),
+                                PFpassword.getText(),
+                                Double.valueOf(TFsalary.getText()));
 
-        if (accounts.contains(newAccount)){
-            showMessage("Cet email correspond deja a un compte");
-            return;
-        }
+                        if (accounts.contains(newAccount)) {
+                            showMessage("Cet email correspond deja à un compte");
+                            return;
+                        }
 
-        addNewAccountToJSON(newAccount);
+                        addNewAccountToJSON(newAccount);
 
-        accounts.add(newAccount);
+                        accounts.add(newAccount);
 
-        this.window.close();
+                        this.window.close();
 
-        FXMLLoader loader = new FXMLLoader();
-        try {
-            Parent root = loader.load(getClass().getResourceAsStream(View.CONNECTION_XML_FILE_PATH));
-            Stage scene = new Stage();
-            scene.setScene(new Scene(root));
-            root.getStylesheets().add(View.CSSR);
-            scene.getIcons().add(new Image("resources/img/appli.jpg"));
-            scene.setResizable(false);
-            ((Connection_Controller)loader.getController()).init(accounts,scene);
-            scene.setTitle("MyBudget");
-            scene.show();
+                        FXMLLoader loader = new FXMLLoader();
+                        try {
+                            Parent root = loader.load(getClass().getResourceAsStream(View.CONNECTION_XML_FILE_PATH));
+                            Stage scene = new Stage();
+                            scene.setScene(new Scene(root));
+                            root.getStylesheets().add(View.CSSR);
+                            scene.getIcons().add(new Image("resources/img/appli.jpg"));
+                            scene.setResizable(false);
+                            ((Connection_Controller) loader.getController()).init(accounts, scene);
+                            scene.setTitle("MyBudget");
+                            scene.show();
 
 
-        } catch (IOException e) {
-            e.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    } catch (Exception e) {
+                        showMessage("Mauvais format de salaire !");
+                        return;
+                    }
+                }
+            }
+            System.out.println(emailIndex);
+            //showMessage("Salaire illisible");
         }
 
     }
-    public void showMessage(String message){
+
+    public void showMessage(String message) {
         FXMLLoader loader = new FXMLLoader();
         Parent root = null;
         try {
@@ -104,13 +116,12 @@ public class Create_Account_Controller {
             scene.setTitle(View.LABEL_ERROR);
             scene.show();
 
-            ((Show_Message_Controller)loader.getController()).showMessage(message, scene);
+            ((Show_Message_Controller) loader.getController()).showMessage(message, scene);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
     }
-
 
 
 }

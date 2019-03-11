@@ -121,15 +121,16 @@ public class Connection_Controller {
     }
 
     private void nextPage(Account account){
-        JSONObject json = new JSONObject();
-        json.put("email", this.CBremember.isSelected() ? account.getEmail() : "empty");
-        try {
-            FileWriter file = new FileWriter(View.ACCOUNT_REMEMBER_JSON_FILE);
-            file.write(json.toJSONString());
-            file.close();
-        }
-        catch (IOException e) {
-            e.printStackTrace();
+        if (!this.directlyConnect) {
+            JSONObject json = new JSONObject();
+            json.put("email", this.CBremember.isSelected() ? account.getEmail() : "empty");
+            try {
+                FileWriter file = new FileWriter(View.ACCOUNT_REMEMBER_JSON_FILE);
+                file.write(json.toJSONString());
+                file.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
         FXMLLoader loader = new FXMLLoader();

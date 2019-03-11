@@ -3,6 +3,7 @@ package controller;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.SubScene;
@@ -35,7 +36,6 @@ public class Activity_List_Tab_Controller {
     @FXML
     private GridPane gridPane;
 
-    @FXML
     private Button BTaddActivity;
 
 
@@ -46,18 +46,14 @@ public class Activity_List_Tab_Controller {
         this.CBsort.getItems().addAll(Activity_Caracteristic.values());
         this.CBsort.getSelectionModel().select(Activity_Caracteristic.importance.toString());
 
-        ImageView icon = new ImageView(new Image(getClass().getResourceAsStream(View.NEW_ACTIVITY_IMG_PATH)));
-        icon.setPreserveRatio(false);
-        icon.setFitWidth(110);
-        icon.setFitHeight(110);
-        BTaddActivity.setGraphic(icon);
-        BTaddActivity.setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
 
 
         this.gridPaneInit();
     }
 
     private void gridPaneInit(){
+        buttonCreate();
+
         ArrayList<Activity> activitiesAfterSorting = new ArrayList<>(this.activities);
 
         this.sortActivitiesList(activitiesAfterSorting);
@@ -122,6 +118,21 @@ public class Activity_List_Tab_Controller {
         catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void buttonCreate() {
+        ImageView icon = new ImageView(new Image(getClass().getResourceAsStream(View.NEW_ACTIVITY_IMG_PATH)));
+        icon.setPreserveRatio(false);
+        icon.setFitWidth(110);
+        icon.setFitHeight(110);
+        this.BTaddActivity = new Button();
+        this.BTaddActivity.setOnAction(e -> pushButtonAddActivity());
+        this.BTaddActivity.setPrefHeight(200);
+        this.BTaddActivity.setPrefWidth(230);
+        this.BTaddActivity.setCursor(Cursor.HAND);
+        this.BTaddActivity.setGraphic(icon);
+        this.BTaddActivity.setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+        this.gridPane.addRow(0, this.BTaddActivity);
     }
 
     private void removeUnmatchingActivities(ArrayList<Activity> activitiesAfterSorting) {
@@ -191,10 +202,6 @@ public class Activity_List_Tab_Controller {
             e.printStackTrace();
         }
 
-    }
-
-    public void newActivity(){
-        pushButtonAddActivity();
         this.gridPaneInit();
     }
 

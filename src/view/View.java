@@ -1,21 +1,19 @@
 package view;
 
 public class View {
-    //paths
+    //paths xml
     public static final String ACTIVITY_ELEMENT_XML_FILE_PATH = "../resources/fxml/Activity_Element.fxml";
     public static final String ACTIVITY_LIST_TAB_XML_FILE_PATH = "../resources/fxml/Activity_List_Tab.fxml";
     public static final String CONNECTION_XML_FILE_PATH = "../resources/fxml/Connection.fxml";
-    public static final String CREATE_ACCOUNT_XML_FILE_PATH = "../resources/fxml/Create_Account.fxml";
     public static final String HOME_XML_FILE_PATH = "../resources/fxml/Home.fxml";
+    public static final String CREATE_ACCOUNT_XML_FILE_PATH = "../resources/fxml/Create_Account.fxml";
+    public static final String PANE_ADMIN_XML_FILE_PATH = "../resources/fxml/Pane_Admin.fxml";
     public static final String NEW_ACTIVITY_XML_FILE_PATH = "../resources/fxml/New_Activity.fxml";
     public static final String PROFILE_XML_FILE_PATH = "../resources/fxml/Profile.fxml";
     public static final String SHOW_MESSAGE_XML_FILE_PATH = "../resources/fxml/Show_Message.fxml";
     public static final String SPLASH_FORM_XML_FILE_PATH = "../resources/fxml/splashForm.fxml";
 
     //window names
-    public static final String LABEL_HOME = "MyBudget - Home";
-    public static final String LABEL_LIST_ACTIVITY = "MyBudget - Liste des activités";
-    public static final String LABEL_ADD_ACTIVITY = "MyBudget - Ajouter une activité";
     public static final String LABEL_ERROR = "Erreur";
     //width and height
     public static final double ELEMENT_HEIGHT_WIDTH = 250.0;

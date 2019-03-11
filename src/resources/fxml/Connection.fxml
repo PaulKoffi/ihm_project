@@ -68,8 +68,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Hyperlink fx:id="HLcreateAccount" prefHeight="23.0" prefWidth="303.0" text="Creer un compte" textFill="RED" underline="true" onMouseReleased="#createNewAccount" />
-                <Hyperlink fx:id="HLforgetPassword" text="Mot de passe oublié ?" textFill="RED" underline="true" GridPane.columnIndex="1" />
+                <Hyperlink fx:id="HLcreateAccount" onMouseReleased="#createNewAccount" prefHeight="23.0" prefWidth="303.0" text="Creer un compte" textFill="RED" underline="true" />
             </children>
         </GridPane>
     </children>

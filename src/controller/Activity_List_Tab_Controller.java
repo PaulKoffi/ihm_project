@@ -44,7 +44,6 @@ public class Activity_List_Tab_Controller {
         this.CBsort.getSelectionModel().select(Activity_Caracteristic.importance.toString());
 
 
-
         this.gridPaneInit();
     }
 
@@ -129,6 +128,8 @@ public class Activity_List_Tab_Controller {
         this.BTaddActivity.setGraphic(icon);
         this.BTaddActivity.setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
         this.gridPane.addRow(0, this.BTaddActivity);
+        BTaddActivity.setId("bt");
+        BTaddActivity.getStylesheets().add(getClass().getResource("../resources/css/bt.css").toExternalForm());
     }
 
     private void removeUnmatchingActivities(ArrayList<Activity> activitiesAfterSorting) {

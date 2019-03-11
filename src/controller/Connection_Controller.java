@@ -77,6 +77,7 @@ public class Connection_Controller {
                 for (Account account : accounts){
                     if (account.getEmail().equals(email)){
                         this.directlyConnect = true;
+
                         nextPage(account);
                         return;
                     }
@@ -136,6 +137,8 @@ public class Connection_Controller {
             root.getStylesheets().add(View.ACTIVITY_LIST_TAB_CSS);
             scene.getIcons().add(new Image("resources/img/appli.jpg"));
             scene.setResizable(false);
+            this.TFpassword.setText("");
+            this.TFmail.setText("");
             ((Pane_Admin_Controller)loader.getController()).init(account,thisWindows,scene);
             scene.setTitle("MyBudget");
             scene.show();

@@ -102,6 +102,7 @@ public class Create_Account_Controller {
             Stage scene = new Stage();
             scene.setScene(new Scene(root, 300, 150));
             scene.setTitle(View.LABEL_ERROR);
+            scene.getIcons().add(new Image("resources/img/warning.png"));
             scene.show();
 
             ((Show_Message_Controller)loader.getController()).showMessage(message, scene);

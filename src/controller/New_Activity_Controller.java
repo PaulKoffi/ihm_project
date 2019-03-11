@@ -45,6 +45,7 @@ public class New_Activity_Controller {
 
     private ObservableList<Activity> activities;
     private Stage window;
+    private Activity_List_Tab_Controller activityListTabController;
 
     // Factory to create Cell of DatePicker
     private Callback<DatePicker, DateCell> getDayCellFactory() {
@@ -70,10 +71,11 @@ public class New_Activity_Controller {
         return dayCellFactory;
     }
 
-    public void init(ObservableList<Activity> activities, Stage scene) {
+    public void init(ObservableList<Activity> activities, Stage scene, Activity_List_Tab_Controller activityListTabController) {
         this.activities = activities;
         //Setting the stage
         this.window = scene;
+        this.activityListTabController = activityListTabController;
         scene.setResizable(false);
 
         //Add items in combobox
@@ -133,16 +135,9 @@ public class New_Activity_Controller {
             showMessage("Il existe déjà une activité portant ce nom, veuillez modifier votre saisie !",430);
             return;
         }
-
-        /* Verification des données */
-        System.out.println("Nom "+newActivity.getName()+"\n");
-        System.out.println("Date "+newActivity.getEndDate()+"\n");
-        System.out.println("Freq "+newActivity.getFrequency()+"\n");
-        System.out.println("Imp "+newActivity.getImportance()+"\n");
-        System.out.println("Mini "+newActivity.getMinimumBudget()+"\n");
-        System.out.println("Maxi "+newActivity.getMaximumBudget()+"\n");
         /* FIn Verification*/
         this.activities.add(newActivity);
+        this.activityListTabController.refreshGridPane();
 
         this.window.close();
     }
@@ -152,7 +147,6 @@ public class New_Activity_Controller {
      * @param message
      */
     private void showMessage(String message, int widthFen) {
-        //System.out.println(message);
         FXMLLoader loader = new FXMLLoader();
         Parent root = null;
         try {

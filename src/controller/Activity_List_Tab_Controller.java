@@ -3,10 +3,7 @@ package controller;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Cursor;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.SubScene;
+import javafx.scene.*;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -52,15 +49,14 @@ public class Activity_List_Tab_Controller {
     }
 
     private void gridPaneInit(){
+        gridPane.getChildren().setAll();
+
         buttonCreate();
 
         ArrayList<Activity> activitiesAfterSorting = new ArrayList<>(this.activities);
 
         this.sortActivitiesList(activitiesAfterSorting);
         this.removeUnmatchingActivities(activitiesAfterSorting);
-
-
-        System.out.println(activitiesAfterSorting.toString());
 
         int nbOfColumns = 4;
         int nbOfLines = (activitiesAfterSorting.size() + 1)/4 + 1;
@@ -150,31 +146,34 @@ public class Activity_List_Tab_Controller {
             @Override
             public int compare(Activity o1, Activity o2) {
                 if (CBsort.getSelectionModel().getSelectedItem().toString().equals(Activity_Caracteristic.name.toString())){
-                    if (croissDecr.getSelectedToggle() == RBcroiss) {
+                    if (croissDecr.getSelectedToggle() == RBdecr) {
                         return o1.getName().compareTo(o2.getName());
                     } else {
                         return o2.getName().compareTo(o1.getName());
                     }
                 } else if (CBsort.getSelectionModel().getSelectedItem().toString().equals(Activity_Caracteristic.importance.toString())){
-                    if (croissDecr.getSelectedToggle() == RBcroiss) {
+                    if (croissDecr.getSelectedToggle() == RBdecr) {
                         return o1.getImportance().getLevel() - o2.getImportance().getLevel();
                     } else {
                         return o2.getImportance().getLevel() - o1.getImportance().getLevel();
                     }
                 } else if (CBsort.getSelectionModel().getSelectedItem().toString().equals(Activity_Caracteristic.averageBudget.toString())){
-                    if (croissDecr.getSelectedToggle() == RBcroiss) {
+                    if (croissDecr.getSelectedToggle() == RBdecr) {
                         return (o1.getMinimumBudget() + o1.getMaximumBudget()) - (o2.getMinimumBudget() + o2.getMaximumBudget());
                     } else {
-                        return (o2.getMinimumBudget() + o1.getMaximumBudget()) - (o1.getMinimumBudget() + o2.getMaximumBudget());
+                        return (o2.getMinimumBudget() + o2.getMaximumBudget()) - (o1.getMinimumBudget() + o1.getMaximumBudget());
                     }
                 } else if (CBsort.getSelectionModel().getSelectedItem().toString().equals(Activity_Caracteristic.endDate.toString())){
-                    if (croissDecr.getSelectedToggle() == RBcroiss) {
-                        return o1.getFrequency().getLevel() - o2.getFrequency().getLevel();
+                    if (o1.getEndDate() == null || o2.getEndDate() == null){
+                        return 0;
+                    }
+                    if (croissDecr.getSelectedToggle() == RBdecr) {
+                        return o1.getEndDate().compareTo(o2.getEndDate());
                     } else {
-                        return o2.getFrequency().getLevel() - o1.getFrequency().getLevel();
+                        return o2.getEndDate().compareTo(o1.getEndDate());
                     }
                 } else if (CBsort.getSelectionModel().getSelectedItem().toString().equals(Activity_Caracteristic.frequency.toString())){
-                    if (croissDecr.getSelectedToggle() == RBcroiss) {
+                    if (croissDecr.getSelectedToggle() == RBdecr) {
                         return o1.getFrequency().getLevel() - o2.getFrequency().getLevel();
                     } else {
                         return o2.getFrequency().getLevel() - o1.getFrequency().getLevel();
@@ -195,7 +194,7 @@ public class Activity_List_Tab_Controller {
             scene.setScene(new Scene(root, 600, 450));
             scene.getIcons().add(new Image("resources/img/new_activity.png"));
 
-            ((New_Activity_Controller)loader.getController()).init(this.activities,scene);
+            ((New_Activity_Controller)loader.getController()).init(this.activities,scene, this);
             scene.setTitle("MyBudget - Activity");
             scene.show();
         } catch (IOException e) {

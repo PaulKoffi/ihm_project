@@ -1,5 +1,7 @@
 package model;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 import java.util.Observable;
@@ -89,9 +91,11 @@ public class Activity extends Observable {
     }
 
     public boolean match(String str){
+        DateFormat format = new SimpleDateFormat("dd/mm/yyyy");
         str = str.toUpperCase();
         return this.name.toUpperCase().contains(str) ||
-                this.endDate.toString().toUpperCase().contains(str) ||
+                this.endDate != null && format.format(this.endDate).toUpperCase().contains(str) ||
+                this.endDate == null && new String("infini").toUpperCase().contains(str) ||
                 this.frequency.toString().toUpperCase().contains(str) ||
                 this.minimumBudget.toString().toUpperCase().contains(str) ||
                 this.maximumBudget.toString().toUpperCase().contains(str) ||

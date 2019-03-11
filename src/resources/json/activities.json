@@ -16,7 +16,7 @@
       "importance" : "High"
     },{
       "name" : "5 Fruits",
-      "endDate" : "25/12/2019",
+      "endDate" : "26/12/2019",
       "frequency" : "oneByDay",
       "minimumBudget" : 5,
       "maximumBudget" : 10,
@@ -30,7 +30,7 @@
       "importance" : "High"
     },{
       "name" : "New Year",
-      "endDate" : "25/12/2019",
+      "endDate" : "29/12/2019",
       "frequency" : "oneByYear",
       "minimumBudget" : 60,
       "maximumBudget" : 70,

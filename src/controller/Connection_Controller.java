@@ -176,6 +176,7 @@ public class Connection_Controller {
             scene.setScene(new Scene(root));
             scene.setResizable(false);
             ((Create_Account_Controller) loader.getController()).init(accounts, scene);
+            scene.getIcons().add(new Image("resources/img/new_activity.png"));
             scene.setTitle("MyBudget");
             scene.show();
 

@@ -29,8 +29,8 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="245.0" text="Email" />
-                <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="263.0" text="Mot de passe" textAlignment="RIGHT" GridPane.rowIndex="1" />
+                <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="245.0" text="Email*" />
+                <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="263.0" text="Mot de passe*" textAlignment="RIGHT" GridPane.rowIndex="1" />
                 <TextField fx:id="TFmail" maxWidth="200.0" prefHeight="25.0" prefWidth="175.0" GridPane.columnIndex="1" />
                 <PasswordField fx:id="PFpassword" maxWidth="200.0" prefHeight="25.0" prefWidth="175.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                 <TextField fx:id="TFpassword" maxWidth="200.0" prefHeight="25.0" prefWidth="175.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />

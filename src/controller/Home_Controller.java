@@ -99,7 +99,7 @@ public class Home_Controller {
             if (activity.getImportance() == Importance.High){
                 if (activity.getFrequency() == Frequency.oneByDay && budgetMonth - activity.getMinimumBudget()*30 > 0){
                     budgetMonth -= activity.getMinimumBudget()*30;
-                    activityBudgets.add(new ActivityBudget(activity, Double.valueOf(activity.getMinimumBudget() * 30)));
+                    activityBudgets.add(new ActivityBudget(activity, Double.valueOf(activity.getMinimumBudget())));
                 } else if (activity.getFrequency() == Frequency.oneByMonth && budgetMonth - activity.getMinimumBudget() > 0){
                     budgetMonth -= activity.getMinimumBudget();
                     if (LocalDate.now().getDayOfMonth() == 1)
@@ -107,11 +107,11 @@ public class Home_Controller {
                 } else if (activity.getFrequency() == Frequency.oneByWeek && budgetMonth - activity.getMinimumBudget()*4.5 > 0){
                     budgetMonth -= activity.getMinimumBudget()*4.5;
                     if (LocalDate.now().getDayOfWeek() == DayOfWeek.MONDAY)
-                        activityBudgets.add(new ActivityBudget(activity, Double.valueOf(activity.getMinimumBudget() * 4.5)));
+                        activityBudgets.add(new ActivityBudget(activity, Double.valueOf(activity.getMinimumBudget())));
                 } else if (activity.getFrequency() == Frequency.oneByYear && budgetMonth - activity.getMinimumBudget()*0.083 > 0){
                     budgetMonth -= activity.getMinimumBudget()*0.083;
                     if (LocalDate.now().getDayOfYear() == 1)
-                        activityBudgets.add(new ActivityBudget(activity, Double.valueOf(activity.getMinimumBudget() * 0.083)));
+                        activityBudgets.add(new ActivityBudget(activity, Double.valueOf(activity.getMinimumBudget())));
                 }
             }
         }
@@ -121,7 +121,7 @@ public class Home_Controller {
             if (activity.getImportance() == Importance.Medium){
                 if (activity.getFrequency() == Frequency.oneByDay && budgetMonth - activity.getMinimumBudget()*30 > 0){
                     budgetMonth -= activity.getMinimumBudget()*30;
-                    activityBudgets.add(new ActivityBudget(activity, Double.valueOf(activity.getMinimumBudget() * 30)));
+                    activityBudgets.add(new ActivityBudget(activity, Double.valueOf(activity.getMinimumBudget())));
                 } else if (activity.getFrequency() == Frequency.oneByMonth && budgetMonth - activity.getMinimumBudget() > 0){
                     budgetMonth -= activity.getMinimumBudget();
                     if (LocalDate.now().getDayOfMonth() == 1)
@@ -129,11 +129,11 @@ public class Home_Controller {
                 } else if (activity.getFrequency() == Frequency.oneByWeek && budgetMonth - activity.getMinimumBudget()*4.5 > 0){
                     budgetMonth -= activity.getMinimumBudget()*4.5;
                     if (LocalDate.now().getDayOfWeek() == DayOfWeek.MONDAY)
-                        activityBudgets.add(new ActivityBudget(activity, Double.valueOf(activity.getMinimumBudget() * 4.5)));
+                        activityBudgets.add(new ActivityBudget(activity, Double.valueOf(activity.getMinimumBudget())));
                 } else if (activity.getFrequency() == Frequency.oneByYear && budgetMonth - activity.getMinimumBudget()*0.083 > 0){
                     budgetMonth -= activity.getMinimumBudget()*0.083;
                     if (LocalDate.now().getDayOfYear() == 1)
-                        activityBudgets.add(new ActivityBudget(activity, Double.valueOf(activity.getMinimumBudget() * 0.083)));
+                        activityBudgets.add(new ActivityBudget(activity, Double.valueOf(activity.getMinimumBudget())));
                 }
             }
         }
@@ -143,7 +143,7 @@ public class Home_Controller {
             if (activity.getImportance() == Importance.Low){
                 if (activity.getFrequency() == Frequency.oneByDay && budgetMonth - activity.getMinimumBudget()*30 > 0){
                     budgetMonth -= activity.getMinimumBudget()*30;
-                    activityBudgets.add(new ActivityBudget(activity, Double.valueOf(activity.getMinimumBudget() * 30)));
+                    activityBudgets.add(new ActivityBudget(activity, Double.valueOf(activity.getMinimumBudget())));
                 } else if (activity.getFrequency() == Frequency.oneByMonth && budgetMonth - activity.getMinimumBudget() > 0){
                     budgetMonth -= activity.getMinimumBudget();
                     if (LocalDate.now().getDayOfMonth() == 1)
@@ -151,11 +151,11 @@ public class Home_Controller {
                 } else if (activity.getFrequency() == Frequency.oneByWeek && budgetMonth - activity.getMinimumBudget()*4.5 > 0){
                     budgetMonth -= activity.getMinimumBudget()*4.5;
                     if (LocalDate.now().getDayOfWeek() == DayOfWeek.MONDAY)
-                        activityBudgets.add(new ActivityBudget(activity, Double.valueOf(activity.getMinimumBudget() * 4.5)));
+                        activityBudgets.add(new ActivityBudget(activity, Double.valueOf(activity.getMinimumBudget())));
                 } else if (activity.getFrequency() == Frequency.oneByYear && budgetMonth - activity.getMinimumBudget()*0.083 > 0){
                     budgetMonth -= activity.getMinimumBudget()*0.083;
                     if (LocalDate.now().getDayOfYear() == 1)
-                        activityBudgets.add(new ActivityBudget(activity, Double.valueOf(activity.getMinimumBudget() * 0.083)));
+                        activityBudgets.add(new ActivityBudget(activity, Double.valueOf(activity.getMinimumBudget())));
                 }
             }
         }
@@ -179,13 +179,13 @@ public class Home_Controller {
 
                     if (LocalDate.now().getDayOfWeek() == DayOfWeek.MONDAY) {
                         activityBudgets.remove(new ActivityBudget(activity, 0.0));
-                        activityBudgets.add(new ActivityBudget(activity, Double.valueOf(activity.getMaximumBudget() * 4.5)));
+                        activityBudgets.add(new ActivityBudget(activity, Double.valueOf(activity.getMaximumBudget())));
                     }
                 } else if (activity.getFrequency() == Frequency.oneByDay && budgetMonth - (activity.getMaximumBudget() - activity.getMinimumBudget())*0.083 > 0){
                     budgetMonth -= (activity.getMaximumBudget() - activity.getMinimumBudget()) * 0.083;
                     if (LocalDate.now().getDayOfYear() == 1) {
                         activityBudgets.remove(new ActivityBudget(activity, 0.0));
-                        activityBudgets.add(new ActivityBudget(activity, Double.valueOf(activity.getMaximumBudget() * 0.083)));
+                        activityBudgets.add(new ActivityBudget(activity, Double.valueOf(activity.getMaximumBudget())));
                     }
                 }
             }
@@ -209,13 +209,13 @@ public class Home_Controller {
 
                     if (LocalDate.now().getDayOfWeek() == DayOfWeek.MONDAY) {
                         activityBudgets.remove(new ActivityBudget(activity, 0.0));
-                        activityBudgets.add(new ActivityBudget(activity, Double.valueOf(activity.getMaximumBudget() * 4.5)));
+                        activityBudgets.add(new ActivityBudget(activity, Double.valueOf(activity.getMaximumBudget())));
                     }
                 } else if (activity.getFrequency() == Frequency.oneByDay && budgetMonth - (activity.getMaximumBudget() - activity.getMinimumBudget())*0.083 > 0){
                     budgetMonth -= (activity.getMaximumBudget() - activity.getMinimumBudget()) * 0.083;
                     if (LocalDate.now().getDayOfYear() == 1) {
                         activityBudgets.remove(new ActivityBudget(activity, 0.0));
-                        activityBudgets.add(new ActivityBudget(activity, Double.valueOf(activity.getMaximumBudget() * 0.083)));
+                        activityBudgets.add(new ActivityBudget(activity, Double.valueOf(activity.getMaximumBudget())));
                     }
                 }
             }
@@ -239,14 +239,14 @@ public class Home_Controller {
 
                     if (LocalDate.now().getDayOfWeek() == DayOfWeek.MONDAY) {
                         activityBudgets.remove(new ActivityBudget(activity, 0.0));
-                        activityBudgets.add(new ActivityBudget(activity, Double.valueOf(activity.getMaximumBudget() * 4.5)));
+                        activityBudgets.add(new ActivityBudget(activity, Double.valueOf(activity.getMaximumBudget())));
                     }
                 } else if (activity.getFrequency() == Frequency.oneByDay && budgetMonth - (activity.getMaximumBudget() - activity.getMinimumBudget())*0.083 > 0){
                     budgetMonth -= (activity.getMaximumBudget() - activity.getMinimumBudget()) * 0.083;
 
                     if (LocalDate.now().getDayOfYear() == 1) {
                         activityBudgets.remove(new ActivityBudget(activity, 0.0));
-                        activityBudgets.add(new ActivityBudget(activity, Double.valueOf(activity.getMaximumBudget() * 0.083)));
+                        activityBudgets.add(new ActivityBudget(activity, Double.valueOf(activity.getMaximumBudget())));
                     }
                 }
             }

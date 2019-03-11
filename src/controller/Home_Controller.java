@@ -80,7 +80,6 @@ public class Home_Controller {
     public void init(ObservableList<Activity> activities, Account currentAccount){
         this.activities = activities;
         this.currentAccount = currentAccount;
-
         refresh();
     }
 

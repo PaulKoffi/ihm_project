@@ -35,8 +35,6 @@ public class Connection_Controller {
     private CheckBox CBremember;
     @FXML
     private Hyperlink HLcreateAccount;
-    @FXML
-    private Hyperlink HLforgetPassword;
 
     @FXML
     private ImageView IVkeyPassword;

@@ -1,9 +1,8 @@
 package main;
 
 import controller.Connection_Controller;
-import controller.ParsingAccounts;
+import controller.AccountsJSONadmin;
 import javafx.application.Application;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -21,8 +20,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         //Creating a list of accounts
-        ParsingAccounts parsingAccounts= new ParsingAccounts();
-        ArrayList<Account> accounts = new ArrayList<>(parsingAccounts.getAccountListFromJSON(View.ACCOUNT_JSON_FILE));
+        ArrayList<Account> accounts = new ArrayList<>(AccountsJSONadmin.getAccountListFromJSON(View.ACCOUNT_JSON_FILE));
 
         //create a loader
         FXMLLoader loader = new FXMLLoader();

@@ -2,10 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Style++">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/AccountsJSONadmin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/AddingAccounts.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/Create_Account_Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Create_Account_Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ParsingAccounts.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/Profil_Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Profil_Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/json/accountRemember.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/json/accountRemember.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/json/accounts.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/json/accounts.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/controller/ParsingAccountsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/controller/ParsingAccountsTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/src/excluded/" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -58,7 +63,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controller/Connection_Controller.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="295">
@@ -67,20 +72,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controller/Create_Account_Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="74">
-              <caret line="53" column="12" lean-forward="true" selection-start-line="53" selection-start-column="12" selection-end-line="63" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/lang/String.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="2337" column="68" lean-forward="true" selection-start-line="2337" selection-start-column="68" selection-end-line="2337" selection-end-column="68" />
+            <state relative-caret-position="108">
+              <caret line="67" column="52" selection-start-line="67" selection-start-column="52" selection-end-line="67" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -105,27 +101,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/resources/json/accountRemember.json">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-128">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controller/AddingAccounts.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="37" selection-start-line="37" selection-end-line="37" />
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -146,7 +125,7 @@
         <entry file="file://$PROJECT_DIR$/src/resources/json/accounts.json">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="713" selection-start-column="713" selection-end-column="713" />
+              <caret column="339" selection-start-column="339" selection-end-column="339" />
             </state>
           </provider>
         </entry>
@@ -178,8 +157,9 @@
         <option value="$PROJECT_DIR$/src/main/Main.java" />
         <option value="$PROJECT_DIR$/src/controller/ParsingAccounts.java" />
         <option value="$PROJECT_DIR$/src/resources/fxml/Connection.fxml" />
-        <option value="$PROJECT_DIR$/src/resources/json/accounts.json" />
         <option value="$PROJECT_DIR$/src/controller/Create_Account_Controller.java" />
+        <option value="$PROJECT_DIR$/src/resources/json/accountRemember.json" />
+        <option value="$PROJECT_DIR$/src/resources/json/accounts.json" />
       </list>
     </option>
   </component>
@@ -442,7 +422,7 @@
       <workItem from="1551873259358" duration="367000" />
       <workItem from="1551996797685" duration="37992000" />
       <workItem from="1552136774396" duration="22915000" />
-      <workItem from="1552260409993" duration="3817000" />
+      <workItem from="1552260409993" duration="4839000" />
     </task>
     <task id="LOCAL-00001" summary="Bloquer redimensionnement OKI">
       <created>1551710139818</created>
@@ -577,7 +557,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19679000" />
+    <option name="totallyTimeSpent" value="20701000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
@@ -846,41 +826,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-128">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/fxml/Connection.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="32" column="102" selection-start-line="32" selection-start-column="102" selection-end-line="32" selection-end-column="102" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/json/accountRemember.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/json/accounts.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="713" selection-start-column="713" selection-end-column="713" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/Connection_Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="115" column="13" selection-start-line="115" selection-start-column="13" selection-end-line="115" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/view/View.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="117">
@@ -895,10 +840,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-128">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/json/accountRemember.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="17" selection-start-column="17" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/fxml/Connection.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="32" column="102" selection-start-line="32" selection-start-column="102" selection-end-line="32" selection-end-column="102" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/json/accounts.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="339" selection-start-column="339" selection-end-column="339" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/Create_Account_Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="53" column="12" lean-forward="true" selection-start-line="53" selection-start-column="12" selection-end-line="63" selection-end-column="15" />
+        <state relative-caret-position="108">
+          <caret line="67" column="52" selection-start-line="67" selection-start-column="52" selection-end-line="67" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/Connection_Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="115" column="13" selection-start-line="115" selection-start-column="13" selection-end-line="115" selection-end-column="13" />
         </state>
       </provider>
     </entry>

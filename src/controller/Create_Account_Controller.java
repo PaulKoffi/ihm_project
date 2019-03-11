@@ -13,7 +13,7 @@ import view.View;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static controller.AddingAccounts.addNewAccounttoJSON;
+import static controller.AccountsJSONadmin.addNewAccountToJSON;
 
 public class Create_Account_Controller {
 
@@ -69,7 +69,7 @@ public class Create_Account_Controller {
             return;
         }
 
-        addNewAccounttoJSON(newAccount);
+        addNewAccountToJSON(newAccount);
 
         accounts.add(newAccount);
 

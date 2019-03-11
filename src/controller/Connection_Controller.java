@@ -1,6 +1,5 @@
 package controller;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,13 +11,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import model.*;
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import view.View;
 
-import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
 
@@ -135,13 +132,13 @@ public class Connection_Controller {
 
         FXMLLoader loader = new FXMLLoader();
         try {
-            Parent root = loader.load(getClass().getResourceAsStream("../resources/fxml/Home.fxml"));
+            Parent root = loader.load(getClass().getResourceAsStream(View.PANE_ADMIN_XML_FILE_PATH));
             Stage scene = new Stage();
             scene.setScene(new Scene(root));
             root.getStylesheets().add(View.ACTIVITY_LIST_TAB_CSS);
             scene.getIcons().add(new Image("resources/img/appli.jpg"));
             scene.setResizable(false);
-            ((Home_Controller)loader.getController()).init(account,thisWindows,scene);
+            ((Pane_Admin_Controller)loader.getController()).init(account,thisWindows,scene);
             scene.setTitle("MyBudget");
             scene.show();
 

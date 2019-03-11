@@ -6,6 +6,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import view.View;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -18,8 +19,7 @@ public class AccountsJSONadmin {
 
     public static void modifyAccountToJSON(String mail, Account account) {
 
-        String ACCOUNT_JSON_FILE = "src/resources/json/accounts.json";
-        ArrayList<Account> accounts = new ArrayList<>(AccountsJSONadmin.getAccountListFromJSON(ACCOUNT_JSON_FILE));
+        ArrayList<Account> accounts = new ArrayList<>(AccountsJSONadmin.getAccountListFromJSON(View.ACCOUNT_JSON_FILE));
 
         try {
             FileWriter file = new FileWriter("src/resources/json/accounts.json");
@@ -60,8 +60,7 @@ public class AccountsJSONadmin {
 
     public static void addNewAccountToJSON(Account account) {
 
-        String ACCOUNT_JSON_FILE = "src/resources/json/accounts.json";
-        ArrayList<Account> accounts = new ArrayList<>(AccountsJSONadmin.getAccountListFromJSON(ACCOUNT_JSON_FILE));
+        ArrayList<Account> accounts = new ArrayList<>(AccountsJSONadmin.getAccountListFromJSON(View.ACCOUNT_JSON_FILE));
         accounts.add(account);
 
         try {

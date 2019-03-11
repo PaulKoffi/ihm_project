@@ -52,11 +52,11 @@ public class Create_Account_Controller {
             int emailIndex = TFemail.getText().trim().indexOf("@");
             int dotIndex = TFemail.getText().trim().lastIndexOf(".");
             if (emailIndex == 0 || (dotIndex - emailIndex) <= 1 || dotIndex == (TFemail.getText().trim().length()-1)) {
-                showMessage("Email invalide, veuillez renseigner une bonne adresse mail !");
+                showMessage("Email invalide, renseigner une bonne adresse mail!");
             } else {
                 String password = PFpassword.getText().trim();
                 if (password.length() < 8)
-                    showMessage("Votre mot de passe doit contenir au moins 8 caractères.");
+                    showMessage("mot de passe doit contenir au moins 8 caractères.");
                 else {
                     try {
                         Account newAccount = newAccount = new Account(

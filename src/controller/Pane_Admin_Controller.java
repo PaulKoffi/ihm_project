@@ -34,6 +34,8 @@ public class Pane_Admin_Controller {
     @FXML
     private SubScene SSprofil;
 
+    private Home_Controller home_controller;
+
     private Account currentAccount;
 
     private ObservableList<Activity> activities;
@@ -59,7 +61,8 @@ public class Pane_Admin_Controller {
 
             Parent root = loader.load(getClass().getResourceAsStream(View.HOME_XML_FILE_PATH));
 
-            ((Home_Controller)loader.getController()).init(this.activities, this.currentAccount);
+            this.home_controller = (Home_Controller)loader.getController();
+            this.home_controller.init(this.activities, this.currentAccount);
 
             this.SSaccueil.setRoot(root);
         } catch (IOException e) {
@@ -105,5 +108,10 @@ public class Pane_Admin_Controller {
 
         this.scene.close();
         this.connectionWindow.show();
+    }
+
+    public void refresh(){
+        if (home_controller != null)
+            this.home_controller.refresh();
     }
 }

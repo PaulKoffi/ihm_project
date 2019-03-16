@@ -30,26 +30,6 @@ public class Home_Controller {
             this.budget = budget;
         }
 
-        public Activity getActivity() {
-            return activity;
-        }
-
-        public void setActivity(Activity activity) {
-            this.activity = activity;
-        }
-
-        public Double getBudget() {
-            return budget;
-        }
-
-        public void setBudget(Double budget) {
-            this.budget = budget;
-        }
-
-        public String getName() {
-            return name;
-        }
-
         @Override
         public boolean equals(Object o) {
             if (this == o) return true;

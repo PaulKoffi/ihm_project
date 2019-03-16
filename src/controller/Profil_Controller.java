@@ -130,17 +130,17 @@ public class Profil_Controller {
 
     public void showMessage(String message) {
         try {
-            FXMLLoader loader = new FXMLLoader();
-            Parent root = loader.load(getClass().getResourceAsStream(View.SHOW_MESSAGE_XML_FILE_PATH));
+            FXMLLoader loaderr = new FXMLLoader();
+            Parent root = loaderr.load(getClass().getResourceAsStream(View.SHOW_MESSAGE_XML_FILE_PATH));
             root.getStylesheets().add(getClass().getResource("../resources/css/style.css").toExternalForm());
             Stage scene = new Stage();
             scene.setScene(new Scene(root, 300, 150));
-            scene.getIcons().add(new Image("resources/img/warning.png"));
             scene.setTitle(View.LABEL_ERROR);
             scene.setResizable(false);
+            scene.getIcons().add(new Image("resources/img/warning.png"));
             scene.show();
 
-            ((Show_Message_Controller)loader.getController()).showMessage(message, scene);
+            ((Show_Message_Controller)loaderr.getController()).showMessage(message, scene);
         } catch (IOException e) {
             e.printStackTrace();
         }

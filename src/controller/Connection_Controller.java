@@ -98,7 +98,6 @@ public class Connection_Controller {
             return;
         }
 
-        boolean connected = false;
         //Checking if account already exist
         for (Account account: accounts) {
             if (account.getEmail().equals(id) && account.getPassword().equals(password)){

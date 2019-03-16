@@ -66,25 +66,6 @@ public class Activity extends Observable {
 
     /* Setters */
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
-    }
-
-    public void setFrequency(Frequency frequency) {
-        this.frequency = frequency;
-    }
-
-    public void setMinimumBudget(Integer minimumBudget) {
-        this.minimumBudget = minimumBudget;
-    }
-
-    public void setMaximumBudget(Integer maximumBudget) {
-        this.maximumBudget = maximumBudget;
-    }
 
     public void setImportance(Importance importance) {
         this.importance = importance;

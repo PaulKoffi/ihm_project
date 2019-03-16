@@ -15,7 +15,6 @@ import java.util.ArrayList;
 
 public class Main extends Application {
 
-    public static Boolean isSplashLoaded = false;
 
     @Override
     public void start(Stage primaryStage) throws Exception{

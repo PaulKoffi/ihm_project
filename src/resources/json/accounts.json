@@ -1,46 +1,29 @@
 {
-  "accounts": [
+  "accounts":[
     {
-      "firstName": "DELABY",
-      "password": "ninja2000",
-      "name": "Mael",
-      "salary": 1600.0,
-      "email": "mael1delabouyyahoo.fr"
-    },
-    {
-      "firstName": "GINET",
-      "password": "ninja2000",
-      "name": "Mael",
-      "salary": 1600.0,
-      "email": "mael2delabouy@yahoo.fr"
-    },
-    {
-      "firstName": "SOLEAU",
-      "password": "ninja5000",
-      "name": "Mael",
-      "salary": 1600.0,
-      "email": "mael3delabouy@yahoo.fr"
-    },
-    {
-      "firstName": "NABAGOU",
-      "password": "Augustin",
-      "name": "augustin",
-      "salary": 123.0,
-      "email": "augustin@gmail.com"
-    },
-    {
-      "firstName": "Henry",
-      "password": "henrydupont",
-      "name": "DUPONT",
-      "salary": 1200.0,
-      "email": "henrydupont@gmail.com"
-    },
-    {
-      "firstName": "Victoria",
-      "password": "victoriaevelyne",
-      "name": "Evelyne",
-      "salary": 1200.0,
-      "email": "victoriaevelyne@yahoo.fr"
+      "name" : "DELABY",
+      "firstName" : "Mael",
+      "email" : "mael1delabouyyahoo.fr",
+      "password" : "ninja2000",
+      "salary" : 1600.0
+    },{
+      "name" : "GINET",
+      "firstName" : "Mael",
+      "email" : "mael2delabouy@yahoo.fr",
+      "password" : "ninja2000",
+      "salary" : 1600.0
+    },{
+      "name" : "SOLEAU",
+      "firstName" : "Mael",
+      "email" : "mael3delabouy@yahoo.fr",
+      "password" : "ninja2000",
+      "salary" : 1600.0
+    },{
+      "name" : "a",
+      "firstName" : "a",
+      "email" : "a",
+      "password" : "a",
+      "salary" : 1600.0
     }
   ]
 }

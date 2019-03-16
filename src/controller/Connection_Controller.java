@@ -34,12 +34,7 @@ public class Connection_Controller {
     @FXML
     private CheckBox CBremember;
     @FXML
-    private Hyperlink HLcreateAccount;
-
-    @FXML
     private ImageView IVkeyPassword;
-
-    private String password;
 
     private boolean directlyConnect = false;
 

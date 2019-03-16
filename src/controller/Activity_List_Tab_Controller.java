@@ -26,8 +26,6 @@ public class Activity_List_Tab_Controller {
     @FXML
     private RadioButton RBdecr;
     @FXML
-    private RadioButton RBcroiss;
-    @FXML
     private TextField TFresearch;
 
     @FXML

@@ -30,8 +30,6 @@ public class Pane_Admin_Controller {
     @FXML
     private SubScene SSactivity;
     @FXML
-    private SubScene SSsalary;
-    @FXML
     private SubScene SSprofil;
 
     private Home_Controller home_controller;

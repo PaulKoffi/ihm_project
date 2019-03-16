@@ -29,19 +29,11 @@ public class New_Activity_Controller {
     @FXML
     private ComboBox CBfrequency;
     @FXML
+    private ToggleGroup importanceToggleGroup;
+    @FXML
     private TextField TFminbudget;
     @FXML
     private TextField TFmaxbudget;
-    @FXML
-    private RadioButton RBlowimport;
-    @FXML
-    private RadioButton RBmediumimport;
-    @FXML
-    private RadioButton RBhighimport;
-    @FXML
-    private ToggleGroup importanceToggleGroup;
-    @FXML
-    private Button BTcreateActivity;
 
     private ObservableList<Activity> activities;
     private Stage window;
